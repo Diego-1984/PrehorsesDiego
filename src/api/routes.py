@@ -139,8 +139,11 @@ def modify_horse(id):
 @api.route('/horse/<int:id>', methods=['DELETE'])
 @jwt_required()
 def delete_horse(id):
-    current_user_id = get_jwt_identity()
-    user = User.filter.get(current_user_id)
+    try:
+        current_user_id = get_jwt_identity()
+        user = User.filter.get(current_user_id)
+    except:
+        return jsonify({"error": e}), 404
 
     horse= Horse.query.filter_by(id=id).first()
     db.session.delete(horse)
