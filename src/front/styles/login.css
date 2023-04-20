@@ -1,0 +1,56 @@
+body{
+    background-color: black;
+}
+.container{
+    display:flex;
+    justify-content: center;
+}
+.myContainer{
+    display:flex;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    width: 40rem;
+}
+
+.nav-tabs{
+    background-color:#ffd15b;
+}
+
+.tab-content{
+    background-color:#ffd15b;
+    color:#fff;
+    padding:5px
+}
+
+.nav-tabs > li > a{
+    border: medium none;
+}
+
+.nav-tabs > li > a:hover{
+    background-color: #303136 !important;
+    border: medium none;
+    border-radius: 0;
+    color:#fff;
+}
+
+
+#signup{
+    width: 30rem;
+    height: 25rem;
+    box-sizing: border-box;
+    margin: auto;
+    justify-content: center
+}
+
+h1{
+    padding-top: 1rem;
+    margin-bottom: 4rem;
+    text-transform: uppercase;
+    font-size: 2rem;
+}
+
+top-row{
+    display:flex;
+    width: 20rem;
+}

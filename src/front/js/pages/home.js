@@ -24,7 +24,7 @@ export const Home = () => {
 								<figcaption className="blockquote-footer text-warning text-center mt-1">Gabriel Oliverio</figcaption>
 							</figure>
 							<div className="d-flex justify-content-center mt-5 pt-3 ms-5" style={{width: 30 + 'rem'}}>
-								<Link to="/demo">
+								<Link to="/login">
 									<button type="button" className="btn btn-outline-light btn-lg">Regístrate</button>
 								</Link>
 							</div>
