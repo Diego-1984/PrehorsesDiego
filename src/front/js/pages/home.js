@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import caballoJumbotron from "../../img/caballoJumbotron.png";
 import "../../styles/home.css";
+import Carousel from "../component/carousel";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -23,7 +24,7 @@ export const Home = () => {
 								<figcaption className="blockquote-footer text-warning text-center mt-1">Gabriel Oliverio</figcaption>
 							</figure>
 							<div className="d-flex justify-content-center mt-5 pt-3 ms-5" style={{width: 30 + 'rem'}}>
-								<Link to="/demo">
+								<Link to="/login">
 									<button type="button" className="btn btn-outline-light btn-lg">Regístrate</button>
 								</Link>
 							</div>
@@ -34,7 +35,11 @@ export const Home = () => {
 					</div>
 				</div>
 			</div>
-			<div id="carouselDiv">
+			<div>
+				<h1 className="mt-5 pt-3">Escoja su sección:</h1>
+			</div>
+			<div id="carouselDiv" className="d-flex m-5 justify-content-center">
+				<Carousel />
 			</div>
 			<p>
 				This boilerplate comes with lots of documentation:{" "}
