@@ -6,39 +6,17 @@ from api.models import db, User
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity, jwt_required, JWTManager
+from api.datastructure import UserStructure
 
 api = Blueprint('api', __name__)
 
 @api.route('/user', methods=['POST'])
-def add_user():
-    name = request.json.get('name', None)
-    email = request.json.get('email', None)
-    password = request.json.get('password', None)
-
-    user = User(name = name, email = email, password = password)
-    db.session.add(user)
-    db.session.commit()
-    response_body={
-        "message": "Usuario agregado"
-    }
-    return jsonify(response_body), 200
+def post_user():
+    add_user = UserStructure.add_user()
+    return jsonify(add_user), 200
 
 @api.route('/user/login', methods=['POST'])
-def login_user():
-    try:
-        email = request.json.get("email")
-        password = request.json.get("password")
-        # Consulta la base de datos por el nombre de usuario y la contraseña
-        user = User.query.filter_by(email = email, password = password).first()
-        if User is None:
-            # el usuario no se encontró en la base de datos
-            return jsonify({"msg": "Email o contraseña incorrectos"}), 401
 
-        # crea un nuevo token con el id de usuario dentro
-        access_token = create_access_token(identity = user.id)
-        return jsonify({ "token": access_token}), 200
-    except Exception as e:
-        return jsonify({"error": e}), 400
 
 @api.route('/horse', methods=['GET'])
 def get_all_horses():
