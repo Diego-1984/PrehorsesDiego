@@ -36,17 +36,11 @@ export const Home = () => {
 				</div>
 			</div>
 			<div>
-				<h1 className="mt-5 pt-3">Escoja su sección:</h1>
+				<h1 className="mt-5 pt-3 text-white">Escoja su sección:</h1>
 			</div>
 			<div id="carouselDiv" className="d-flex m-5 justify-content-center">
 				<Carousel />
 			</div>
-			<p>
-				This boilerplate comes with lots of documentation:{" "}
-				<a href="https://start.4geeksacademy.com/starters/react-flask">
-					Read documentation
-				</a>
-			</p>
 		</div>
 	);
 };
