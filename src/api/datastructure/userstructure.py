@@ -1,4 +1,3 @@
-
 class UserStructure:
     def add_user():
         name = request.json.get('name', None)
@@ -28,3 +27,24 @@ class UserStructure:
             return jsonify({ "token": access_token}), 200
         except Exception as e:
             return jsonify({"error": e}), 400
+
+    def modify_user(id):
+        try:
+            current_user_id = get_jwt_identity()
+            user = User.filter.get(current_user_id)
+
+            if current_user_id!=id:
+                return jsonify({"message": "Acceso no permitido"}), 401
+        except:
+            return jsonify({"error": e}), 404
+
+        user_actualizado = User.query.filter_by(id = id).first()
+
+        user_actualizado.name = request.json.get('name', user.name)
+        user_actualizado.email = request.json.get('email', user.email)
+        user_actualizado.password = request.json.get('password', user.password)
+        db.session.commit()
+        response_body={
+            "message": "Cambios realizados correctamente"
+        }
+        return jsonify(user_actualizado, response_body), 200
