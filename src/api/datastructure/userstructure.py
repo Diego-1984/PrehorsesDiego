@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User
+from api.models.db import db
+from api.models.user import User
 
 class UserStructure:
     def add_user():
@@ -62,3 +63,6 @@ class UserStructure:
             "message": "Usuario eliminado"
         }
         return jsonify(response_body), 200
+
+    def get_all_users():
+        return jsonify([user.serialize() for user in User.query.all()]), 200

@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, Horse
+from api.models.db import db
+from api.models.horse import Horse
 
 class HorseStructure:
     def add_horse():

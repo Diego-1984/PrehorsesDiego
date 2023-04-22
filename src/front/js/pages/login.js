@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/login.css"
 
 export const Login = () => {
+
+	const [user, setUser] = useState({})
 
 	return (
 		<>
@@ -32,17 +34,35 @@ export const Login = () => {
 					<h1>Registrarse</h1>
 					<p>Introduzca sus datos para registrarse</p>
 					<form>
-						<input type="username"
+						<input type="name"
 						placeholder="Nombre de usuario"
-						className="input-field"/>
+						className="input-field"
+						onChange={(e)=>{setUser({...user, name: e.target.value}); console.log(user)}}
+						required/>
 						<input type="email"
 						placeholder="Email"
-						className="input-field"/>
+						className="input-field"
+						onChange={(e)=>{setUser({...user, email: e.target.value}); console.log(user)}}
+						required/>
 						<input type="password"
 						placeholder="Contraseña"
-						className="input-field"/>
+						className="input-field"
+						onChange={(e)=>{setUser({...user, password: e.target.value}); console.log(user)}}
+						required/>
 						<input type="submit"
-						value="Sign up" className="submit-btn"/>
+						value="Sign up" className="submit-btn"
+						onClick={()=>{
+							fetch(process.env.BACKEND_URL + "/api/user",{
+								method: "POST",
+								headers: {
+									"Content-Type": "application/json",
+								},
+								body : JSON.stringify(user)
+							})
+							.then((resp)=>resp.json())
+							.then((data) => {});
+						}}
+						/>
 					</form>
 				</div>
 			</div>
