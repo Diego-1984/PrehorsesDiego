@@ -10,8 +10,8 @@ export const Login = () => {
 					<h1 className="sign-up">¿Aún no tiene una cuenta con nosotros?</h1>
 					<p className="sign-up">Regístrese gratis</p>
 					<a className="button sign-up" href="#cover">Registrarse</a>
-					<h1 className="log-in">¿Ya estás registrado?</h1>
-					<p className="log-in">Accede a tu cuenta</p>
+					<h1 className="log-in">¿Ya está registrado?</h1>
+					<p className="log-in">Acceda a su cuenta</p>
 					<a className="button sub log-in" href="#">Iniciar sesión</a>
 				</div>
 				<div className="login">
