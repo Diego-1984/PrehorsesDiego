@@ -16,16 +16,10 @@ def new_user():
    add_user = UserStructure.add_user()
    return jsonify(add_user),200
 
-
 @api.route('/user/login', methods=['POST'])
 def init_user():
     login_user = UserStructure.login_user()
     return jsonify(login_user), 200
-
-
-@api.route('/horse', methods=['GET'])
-def get_all_horses():
-    return jsonify([horse.serialize() for horse in Horse.query.all()]), 200
 
 @api.route('/user', methods=['GET'])
 def get_all_users():
@@ -37,10 +31,14 @@ def edit_user():
     modify_user = UserStructure.modify_user(id)
     return jsonify(modify_user), 200
 
-
 @api.route('/user/delete/<int:id>', methods=['DELETE'])
 def delete_one_user():
     deleted_user = UserStructure.delete_user(id)
+
+@api.route('/horse', methods=['GET'])
+def get_all_horses():
+    return jsonify([horse.serialize() for horse in Horse.query.all()]), 200
+
 
 @api.route('/horse', methods=['POST'])
 @jwt_required()

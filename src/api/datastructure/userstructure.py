@@ -1,3 +1,6 @@
+from flask import Flask, request, jsonify, url_for, Blueprint
+from api.models import db, User
+
 class UserStructure:
     def add_user():
         name = request.json.get('name', None)

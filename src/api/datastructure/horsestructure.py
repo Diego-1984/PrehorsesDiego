@@ -1,3 +1,6 @@
+from flask import Flask, request, jsonify, url_for, Blueprint
+from api.models import db, Horse
+
 class HorseStructure:
     def add_horse():
         current_user_id = get_jwt_identity()
@@ -6,28 +9,28 @@ class HorseStructure:
         nombre = request.json.get('nombre', None)
         fecha_nacimiento = request.json.get('fecha_nacimiento', None)
         ganaderia = request.json.get('ganaderia', None)
-        sexo = request.json.get('sexo', None)
-        precio = request.json.get('precio', None)
-        capa = request.json.get('capa', None)
-        alzada = request.json.get('alzada', None)
-        provincia = request.json.get('provincia', None)
-        nivel__doma = request.json.get('nivel_doma', None)
-        descripcion = request.json.get('descripcion', None)
-        imagenes = request.json.get('imagenes', None)
+        sexo= request.json.get('sexo', None)
+        precio= request.json.get('precio', None)
+        capa= request.json.get('capa', None)
+        alzada= request.json.get('alzada', None)
+        provincia= request.json.get('provincia', None)
+        nivel__doma= request.json.get('nivel_doma', None)
+        descripcion= request.json.get('descripcion', None)
+        imagenes= request.json.get('imagenes', None)
         dueño = current_user_id
 
-        horse = Horse(nombre = nombre,
-            fecha_nacimiento = fecha_nacimiento,
-            ganaderia = ganaderia,
-            sexo = sexo,
-            precio = precio,
-            capa = capa,
-            alzada = alzada,
-            provincia = provincia,
-            nivel_doma = nivel_doma,
-            descripcion = descripcion,
-            imagenes = imagenes,
-            dueño = dueño)
+        horse=Horse(nombre= nombre,
+            fecha_nacimiento=fecha_nacimiento,
+            ganaderia=ganaderia,
+            sexo=sexo,
+            precio=precio,
+            capa=capa,
+            alzada=alzada,
+            provincia=provincia,
+            nivel_doma=nivel_doma,
+            descripcion=descripcion,
+            imagenes=imagenes,
+            dueño= dueño)
 
         db.session.add(horse)
         db.session.commit()
@@ -60,7 +63,7 @@ class HorseStructure:
         horse_actualizado.nivel__doma = request.json.get('nivel_doma', horse.nivel__doma)
         horse_actualizado.descripcion = request.json.get('descripcion', horse.descripcion)
         horse_actualizado.imagenes = request.json.get('imagenes', horse.imagenes)
-        horse_actualizado.dueño = horse.dueño
+        horse_actualizado.dueño = horse.current_user_id
 
         db.session.commit()
         response_body={
@@ -83,8 +86,8 @@ class HorseStructure:
         }
         return jsonify(response_body), 200
 
-    def get__especific_horse(id):
-        horse = Horse.query.filter_by(id = id).first()
+    def get_especific_horse(id):
+        horse = Horse.query.filter_by(id = id).first().serialize()
         return jsonify(horse), 200
 
     def get_all_horses():
