@@ -35,16 +35,27 @@ class UserStructure:
 
             if current_user_id!=id:
                 return jsonify({"message": "Acceso no permitido"}), 401
+
         except:
             return jsonify({"error": e}), 404
 
         user_actualizado = User.query.filter_by(id = id).first()
 
-        user_actualizado.name = request.json.get('name', user.name)
+        user_actualizado.name =request.json.get('name', user.name)
         user_actualizado.email = request.json.get('email', user.email)
         user_actualizado.password = request.json.get('password', user.password)
+
         db.session.commit()
-        response_body={
+        response_body = {
             "message": "Cambios realizados correctamente"
         }
         return jsonify(user_actualizado, response_body), 200
+
+    def delete_user(id):
+        user = User.query.filter_by(id = id).first()
+        db.session.delete(user)
+        db.session.commit()
+        response_body = {
+            "message": "Usuario eliminado"
+        }
+        return jsonify(response_body), 200
