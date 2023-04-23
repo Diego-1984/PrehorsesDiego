@@ -7,11 +7,12 @@ from flask_migrate import Migrate
 from flask_swagger import swagger
 from flask_cors import CORS
 from api.utils import APIException, generate_sitemap
-from api.models import db
+from api.models.db import db
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
 from flask_jwt_extended import JWTManager
+from flasgger import Swagger
 
 #from models import Person
 
@@ -19,6 +20,7 @@ ENV = os.getenv("FLASK_ENV")
 static_file_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../public/')
 app = Flask(__name__)
 app.url_map.strict_slashes = False
+swagger = Swagger(app)
 
 app.config["JWT_SECRET_KEY"] = "lkjta<oxg7Tlkbhl9TKJgkugUGukgUG56"  # Change this!
 jwt = JWTManager(app)

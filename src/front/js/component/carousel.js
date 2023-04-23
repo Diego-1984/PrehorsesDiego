@@ -7,8 +7,8 @@ const Carousel = () =>{
     return (
         <>
             <section className="border border-dark">
-                <img src={caballoMacho} />
                 <img src={caballosHembras} />
+                <img src={caballoMacho} />
                 <img src={caballoCastrado} />
             </section>
         </>
