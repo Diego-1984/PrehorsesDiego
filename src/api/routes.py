@@ -14,6 +14,9 @@ api = Blueprint('api', __name__)
 
 @api.route('/user', methods=['POST'])
 def new_user():
+    """
+    Aquí incluímos un user
+    """
     add_user = UserStructure.add_user()
     return add_user,200
 
