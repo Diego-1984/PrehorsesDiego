@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import caballoJumbotron from "../../img/caballoJumbotron.png";
 import "../../styles/home.css";
 export const Home = () => {
-  const { store, actions } = useContext(Context);
-
-  return (
+   const { store, actions } = useContext(Context);
+ 
+   return (
     <div className="text-center">
       <div className="bg bg-black">
         <div className="container-fluid">
