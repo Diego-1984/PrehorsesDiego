@@ -52,7 +52,7 @@ export const Login = () => {
 						<input type="submit"
 						value="Sign up" className="submit-btn"
 						onClick={()=>{
-							fetch(process.env.BACKEND_URL + "/api/user",{
+							fetch(process.env.BACKEND_URL+"/api/user",{
 								method: "POST",
 								headers: {
 									"Content-Type": "application/json",
