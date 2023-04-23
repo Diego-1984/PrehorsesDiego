@@ -10,7 +10,7 @@ export const Navbar = () => {
 				<img src={logo} style={{width: 8+'rem', margin:0.3+'rem'}}/>
 				</Link>
 				<div className="ml-auto">
-					<Link to="/demo">
+					<Link to="/login">
 						<button className="btn btn-outline-warning">Iniciar sesión</button>
 					</Link>
 				</div>

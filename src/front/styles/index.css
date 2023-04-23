@@ -1,3 +1,26 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
+body{
+    background-color:  #fdd19c;
+}
+section{
+    display: flex;
+    width: 700px;
+    height: 430px;
+}
+
+section img{
+    width: 0px;
+    flex-grow:1;
+    object-fit: cover;
+    opacity: .7;
+    transition: .5s ease;
+}
+
+section img:hover{
+    cursor: crosshair;
+    width: 300px;
+    opacity: 1;
+    filter: contrast(120%);
+}
