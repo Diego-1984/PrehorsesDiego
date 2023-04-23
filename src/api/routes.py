@@ -17,6 +17,14 @@ def new_user():
     """Agregar un nuevo usuario
     ---
     description: Agregar un nuevo usuario
+    "parameters": [
+        {
+            "name": "body",
+            "in": "body",
+            "required": "true",
+            "type": "object"
+        }
+    ]
     """
     name = request.json.get('name', None)
     email = request.json.get('email', None)
@@ -30,6 +38,14 @@ def init_user():
     """Logear un usuario
     ---
     description: Logear un usuario
+    "parameters": [
+        {
+            "name": "body",
+            "in": "body",
+            "required": "true",
+            "type": "object"
+        }
+    ]
     """
     email = request.json.get("email")
     password = request.json.get("password")
@@ -41,6 +57,14 @@ def get_users():
     """Ver todos los usuarios
     ---
     description: Ver todos los usuarios
+    "parameters": [
+        {
+            "name": "body",
+            "in": "body",
+            "required": "true",
+            "type": "object"
+        }
+    ]
     """
     all_users = UserStructure.get_all_users()
     return all_users
@@ -51,6 +75,14 @@ def edit_user(id):
     """Editar un usuario
     ---
     description: Editar un usuario. No estoy segura de esta refactorización
+    "parameters": [
+        {
+            "name": "body",
+            "in": "body",
+            "required": "true",
+            "type": "object"
+        }
+    ]
     """
     try:
         current_user_id = get_jwt_identity()
@@ -69,6 +101,14 @@ def delete_one_user(id):
     """Eliminar un usuario
     ---
     description: Eliminar un usuario
+    "parameters": [
+        {
+            "name": "body",
+            "in": "body",
+            "required": "true",
+            "type": "object"
+        }
+    ]
     """
     deleted_user = UserStructure.delete_user(id)
     return jsonify(deleted_user), 200
@@ -78,6 +118,14 @@ def get_horses():
     """Ver todos los caballos
     ---
     description: Ver todos los caballos
+    "parameters": [
+        {
+            "name": "body",
+            "in": "body",
+            "required": "true",
+            "type": "object"
+        }
+    ]
     """
     all_horses = HorseStructure.get_all_horses()
     return jsonify(all_horses), 200
@@ -89,6 +137,14 @@ def add_horse():
     """Agregar nuevo caballo
     ---
     description: Agregar nuevo caballo
+    "parameters": [
+        {
+            "name": "body",
+            "in": "body",
+            "required": "true",
+            "type": "object"
+        }
+    ]
     """
     current_user_id = get_jwt_identity()
     user = User.filter.get(current_user_id)
@@ -121,6 +177,14 @@ def edit_horse(id):
     """Editar un caballo
     ---
     description: Editar un caballo. Tampoco estoy segura de esta refactorización
+    "parameters": [
+        {
+            "name": "body",
+            "in": "body",
+            "required": "true",
+            "type": "object"
+        }
+    ]
     """
     try:
         current_user_id = get_jwt_identity()
@@ -142,6 +206,14 @@ def eliminate_horse(id):
     """Eliminar un caballo
     ---
     description: Eliminar un caballo
+    "parameters": [
+        {
+            "name": "body",
+            "in": "body",
+            "required": "true",
+            "type": "object"
+        }
+    ]
     """
     try:
         current_user_id = get_jwt_identity()
@@ -155,5 +227,17 @@ def eliminate_horse(id):
 @api.route('/horse/<int:id>', methods=['GET'])
 @jwt_required()
 def get_horse(id):
+    """Ver un caballo determinado
+    ---
+    description: Ver un caballo determinado
+    "parameters": [
+        {
+            "name": "body",
+            "in": "body",
+            "required": "true",
+            "type": "object"
+        }
+    ]
+    """
     get_specific_horse = HorseStructure.get_especific_horse(id)
     return jsonify(get_especific_horse),200
