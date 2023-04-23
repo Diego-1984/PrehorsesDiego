@@ -3,18 +3,11 @@ from api.models.db import db
 from api.models.user import User
 
 class UserStructure:
-    def add_user():
-        name = request.json.get('name', None)
-        email = request.json.get('email', None)
-        password = request.json.get('password', None)
-
+    def add_user(name, email, password):
         user = User(name = name, email = email, password = password)
         db.session.add(user)
         db.session.commit()
-        response_body={
-            "message": "Usuario agregado"
-        }
-        return jsonify(response_body), 200
+        return None
         
     def login_user():
         try:

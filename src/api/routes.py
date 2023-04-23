@@ -14,11 +14,16 @@ api = Blueprint('api', __name__)
 
 @api.route('/user', methods=['POST'])
 def new_user():
+    """Agregar un nuevo usuario
+    ---
+    description: Agregar un nuevo usuario
     """
-    Aquí incluímos un user
-    """
-    add_user = UserStructure.add_user()
-    return add_user,200
+    name = request.json.get('name', None)
+    email = request.json.get('email', None)
+    password = request.json.get('password', None)
+    UserStructure.add_user(name, email, password)
+    response_body = { "message": "Usuario agregado" }
+    return jsonify(response_body), 200
 
 @api.route('/user/login', methods=['POST'])
 def init_user():
