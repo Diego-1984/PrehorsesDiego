@@ -10,12 +10,11 @@ const NavbarVertical = () => {
           aria-orientation="vertical" 
         >
           <button
-            className="nav-link active "
+            className="btn btn-outline-warning "
             id="v-pills-home-tab"
             data-bs-toggle="pill"
             data-bs-target="#v-pills-home"
             type="button "
-            className="btn btn-outline-warning"
             role="tab"
             aria-controls="v-pills-home"
             aria-selected="true"
@@ -23,25 +22,23 @@ const NavbarVertical = () => {
             Ver mis Caballos
           </button>
           <button
-            className="nav-link"
+            className=" btn btn-outline-warning"
             id="v-pills-profile-tab"
             data-bs-toggle="pill"
             data-bs-target="#v-pills-profile"
             type="button"
-            className="btn btn-outline-warning"
             role="tab"
             aria-controls="v-pills-profile"
             aria-selected="false"
           >
-            Modificar Usuario
+            Modificar Usuario Link To
           </button>
           <button
-            className="nav-link"
+            className="btn btn-outline-warning"
             id="v-pills-messages-tab"
             data-bs-toggle="pill"
             data-bs-target="#v-pills-messages"
             type="button"
-            className="btn btn-outline-warning"
             role="tab"
             aria-controls="v-pills-messages"
             aria-selected="false"
@@ -49,12 +46,11 @@ const NavbarVertical = () => {
             Subir Caballo
           </button>
           <button
-            className="nav-link"
+            className="btn btn-outline-warning"
             id="v-pills-settings-tab"
             data-bs-toggle="pill"
             data-bs-target="#v-pills-settings"
             type="button"
-            className="btn btn-outline-warning"
             role="tab"
             aria-controls="v-pills-settings"
             aria-selected="false"
