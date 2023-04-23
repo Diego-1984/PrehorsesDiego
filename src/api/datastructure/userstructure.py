@@ -7,7 +7,7 @@ class UserStructure:
         user = User(name = name, email = email, password = password)
         db.session.add(user)
         db.session.commit()
-        return user
+        return None
         
     def login_user():
         try:
