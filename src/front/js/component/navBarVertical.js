@@ -31,7 +31,7 @@ const NavbarVertical = () => {
             aria-controls="v-pills-profile"
             aria-selected="false"
           >
-            Modificar Usuario Link To
+            Modificar Usuario Link To.
           </button>
           <button
             className="btn btn-outline-warning"
