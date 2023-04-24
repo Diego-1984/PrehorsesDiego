@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import caballoJumbotron from "../../img/caballoJumbotron.png";
 import "../../styles/home.css";
 import Carousel from "../component/carousel";
+
 export const Home = () => {
    const { store, actions } = useContext(Context);
  
@@ -54,12 +55,12 @@ export const Home = () => {
 					</div>
 				</div>
 			</div>
-			<div>
+			<div id="carouselDiv">
 				<h1 className="mt-5 pt-3 text-white">Escoja su sección:</h1>
-			</div>
-			<div id="carouselDiv" className="d-flex m-5 justify-content-center">
-				<Carousel />
-			</div>
+			  <div className="d-flex m-5 justify-content-center">
+				  <Carousel />
+			  </div>
+      </div>
 		</div>
 	);
 };
