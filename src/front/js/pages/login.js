@@ -37,22 +37,28 @@ export const Login = () => {
 						<input type="name"
 						placeholder="Nombre de usuario"
 						className="input-field"
-						onChange={(e)=>{setUser({...user, name: e.target.value}); console.log(user)}}
+						onChange={(e) => {
+							setUser({...user, name: e.target.value}); 
+							console.log(user)}}
 						required/>
 						<input type="email"
 						placeholder="Email"
 						className="input-field"
-						onChange={(e)=>{setUser({...user, email: e.target.value}); console.log(user)}}
+						onChange={(e) => {
+							setUser({ ...user, email: e.target.value }); 
+							console.log(user)}}
 						required/>
 						<input type="password"
 						placeholder="Contraseña"
 						className="input-field"
-						onChange={(e)=>{setUser({...user, password: e.target.value}); console.log(user)}}
+						onChange={(e) => {
+							setUser({...user, password: e.target.value}); 
+							console.log(user)}}
 						required/>
 						<input type="submit"
 						value="Sign up" className="submit-btn"
 						onClick={()=>{
-							fetch(process.env.BACKEND_URL + "/api/user",{
+							fetch(process.env.BACKEND_URL+"/api/user",{
 								method: "POST",
 								headers: {
 									"Content-Type": "application/json",

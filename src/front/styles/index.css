@@ -24,3 +24,12 @@ section img:hover{
     opacity: 1;
     filter: contrast(120%);
 }
+
+#account{
+    font-size: 50px;
+    color:#ffc107;
+}
+
+.dropdown-item{
+    text-decoration: no;
+}
