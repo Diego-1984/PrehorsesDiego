@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext} from "react";
 import "../../styles/login.css"
+import { Context } from "../store/appContext";
 
 export const Login = () => {
 
 	const [user, setUser] = useState({})
+	const { store, actions } = useContext(Context);
 
 	return (
 		<>
@@ -22,12 +24,15 @@ export const Login = () => {
 					<form>
 						<input type="email"
 						placeholder="Email"
-						className="input-field"/>
+						className="input-field"
+						onChange={(e)=>{setUser({...user, email:e.target.value})}}/>
 						<input type="password"
 						placeholder="Contraseña"
-						className="input-field"/>
+						className="input-field"
+						onChange={(e)=>{setUser({...user, password:e.target.value})}}/>
 						<input type="submit"
-						value="Log in" className="submit-btn"/>
+						value="Log in" className="submit-btn"
+						onClick={()=>{actions.loginUser(user)}}/>
 					</form>
 				</div>
 				<div className="signup">
@@ -66,7 +71,8 @@ export const Login = () => {
 								body : JSON.stringify(user)
 							})
 							.then((resp)=>resp.json())
-							.then((data) => {});
+							.then((data, navigate) => {
+							});
 						}}
 						/>
 					</form>

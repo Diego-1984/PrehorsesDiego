@@ -37,7 +37,7 @@ def new_user():
 def init_user():
     """Logear un usuario
     ---
-    description: Logear un usuario
+    description: Logear un usuario. No estoy segura de esta refactorización
     "parameters": [
         {
             "name": "body",
@@ -50,7 +50,7 @@ def init_user():
     email = request.json.get("email")
     password = request.json.get("password")
     login_user = UserStructure.login_user(email, password)
-    return login_user, 200
+    return login_user
 
 @api.route('/user', methods=['GET'])
 def get_users():

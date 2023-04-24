@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models.db import db
 from api.models.user import User
+from flask_jwt_extended import create_access_token
+from flask_jwt_extended import get_jwt_identity, jwt_required, JWTManager
 
 class UserStructure:
     def add_user(name, email, password):
@@ -21,7 +23,7 @@ class UserStructure:
             access_token = create_access_token(identity = user.id)
             return jsonify({ "token": access_token}), 200
         except Exception as e:
-            return jsonify({"error": e}), 400
+            return jsonify({"error": str(e)}), 400
 
     def modify_user(id): 
         user_actualizado = User.query.filter_by(id = id).first()
