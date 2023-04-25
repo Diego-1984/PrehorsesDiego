@@ -10,9 +10,9 @@ export const Home = () => {
  
    return (
     <div className="text-center">
-      <div className="bg bg-black">
+      <div className="bg bg-primary">
         <div className="container-fluid">
-          <div className="row d-flex">
+          <div className="row d-flex bg-black">
             <div className="col text-start m-5 pt-5 ps-5">
               <h5 className="text-white mb-4 ms-5 pb-3">Bienvenido a</h5>
               <h1 className="text-warning mb-4 ms-5">PREHorses</h1>
@@ -56,8 +56,8 @@ export const Home = () => {
 				</div>
 			</div>
 			<div id="carouselDiv">
-				<h1 className="mt-5 pt-3 text-white">Escoja su sección:</h1>
-			  <div className="d-flex m-5 justify-content-center">
+				<h1 className="pt-5 text-warning">Escoja su sección:</h1>
+			  <div className="d-flex p-5 justify-content-center">
 				  <Carousel />
 			  </div>
       </div>

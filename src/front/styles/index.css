@@ -4,10 +4,11 @@
 body{
     background-color:  #fdd19c;
 }
+
 section{
     display: flex;
-    width: 700px;
-    height: 430px;
+    width: 1000px;
+    height: 600px;
 }
 
 section img{

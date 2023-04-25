@@ -5,3 +5,8 @@
     one more css for each page that will contain the selected used
     on that page only (the ones not reused in other pages).
 */
+
+#carouselDiv{
+    background: rgb(193,130,52);
+    background: linear-gradient(0deg, rgba(193,130,52,1) 0%, rgba(0,0,0,1) 88%);
+}

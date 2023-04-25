@@ -2,10 +2,15 @@ import React, { useState, useContext} from "react";
 import "../../styles/login.css"
 import { Context } from "../store/appContext";
 
-export const Login = () => {
+export const Login = ({userIsLogged, setUserIsLogged}) => {
 
 	const [user, setUser] = useState({})
 	const { store, actions } = useContext(Context);
+
+	const logIn = (userIsLogged) =>{
+		console.log('change to true')
+        setUserIsLogged(userIsLogged = true)
+    }
 
 	return (
 		<>
@@ -32,7 +37,7 @@ export const Login = () => {
 						onChange={(e)=>{setUser({...user, password:e.target.value})}}/>
 						<input type="submit"
 						value="Log in" className="submit-btn"
-						onClick={()=>{actions.loginUser(user)}}/>
+						onClick={()=>{actions.loginUser(user); logIn(userIsLogged)}}/>
 					</form>
 				</div>
 				<div className="signup">
@@ -71,7 +76,7 @@ export const Login = () => {
 								body : JSON.stringify(user)
 							})
 							.then((resp)=>resp.json())
-							.then((data, navigate) => {
+							.then((data) => {
 							});
 						}}
 						/>
