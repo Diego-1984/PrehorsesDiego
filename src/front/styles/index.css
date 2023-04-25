@@ -34,3 +34,7 @@ section img:hover{
 .dropdown-item{
     text-decoration: no;
 }
+
+a:hover{
+    color: black;
+}
