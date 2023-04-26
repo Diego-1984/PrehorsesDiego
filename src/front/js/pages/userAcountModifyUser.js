@@ -6,7 +6,7 @@ export const UserAcountModifyUser = () => {
 
 	const colStyle={
 		width: 20 + 'rem',
-		height: 23 + 'rem',
+		height: 33 + 'rem',
 		padding: 0
 	}
 	return (

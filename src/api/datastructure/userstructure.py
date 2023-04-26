@@ -5,11 +5,17 @@ from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity, jwt_required, JWTManager
 
 class UserStructure:
+    def verify_userEmail(email):
+            user_duplicated = User.query.filter_by(email = email).first()
+            return user_duplicated
+
     def add_user(name, email, password):
         user = User(name = name, email = email, password = password)
         db.session.add(user)
         db.session.commit()
-        return None
+        response_body = { 
+            "message": "Usuario agregado" }
+        return jsonify(response_body)  
         
     def login_user(email, password):
         try:

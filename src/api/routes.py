@@ -29,9 +29,17 @@ def new_user():
     name = request.json.get('name', None)
     email = request.json.get('email', None)
     password = request.json.get('password', None)
-    UserStructure.add_user(name, email, password)
-    response_body = { "message": "Usuario agregado" }
-    return jsonify(response_body), 200
+
+    is_userEmail_duplicated = UserStructure.verify_userEmail(email)
+
+    if(is_userEmail_duplicated is None):
+        user_added= UserStructure.add_user(name, email, password)
+        return user_added, 200 
+    else:
+       response_body={
+            "message": "Este email ya existe, por favor escoja otro"
+        }
+    return jsonify(response_body), 409
 
 @api.route('/user/login', methods=['POST'])
 def init_user():

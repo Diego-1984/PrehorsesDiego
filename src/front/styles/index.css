@@ -38,3 +38,12 @@ section img:hover{
 a:hover{
     color: black;
 }
+
+#accountPrivate{
+    font-size: 140px;
+    color:#ffc107;
+}
+
+#modifyUser{
+    background: #fcd86e;
+}

@@ -12,7 +12,12 @@ const NavbarVertical = () => {
   return (
     <>
     <div className="container m-0 p-0">
-      <div className="row m-0 p-0">
+      <div className="row m-0 p-3 text-center border-bottom border-warning">
+        <span id="accountPrivate" className="material-symbols-outlined">
+          account_circle
+        </span>
+      </div>
+      <div className="row m-0 p-0 border-bottom border-warning">
         <button
           className="btn btn-outline-warning"
           style={buttonStyle}
@@ -27,7 +32,7 @@ const NavbarVertical = () => {
               Ver mis Caballos
         </button>
       </div>
-      <div className="row m-0 p-0">
+      <div className="row m-0 p-0 border-bottom border-warning">
         <button
           className=" btn btn-outline-warning"
           style={buttonStyle}
@@ -42,7 +47,7 @@ const NavbarVertical = () => {
               Modificar Usuario
         </button>
       </div>
-      <div className="row m-0 p-0">
+      <div className="row m-0 p-0 border-bottom border-warning">
         <button
           className="btn btn-outline-warning"
           style={buttonStyle}
@@ -57,7 +62,7 @@ const NavbarVertical = () => {
               Subir Caballo
         </button>
       </div>
-      <div className="row m-0 p-0">
+      <div className="row m-0 p-0 border-warning">
         <button
           className="btn btn-outline-warning"
           style={buttonStyle}

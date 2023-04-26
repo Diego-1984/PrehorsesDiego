@@ -77,6 +77,7 @@ export const Login = ({userIsLogged, setUserIsLogged}) => {
 							})
 							.then((resp)=>resp.json())
 							.then((data) => {
+								alert("Usuario registrado, por favor inicie sesión")
 							});
 						}}
 						/>
