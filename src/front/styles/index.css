@@ -35,6 +35,15 @@ section img:hover{
     text-decoration: no;
 }
 
+#fadein {
+    animation: fadeIn 5s ease;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+}
+
 a:hover{
     color: black;
 }

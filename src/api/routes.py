@@ -7,12 +7,16 @@ from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity, jwt_required, JWTManager
 from api.datastructure.userstructure import UserStructure
 from api.datastructure.horsestructure import HorseStructure
+from flasgger import swag_from
+from api.swagger_definitions import add_user_swag
+
 
 
 api = Blueprint('api', __name__)
 
 
 @api.route('/user', methods=['POST'])
+@swag_from(add_user_swag)
 def new_user():
     """Agregar un nuevo usuario
     ---
