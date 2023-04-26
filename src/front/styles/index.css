@@ -33,3 +33,12 @@ section img:hover{
 .dropdown-item{
     text-decoration: no;
 }
+
+#fadein {
+    animation: fadeIn 5s ease;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+}
