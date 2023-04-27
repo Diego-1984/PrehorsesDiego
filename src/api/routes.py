@@ -36,14 +36,15 @@ def new_user():
 
     is_userEmail_duplicated = UserStructure.verify_user_email(email)
 
-    if(is_userEmail_duplicated is None):
-        user_added= UserStructure.add_user(name, email, password)
-        return user_added, 200 
-    else:
-       response_body={
+    if(is_userEmail_duplicated != None):
+        response_body={
             "message": "Este email ya existe, por favor escoja otro"
         }
-    return jsonify(response_body), 409
+        return jsonify(response_body), 409
+
+    user_added= UserStructure.add_user(name, email, password)
+    return user_added, 200 
+       
 
 @api.route('/user/login', methods=['POST'])
 def init_user():

@@ -28,7 +28,7 @@ class UserStructure:
             access_token = create_access_token(identity = user.id)
             return jsonify({ "token": access_token}), 200
         except Exception as e:
-            return jsonify({"error": "Petición incorrecta")}), 400
+            return jsonify({"error": "Petición incorrecta"}), 400
 
     def modify_user(id): 
         user_actualizado = User.query.filter_by(id = id).first()
