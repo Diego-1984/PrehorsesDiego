@@ -1,8 +1,7 @@
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models.db import db
 from api.models.user import User
-from flask_jwt_extended import create_access_token
-from flask_jwt_extended import get_jwt_identity, jwt_required, JWTManager
+from flask_jwt_extended import get_jwt_identity, jwt_required, JWTManager, create_access_token
 
 class UserStructure:
     def verify_userEmail(email):
