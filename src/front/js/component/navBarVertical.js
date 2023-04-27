@@ -1,16 +1,93 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 const NavbarVertical = () => {
+  const navigate = useNavigate();
+
+  const buttonStyle= {
+    width: 20 + 'rem', 
+    border: 'none', 
+    paddingTop: 2 + 'rem', 
+    paddingBottom: 2 + 'rem'
+  }
   return (
     <>
-      <div className="Container d-flex align-items-start" style={{width: 20 + 'rem', padding: 2 + 'rem'}}>
+    <div className="container m-0 p-0">
+      <div className="row m-0 p-3 text-center border-bottom border-warning">
+        <span id="accountPrivate" className="material-symbols-outlined">
+          account_circle
+        </span>
+      </div>
+      <div className="row m-0 p-0 border-bottom border-warning">
+        <button
+          className="btn btn-outline-warning"
+          style={buttonStyle}
+          id="v-pills-home-tab"
+          data-bs-toggle="pill"
+          data-bs-target="#v-pills-home"
+          type="button "
+          role="tab"
+          aria-controls="v-pills-home"
+          aria-selected="true"
+          onClick={()=>{navigate("/")}}>
+              Ver mis Caballos
+        </button>
+      </div>
+      <div className="row m-0 p-0 border-bottom border-warning">
+        <button
+          className=" btn btn-outline-warning"
+          style={buttonStyle}
+          id="v-pills-profile-tab"
+          data-bs-toggle="pill"
+          data-bs-target="#v-pills-profile"
+          type="button"
+          role="tab"
+          aria-controls="v-pills-profile"
+          aria-selected="false"
+          onClick={()=>{navigate("/")}}>
+              Modificar Usuario
+        </button>
+      </div>
+      <div className="row m-0 p-0 border-bottom border-warning">
+        <button
+          className="btn btn-outline-warning"
+          style={buttonStyle}
+          id="v-pills-messages-tab"
+          data-bs-toggle="pill"
+          data-bs-target="#v-pills-messages"
+          type="button"
+          role="tab"
+          aria-controls="v-pills-messages"
+          aria-selected="false"
+          onClick={()=>{navigate("/")}}>
+              Subir Caballo
+        </button>
+      </div>
+      <div className="row m-0 p-0 border-warning">
+        <button
+          className="btn btn-outline-warning"
+          style={buttonStyle}
+          id="v-pills-settings-tab"
+          data-bs-toggle="pill"
+          data-bs-target="#v-pills-settings"
+          type="button"
+          role="tab"
+          aria-controls="v-pills-settings"
+          aria-selected="false"
+          onClick={()=>{navigate("/")}}>
+              Cerrar Sesión
+        </button>
+      </div>
+    </div>
+        
+      {/* <div className="Container d-flex align-items-start" style={{width: 15 +'rem', padding: 2 + 'rem'}}>
         <div
-          className="nav flex-column nav-pills me-3 "
+          className="nav flex-column nav-pills me-3"
           id="v-pills-tab"
           role="tablist"
           aria-orientation="vertical" 
         >
           <button
-            className="btn btn-outline-warning "
+            className="btn btn-outline-warning"
             id="v-pills-home-tab"
             data-bs-toggle="pill"
             data-bs-target="#v-pills-home"
@@ -92,8 +169,8 @@ const NavbarVertical = () => {
             ...
           </div>
         </div>
-      </div>
-    </>
+      </div>*/}
+    </> 
   );
 };
 export default NavbarVertical;

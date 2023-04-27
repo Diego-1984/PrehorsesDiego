@@ -4,10 +4,11 @@
 body{
     background-color:  #fdd19c;
 }
+
 section{
     display: flex;
-    width: 700px;
-    height: 430px;
+    width: 1000px;
+    height: 600px;
 }
 
 section img{
@@ -41,4 +42,17 @@ section img:hover{
     0% {
         opacity: 0;
     }
+}
+
+a:hover{
+    color: black;
+}
+
+#accountPrivate{
+    font-size: 140px;
+    color:#ffc107;
+}
+
+#modifyUser{
+    background: #fcd86e;
 }

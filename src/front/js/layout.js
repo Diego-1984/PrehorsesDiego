@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import { BackendURL } from "./component/backendURL";
 
 import { Home } from "./pages/home";
 import { Login } from "./pages/login";
-import { Single } from "./pages/single";
+import { UserAcountModifyUser } from "./pages/userAcountModifyUser";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
-import {NavbarLogged} from "./component/navbarLogged"
 import { Footer } from "./component/footer";
 
 //create your first component
@@ -20,15 +19,17 @@ const Layout = () => {
 
     if(!process.env.BACKEND_URL || process.env.BACKEND_URL == "") return <BackendURL/ >;
 
+    const [userIsLogged, setUserIsLogged]= useState(false)
+
     return (
         <div>
             <BrowserRouter basename={basename}>
                 <ScrollToTop>
-                    <Navbar />
+                    <Navbar userIsLogged = {userIsLogged} setUserIsLogged = {setUserIsLogged} />
                     <Routes>
                         <Route element={<Home />} path="/" />
-                        <Route element={<Login />} path="/login" />
-                        <Route element={<Single />} path="/single/:theid" />
+                        <Route element={<Login userIsLogged = {userIsLogged} setUserIsLogged = {setUserIsLogged}/>} path="/login" />
+                        <Route element={<UserAcountModifyUser />} path="/private/modifyuser" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

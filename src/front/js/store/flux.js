@@ -4,9 +4,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 			user: {}
 		},
 		actions: {
-			setUser:(user)=>{
+			setUser:(user) => {
 				setStore({user:user})
 			},
+			loginUser: (user) =>{
+				fetch(
+					process.env.BACKEND_URL + "/api/user/login/",
+					{
+						method: "POST",
+						headers: {
+							// Authorization: "Bearer" + localStorage.getItem("token"),
+							"Content-type": "application/json"
+						},
+						body: JSON.stringify(user)
+					}
+				)
+				.then((resp)=> resp.json())
+				.then((data)=>{
+					console.log(data)
+					if (data.token){
+						localStorage.setItem("token", data.token)
+					}else{
+						console.log(data)
+					}
+				})
+			  },
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");

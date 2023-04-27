@@ -20,13 +20,13 @@ export const Home = () => {
               <h5 className="text-white text-center mb-4 ms-5 pt-3">              
                 Bienvenido a tu página de compra-venta de caballos Pura Raza Español
               </h5>
-              <figure className="mt-5">
-                <blockquote className="blockquote ms-5 ps-3">
+              <figure className="mt-5 bg-black">
+                <blockquote className="blockquote ms-5 ps-3 bg-black">
                   <p
                     className="text-warning text-center mx-5"
                     style={{ width: 30 + "rem" }}
                   >
-                    <em>
+                    <em className="bg-black">
                       "De mi caballo aprendí que la fuerza se complementa con la
                       nobleza y la lealtad"
                       <figcaption className="blockquote-footer text-warning text-center mt-1">
@@ -49,14 +49,14 @@ export const Home = () => {
               
             </div>
 
-							<img src={caballoJumbotron} style={{width: 30+'rem', padding:0}}></img>
+							<img src={caballoJumbotron} className="bg-black" style={{width: 30+'rem', padding:0}}></img>
 
 					</div>
 				</div>
 			</div>
 			<div id="carouselDiv">
-				<h1 className="mt-5 pt-3 text-white">Escoja su sección:</h1>
-			  <div className="d-flex m-5 justify-content-center">
+				<h1 className="pt-5 text-warning">Escoja su sección:</h1>
+			  <div className="d-flex p-5 justify-content-center">
 				  <Carousel />
 			  </div>
       </div>

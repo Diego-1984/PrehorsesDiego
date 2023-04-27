@@ -33,15 +33,24 @@ def new_user():
     name = request.json.get('name', None)
     email = request.json.get('email', None)
     password = request.json.get('password', None)
-    UserStructure.add_user(name, email, password)
-    response_body = { "message": "Usuario agregado" }
-    return jsonify(response_body), 200
+
+    is_userEmail_duplicated = UserStructure.verify_user_email(email)
+
+    if(is_userEmail_duplicated != None):
+        response_body={
+            "message": "Este email ya existe, por favor escoja otro"
+        }
+        return jsonify(response_body), 409
+
+    user_added= UserStructure.add_user(name, email, password)
+    return user_added, 200 
+       
 
 @api.route('/user/login', methods=['POST'])
 def init_user():
     """Logear un usuario
     ---
-    description: Logear un usuario
+    description: Logear un usuario. No estoy segura de esta refactorización
     "parameters": [
         {
             "name": "body",
@@ -54,7 +63,7 @@ def init_user():
     email = request.json.get("email")
     password = request.json.get("password")
     login_user = UserStructure.login_user(email, password)
-    return login_user, 200
+    return login_user
 
 @api.route('/user', methods=['GET'])
 def get_users():

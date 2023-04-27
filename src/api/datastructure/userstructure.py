@@ -1,13 +1,20 @@
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models.db import db
 from api.models.user import User
+from flask_jwt_extended import get_jwt_identity, jwt_required, JWTManager, create_access_token
 
 class UserStructure:
+    def verify_user_email(email):
+            user_duplicated = User.query.filter_by(email = email).first()
+            return user_duplicated
+
     def add_user(name, email, password):
         user = User(name = name, email = email, password = password)
         db.session.add(user)
         db.session.commit()
-        return None
+        response_body = { 
+            "message": "Usuario agregado" }
+        return jsonify(response_body)  
         
     def login_user(email, password):
         try:
@@ -21,7 +28,7 @@ class UserStructure:
             access_token = create_access_token(identity = user.id)
             return jsonify({ "token": access_token}), 200
         except Exception as e:
-            return jsonify({"error": e}), 400
+            return jsonify({"error": "Petición incorrecta"}), 400
 
     def modify_user(id): 
         user_actualizado = User.query.filter_by(id = id).first()
