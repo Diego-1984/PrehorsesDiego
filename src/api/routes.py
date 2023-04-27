@@ -34,7 +34,7 @@ def new_user():
     email = request.json.get('email', None)
     password = request.json.get('password', None)
 
-    is_userEmail_duplicated = UserStructure.verify_userEmail(email)
+    is_userEmail_duplicated = UserStructure.verify_user_email(email)
 
     if(is_userEmail_duplicated is None):
         user_added= UserStructure.add_user(name, email, password)
