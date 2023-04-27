@@ -128,3 +128,12 @@ body{
 .signup .submit-btn:hover{
     background-image: linear-gradient(135deg, #efa141 30%, #f8c486 90%);
 }
+#Icons {
+    color: #b79b36;
+    font-size: x-large;
+  }
+  
+  #Text {
+    color: #b79b36;
+    font-size: small;
+  }
