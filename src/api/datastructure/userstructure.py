@@ -4,7 +4,7 @@ from api.models.user import User
 from flask_jwt_extended import get_jwt_identity, jwt_required, JWTManager, create_access_token
 
 class UserStructure:
-    def verify_userEmail(email):
+    def verify_user_email(email):
             user_duplicated = User.query.filter_by(email = email).first()
             return user_duplicated
 
