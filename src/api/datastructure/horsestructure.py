@@ -5,7 +5,7 @@ from api.models.horse import Horse
 class HorseStructure:
     def add_horse(nombre, fecha_nacimiento, ganaderia,
     sexo, precio, capa, alzada, provincia,
-    nivel_doma, descripcion, imagenes, dueño):
+    nivel_doma, descripcion, imagenes, user_id):
         horse=Horse(nombre= nombre,
             fecha_nacimiento=fecha_nacimiento,
             ganaderia=ganaderia,
@@ -16,8 +16,8 @@ class HorseStructure:
             provincia=provincia,
             nivel_doma=nivel_doma,
             descripcion=descripcion,
-            imagenes=imagenes,
-            dueño= dueño)
+            imagenes = imagenes, 
+            user_id = user_id)
 
         db.session.add(horse)
         db.session.commit()
@@ -26,21 +26,29 @@ class HorseStructure:
         }
         return response_body
 
-    def modify_horse(id, user_id):
+    def modify_horse(id, nombre, fecha_nacimiento,
+    ganaderia,
+    sexo,
+    precio,
+    capa,
+    alzada,
+    provincia,
+    nivel_doma,
+    descripcion,
+    imagenes):
         horse_actualizado = Horse.query.filter_by(id = id).first()
 
-        horse_actualizado.nombre = request.json.get('nombre', horse.nombre)
-        horse_actualizado.fecha_nacimiento = request.json.get('fecha_nacimiento', horse.fecha_nacimiento)
-        horse_actualizado.ganaderia = request.json.get('ganaderia', horse.ganaderia)
-        horse_actualizado.sexo = request.json.get('sexo', horse.sexo)
-        horse_actualizado.precio = request.json.get('precio', horse.precio)
-        horse_actualizado.capa = request.json.get('capa', horse.capa)
-        horse_actualizado.alzada = request.json.get('alzada', horse.alzada)
-        horse_actualizado.provincia = request.json.get('provincia', horse.provincia)
-        horse_actualizado.nivel__doma = request.json.get('nivel_doma', horse.nivel__doma)
-        horse_actualizado.descripcion = request.json.get('descripcion', horse.descripcion)
-        horse_actualizado.imagenes = request.json.get('imagenes', horse.imagenes)
-        horse_actualizado.dueño = horse.current_user_id
+        horse_actualizado.nombre =  nombre if nombre is not None else horse_actualizado.nombre 
+        horse_actualizado.fecha_nacimiento =  fecha_nacimiento if fecha_nacimiento is not None else horse_actualizado.fecha_nacimiento
+        horse_actualizado.ganaderia =  ganaderia if ganaderia is not None else horse_actualizado.ganaderia 
+        horse_actualizado.sexo =  sexo if sexo is not None else horse_actualizado.sexo 
+        horse_actualizado.precio =  precio if precio is not None else horse_actualizado.precio 
+        horse_actualizado.capa =  capa if capa is not None else horse_actualizado.capa 
+        horse_actualizado.alzada =  alzada if alzada is not None else horse_actualizado.alzada 
+        horse_actualizado.provincia =  provincia if provincia is not None else horse_actualizado.provincia 
+        horse_actualizado.nivel_doma =  nivel_doma if nivel_doma is not None else horse_actualizado.nivel_doma 
+        horse_actualizado.descripcion =  descripcion if descripcion is not None else horse_actualizado.descripcion 
+        horse_actualizado.imagenes =  imagenes if imagenes is not None else horse_actualizado.imagenes  
 
         db.session.commit()
         response_body={

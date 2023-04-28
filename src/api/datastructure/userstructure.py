@@ -30,17 +30,14 @@ class UserStructure:
         except Exception as e:
             return jsonify({"error": "Petición incorrecta"}), 400
 
-    def modify_user(id): 
+    def modify_user(id, name, password): 
         user_actualizado = User.query.filter_by(id = id).first()
-        user_actualizado.name =request.json.get('name', user.name)
-        user_actualizado.email = request.json.get('email', user.email)
-        user_actualizado.password = request.json.get('password', user.password)
+       
+        user_actualizado.name =  name if name is not None else user_actualizado.name 
+        user_actualizado.password =  password if password is not None else user_actualizado.password 
 
         db.session.commit()
-        response_body = {
-            "message": "Cambios realizados correctamente"
-        }
-        return response_body
+        return user_actualizado
 
     def delete_user(id):
         user = User.query.filter_by(id = id).first()
