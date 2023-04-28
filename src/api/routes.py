@@ -281,6 +281,7 @@ def get_horse(id):
     return get_one_horse,200
 
 
+# Falta por agregar funcionalidad
 # @api.route("/messages", methods=['GET'])
 # @jwt_required()
 # def get_messages(horse_id, user_owner_id, user_interested_id):
