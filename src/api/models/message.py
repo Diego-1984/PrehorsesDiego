@@ -5,8 +5,8 @@ from sqlalchemy.orm import relationship
 class Message(db.Model):
     __tablename__ = 'message'
     id = Column(Integer, primary_key=True)
-    comment_text = Column(String(250))
-    author_id = Column(Integer, ForeignKey('user.id'))
-    post_id = Column(Integer, ForeignKey('post.id'))
-    author = relationship("User", backref="messages")
-    post = relationship("Post", backref="messages")
+    message = Column(String(250))
+    horse_id = Column(Integer, ForeignKey('horse.id'))
+    user_owner_id = Column(Integer, ForeignKey('user.id'))
+    user_interested_id = Column(Integer, ForeignKey('user.id'))
+    date_time = db.Column(db.DateTime)

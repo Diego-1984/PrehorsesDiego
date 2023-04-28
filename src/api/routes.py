@@ -5,6 +5,10 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity, jwt_required, JWTManager
+from api.models.user import User
+from api.models.db import db
+from api.models.horse import Horse
+from api.models.message import Message
 from api.datastructure.userstructure import UserStructure
 from api.datastructure.horsestructure import HorseStructure
 from flasgger import swag_from
@@ -99,15 +103,15 @@ def edit_user(id):
     """
     try:
         current_user_id = get_jwt_identity()
-        user = User.filter.get(current_user_id)
-
         if current_user_id!=id:
             return jsonify({"message": "Acceso no permitido"}), 401
     except:
         return jsonify({"error": e}), 404
 
-    modify_user = UserStructure.modify_user(id)
-    return jsonify(modify_user), 200
+    name = request.json.get('name')
+    password = request.json.get('password')
+    modify_user = UserStructure.modify_user(id, name, password)
+    return jsonify(modify_user.serialize()), 200
 
 @api.route('/user/delete/<int:id>', methods=['DELETE'])
 def delete_one_user(id):
@@ -159,9 +163,6 @@ def add_horse():
         }
     ]
     """
-    current_user_id = get_jwt_identity()
-    user = User.filter.get(current_user_id)
-
     nombre = request.json.get('nombre', None)
     fecha_nacimiento = request.json.get('fecha_nacimiento', None)
     ganaderia = request.json.get('ganaderia', None)
@@ -173,13 +174,13 @@ def add_horse():
     nivel__doma= request.json.get('nivel_doma', None)
     descripcion= request.json.get('descripcion', None)
     imagenes= request.json.get('imagenes', None)
-    dueño = current_user_id
+    user_id = get_jwt_identity()
 
     add_horse = HorseStructure.add_horse(nombre, 
     fecha_nacimiento, ganaderia,
     sexo, precio, capa, alzada,
     provincia, nivel__doma, descripcion,
-    imagenes, dueño)
+    imagenes, user_id)
 
     return jsonify(add_horse), 200
 
@@ -201,15 +202,37 @@ def edit_horse(id):
     """
     try:
         current_user_id = get_jwt_identity()
-        user = User.filter.get(current_user_id)
+        user = User.query.filter_by(id = current_user_id).first()
 
-        if current_user_id != user_id:
+        if not user:
             return jsonify({"message": "Acceso no permitido"}), 401
 
-    except:
-        return jsonify({"error": e}), 404
+    except Exception as e:
+        return jsonify({"error": str(e)}), 404
 
-    modify_horse = HorseStructure.modify_horse(id, user_id)
+    nombre = request.json.get('nombre')
+    fecha_nacimiento = request.json.get('fecha_nacimiento')
+    ganaderia = request.json.get('ganaderia')
+    sexo = request.json.get('sexo')
+    precio = request.json.get('precio')
+    capa = request.json.get('capa')
+    alzada = request.json.get('alzada')
+    provincia = request.json.get('provincia')
+    nivel_doma = request.json.get('nivel_doma')
+    descripcion = request.json.get('descripcion')
+    imagenes = request.json.get('imagenes')
+    
+    modify_horse = HorseStructure.modify_horse(id, nombre, fecha_nacimiento,
+    ganaderia,
+    sexo,
+    precio,
+    capa,
+    alzada,
+    provincia,
+    nivel_doma,
+    descripcion,
+    imagenes)
+
     return jsonify(modify_horse), 200
     
 
@@ -230,9 +253,11 @@ def eliminate_horse(id):
     """
     try:
         current_user_id = get_jwt_identity()
-        user = User.filter.get(current_user_id)
-    except:
-        return jsonify({"error": e}), 404
+        print(current_user_id)
+        user = User.query.filter_by(id=current_user_id)
+        print(user)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 404
     delete_horse = HorseStructure.delete_horse(id)
     return jsonify(delete_horse), 200
 
@@ -252,5 +277,14 @@ def get_horse(id):
         }
     ]
     """
-    get_specific_horse = HorseStructure.get_especific_horse(id)
-    return jsonify(get_especific_horse),200
+    get_one_horse = HorseStructure.get_especific_horse(id)
+    return get_one_horse,200
+
+
+# @api.route("/messages", methods=['GET'])
+# @jwt_required()
+# def get_messages(horse_id, user_owner_id, user_interested_id):
+#     try:
+#         current_user_id = get_jwt_identity()
+#         user = User.query.filter_by(user_interested_id = current_user_id).first()
+#    pass

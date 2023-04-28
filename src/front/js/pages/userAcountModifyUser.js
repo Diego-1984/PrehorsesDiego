@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React from "react";
 import ModifyUser from "../component/modifyUser";
 import NavbarVertical from "../component/navBarVertical";
 
