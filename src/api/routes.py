@@ -281,11 +281,78 @@ def get_horse(id):
     return get_one_horse,200
 
 
-# Falta por agregar funcionalidad
-# @api.route("/messages", methods=['GET'])
-# @jwt_required()
-# def get_messages(horse_id, user_owner_id, user_interested_id):
-#     try:
-#         current_user_id = get_jwt_identity()
-#         user = User.query.filter_by(user_interested_id = current_user_id).first()
-#    pass
+
+#falta refactorizar
+
+
+#lo que ve el vendedor
+
+def get_messages_user_owner_id(user_owner_id, horse_id):
+    #mensajes del propietario del caballo 
+    messages = [
+        {
+            'id': 1,
+            'from': 'Diego',
+            'to': 'Ale',
+            'message': 'Hola, ¿está disponible el caballo para la venta?',
+            'date': '2023-04-29 10:30:00'
+        },
+        {
+            'id': 2,
+            'from': 'Ale',
+            'to': 'Diego',
+            'message': 'Sí, está disponible. ¿Te gustaría venir a verlo?',
+            'date': '2023-04-29 11:15:00'
+        }
+    ]
+    return messages
+
+
+    #lo que ve el interesado
+def get_messages_user_interested_id(user_interested_id, horse_id):
+    # mensajes del interesado en el caballo
+    messages = [
+        {
+            'id': 1,
+            'from': 'Diego',
+            'to': 'Ale',
+            'message': 'Hola, ¿está disponible el caballo para la venta?',
+            'date': '2023-04-29 10:30:00'
+        },
+        {
+            'id': 2,
+            'from': 'Ale',
+            'to': 'Diego',
+            'message': 'Sí, está disponible. ¿Te gustaría venir a verlo?',
+            'date': '2023-04-29 11:15:00'
+        },
+        {
+            'id': 3,
+            'from': 'Diego',
+            'to': 'Ale',
+            'message': 'Sí, me gustaría verlo. ¿Cuándo podríamos encontrarnos?',
+            'date': '2023-04-29 13:45:00'
+        }
+    ]
+    return messages
+
+    #esto si es de routes.py
+
+@api.route("/message>", methods=['GET'])
+@jwt_required()
+def get_messages(horse_id, user_owner_id, user_interested_id):
+    horse_id=request.json.get("horse_id")
+    user_owner_id=request.json.get("user_owner_id")
+    user_interested_id=request.json.get("user_interested_id")
+    current_user_id = get_jwt_identity()
+    if current_user_id != user_owner_id and current_user_id != user_interested_id:
+        return jsonify({'message': 'Usuario No Autorizado'}), 401
+    if current_user_id == user_owner_id:
+        # mensajes del propietario del caballo 
+        print_message_user_owner_id = get_messages_user_owner_id(user_owner_id, horse_id)
+        return jsonify(print_message_user_owner_id), 200
+    if current_user_id == user_interested_id:
+        # mensajes del interesado en el caballo 
+        print_message_user_interested_id = get_messages_user_interested_id(user_interested_id, horse_id)
+        return jsonify(print_message_user_interested_id), 200
+

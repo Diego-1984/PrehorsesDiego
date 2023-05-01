@@ -5,6 +5,10 @@ from api.models.db import db
 from api.models.user import User
 from api.models.horse import Horse
 from flask_admin.contrib.sqla import ModelView
+from datetime import timedelta
+
+
+ACCESS_EXPIRES = timedelta(hours=2)
 
 def setup_admin(app):
     app.secret_key = os.environ.get('FLASK_APP_KEY', 'sample key')
