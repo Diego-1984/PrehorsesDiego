@@ -338,12 +338,9 @@ def get_messages_user_interested_id(user_interested_id, horse_id):
 
     #esto si es de routes.py
 
-@api.route("/message>", methods=['GET'])
+@api.route("/message/<int:horse_id>/<int:user_owner_id>/<int:user_interested_id>", methods=['GET'])
 @jwt_required()
 def get_messages(horse_id, user_owner_id, user_interested_id):
-    horse_id=request.json.get("horse_id")
-    user_owner_id=request.json.get("user_owner_id")
-    user_interested_id=request.json.get("user_interested_id")
     current_user_id = get_jwt_identity()
     if current_user_id != user_owner_id and current_user_id != user_interested_id:
         return jsonify({'message': 'Usuario No Autorizado'}), 401
