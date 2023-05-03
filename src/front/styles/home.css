@@ -3,7 +3,7 @@
     on that page only (the ones not reused in other pages). */
 
 #carouselDiv{
-    background: rgb(193,130,52);
-    background: linear-gradient(0deg, rgba(193,130,52,1) 0%, rgba(0,0,0,1) 100%);
+    background: rgb(253,194,96);
+    background: linear-gradient(0deg, rgba(253,194,96,1) 0%, rgba(208,148,49,1) 85%, rgba(0,0,0,1) 100%);
 }
 

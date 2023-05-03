@@ -5,6 +5,7 @@ import caballoJumbotron from "../../img/caballoJumbotron.png";
 import "../../styles/home.css";
 import Carousel from "../component/carousel";
 import logo from "../../img/logo.png";
+import {Footer} from ".//../component/footer"
 
 export const Home = () => {
    const { store, actions } = useContext(Context);
@@ -14,7 +15,7 @@ export const Home = () => {
       <div id="fadein" className="bg bg-black">
         <div className="container-fluid">
           <div className="row d-flex">
-            <div className="col justify-content-center m-5 pt-5 ps-5">
+            <div className="col justify-content-center pt-5 ps-5">
             <img  src={logo} style={{width: 25+'rem', margin:0.3+'rem'}}/>
               
               <h5 className="text-white text-center mb-4 ms-5 pt-3">              
@@ -24,7 +25,7 @@ export const Home = () => {
                 <blockquote className="blockquote ms-5 ps-3 bg-black">
                   <p
                     className="text-warning text-center mx-5"
-                    style={{ width: 30 + "rem" }}
+                    style={{ width: 30 +"em", paddingLeft: 6+'em'}}
                   >
                     <em className="bg-black">
                       "De mi caballo aprendí que la fuerza se complementa con la
@@ -35,8 +36,8 @@ export const Home = () => {
                     </em>
                   </p>
                   <div className="d-flex justify-content-center mt-5 pt-3 ms-5"
-                  style={{ width: 30 + "rem" }}
-              >
+                  style={{ width: 30 +"em", paddingLeft: 6+'em' }}
+                  >
                 <Link to="/login">
                   <button type="button" className="btn btn-outline-light btn-lg"                 >
                     Regístrate
@@ -54,12 +55,13 @@ export const Home = () => {
 					</div>
 				</div>
 			</div>
-			<div id="carouselDiv">
-				<h1 className="pt-5 text-warning">Escoja su sección:</h1>
+			<div id="carouselDiv" className="mt-3">
+				<h1 className="mt-5 pt-5 text-warning">Escoja su sección entre las siguientes opciones:</h1>
 			  <div className="d-flex p-5 justify-content-center">
 				  <Carousel />
 			  </div>
       </div>
+      <Footer />
 		</div>
 	);
 };
