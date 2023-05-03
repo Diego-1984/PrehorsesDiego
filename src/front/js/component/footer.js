@@ -5,7 +5,7 @@ export const Footer = () => (
   <footer>
     <div
       id="colorFooter"
-      className="d-flex flex-wrap justify-content-between align-items-center"
+      className="mt-3 d-flex flex-wrap justify-content-between align-items-center"
     >
       <p className="Container m-4" id="Text">
         @ Copyright PRE Horse

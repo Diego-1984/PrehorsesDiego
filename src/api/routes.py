@@ -281,9 +281,7 @@ def get_horse(id):
     return get_one_horse,200
 
 
-
 #falta refactorizar
-
 
 #lo que ve el vendedor
 

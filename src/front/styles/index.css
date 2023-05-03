@@ -6,7 +6,7 @@ body{
     font-family: 'Lora', serif;
 }
 
-section{
+/* section{
     display: flex;
     width: 1000px;
     height: 600px;
@@ -25,7 +25,7 @@ section img:hover{
     width: 300px;
     opacity: 1;
     filter: contrast(120%);
-}
+} */
 
 #account{
     font-size: 50px;
@@ -56,4 +56,14 @@ a:hover{
 
 #modifyUser{
     background: #fcd86e;
+}
+
+#Icons {
+    color: #b79b36;
+    font-size: x-large;
+}
+  
+#Text {
+    color: #b79b36;
+    font-size: small;
 }

@@ -5,12 +5,15 @@ import { BackendURL } from "./component/backendURL";
 
 import { Home } from "./pages/home";
 import { Login } from "./pages/login";
+import { Male } from "./pages/male";
+import { Mares } from "./pages/mares";
+import { Gelding } from "./pages/gelding";
 import { UserAcountModifyUser } from "./pages/userAcountModifyUser";
 import { UserAcountNewHorse } from "./pages/userAcountNewHorse";
+import { UserAcountMyHorses } from "./pages/userAcountMyHorses";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
 
 //create your first component
 const Layout = () => {
@@ -30,11 +33,14 @@ const Layout = () => {
                     <Routes>
                         <Route element={<Home />} path="/" />
                         <Route element={<Login userIsLogged = {userIsLogged} setUserIsLogged = {setUserIsLogged}/>} path="/login" />
+                        <Route element={<Male />} path="/male" />
+                        <Route element={<Mares />} path="/mares" />
+                        <Route element={<Gelding />} path="/gelding" />
                         <Route element={<UserAcountModifyUser />} path="/private/modifyuser" />
                         <Route element={<UserAcountNewHorse />} path="/private/addhorse" />
+                        <Route element={<UserAcountMyHorses />} path="/private/myhorses" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
-                    <Footer />
                 </ScrollToTop>
             </BrowserRouter>
         </div>

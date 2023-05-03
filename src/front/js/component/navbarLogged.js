@@ -13,7 +13,7 @@ export const NavbarLogged = ({userIsLogged, setUserIsLogged}) => {
     }
 
 	return (
-		<nav className="navbar bg-black border-bottom border-warning border-1">
+		<nav className="navbar bg-black">
 			<div className="container bg-black">
 			<Link to="/">
 				<img src={logo} style={{width: 8+'rem', margin:0.3+'rem'}}/>

@@ -28,7 +28,7 @@ const NavbarVertical = () => {
           role="tab"
           aria-controls="v-pills-home"
           aria-selected="true"
-          onClick={()=>{navigate("/")}}>
+          onClick={()=>{navigate("/private/myhorses")}}>
               Ver mis Caballos
         </button>
       </div>
@@ -43,7 +43,7 @@ const NavbarVertical = () => {
           role="tab"
           aria-controls="v-pills-profile"
           aria-selected="false"
-          onClick={()=>{navigate("/")}}>
+          onClick={()=>{navigate("/private/modifyuser")}}>
               Modificar Usuario
         </button>
       </div>
@@ -58,7 +58,7 @@ const NavbarVertical = () => {
           role="tab"
           aria-controls="v-pills-messages"
           aria-selected="false"
-          onClick={()=>{navigate("/")}}>
+          onClick={()=>{navigate("/private/addhorse")}}>
               Subir Caballo
         </button>
       </div>
