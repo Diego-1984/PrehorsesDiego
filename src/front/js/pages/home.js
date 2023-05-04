@@ -44,8 +44,7 @@ export const Home = () => {
                   </button>
                 </Link>
               </div>
-                </blockquote>
-                
+                </blockquote> 
               </figure>
               
             </div>
@@ -55,7 +54,7 @@ export const Home = () => {
 					</div>
 				</div>
 			</div>
-			<div id="carouselDiv" className="mt-3">
+			<div id="carouselDiv" className="pt-3">
 				<h1 className="mt-5 pt-5 text-warning">Escoja su sección entre las siguientes opciones:</h1>
 			  <div className="d-flex p-5 justify-content-center">
 				  <Carousel />

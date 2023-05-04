@@ -336,18 +336,26 @@ def get_messages_user_interested_id(user_interested_id, horse_id):
 
     #esto si es de routes.py
 
-@api.route("/message/<int:horse_id>/<int:user_owner_id>/<int:user_interested_id>", methods=['GET'])
+@api.route("/message/<int:horse_id>", methods=['GET'])
 @jwt_required()
-def get_messages(horse_id, user_owner_id, user_interested_id):
+def get_messages(horse_id):
     current_user_id = get_jwt_identity()
-    if current_user_id != user_owner_id and current_user_id != user_interested_id:
-        return jsonify({'message': 'Usuario No Autorizado'}), 401
-    if current_user_id == user_owner_id:
-        # mensajes del propietario del caballo 
-        print_message_user_owner_id = get_messages_user_owner_id(user_owner_id, horse_id)
-        return jsonify(print_message_user_owner_id), 200
-    if current_user_id == user_interested_id:
-        # mensajes del interesado en el caballo 
-        print_message_user_interested_id = get_messages_user_interested_id(user_interested_id, horse_id)
-        return jsonify(print_message_user_interested_id), 200
+    
+    messages = MessageStructure.get_all_messages()
+    return messages, 200
+    
 
+@api.route("/message", methods=['POST'])
+@jwt_required()
+def post_message():
+    current_user_id = get_jwt_identity()
+
+    message = request.json.get('message')
+    horse_id = request.json.get('horseId')
+    user_owner_id = request.json.get('userOwnerId')
+    user_interested_id = current_user_id
+    date_time = request.json.get('dateTime')
+    
+    message = MessageStructure.post_one_message(message, horse_id, user_owner_id,
+    user_interested_id, date_time)
+    return message, 200
