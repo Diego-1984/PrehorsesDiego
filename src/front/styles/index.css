@@ -2,7 +2,7 @@
     General Styles used on every website (Don't Repeat Yourself)
 */
 body{
-    background-color:  #fdd19c;
+    background-color:  rgba(246,246,246,1);
     font-family: 'Lora', serif;
 }
 
@@ -37,7 +37,7 @@ section img:hover{
 }
 
 #fadein {
-    animation: fadeIn 5s ease;
+    animation: fadeIn 3s ease;
 }
 @keyframes fadeIn {
     0% {

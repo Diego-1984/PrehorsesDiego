@@ -10,3 +10,14 @@ class Message(db.Model):
     user_owner_id = Column(Integer, ForeignKey('user.id'))
     user_interested_id = Column(Integer, ForeignKey('user.id'))
     date_time = db.Column(db.DateTime)
+
+    def serialize(self):
+        return {
+            "id" : self.id,
+            "message" : self.message, 
+            "horseId" : self.horse_id,
+            "userOwnerId" : self.user_owner_id,
+            "userInterestedId" : self.user_interested_id,
+            "dateTime" : self.date_time
+        }
+        

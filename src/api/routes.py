@@ -351,3 +351,11 @@ def get_messages(horse_id, user_owner_id, user_interested_id):
         print_message_user_interested_id = get_messages_user_interested_id(user_interested_id, horse_id)
         return jsonify(print_message_user_interested_id), 200
 
+@api.route("/message", methods=['POST'])
+def post_message():
+    message = request.json.get('message')
+    horse_id = request.json.get('horseId')
+    user_owner_id = request.json.get('userOwnerId')
+    user_interested_id = request.json.get('userInterestedId')
+    date_time = request.json.get('dateTime')
+    
