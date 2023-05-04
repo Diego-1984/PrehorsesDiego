@@ -340,8 +340,10 @@ def get_messages_user_interested_id(user_interested_id, horse_id):
 @jwt_required()
 def get_messages(horse_id):
     current_user_id = get_jwt_identity()
-    messages = Message.query.filter_by(horse_id = horse_id, user_interested_id = current_user_id).all()
-    return jsonify([message.serialize() for message in messages]), 200
+    
+    messages = MessageStructure.get_all_messages()
+    return messages, 200
+    
 
 @api.route("/message", methods=['POST'])
 @jwt_required()
@@ -354,9 +356,6 @@ def post_message():
     user_interested_id = current_user_id
     date_time = request.json.get('dateTime')
     
-    message = Message( message = message, horse_id = horse_id, 
-    user_owner_id = user_owner_id, user_interested_id = user_interested_id,
-    date_time = date_time)
-    db.session.add(message)
-    db.session.commit()
-    return jsonify(message.serialize()), 200
+    message = MessageStructure.post_one_message(message, horse_id, user_owner_id,
+    user_interested_id, date_time)
+    return message, 200
