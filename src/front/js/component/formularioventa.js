@@ -84,25 +84,26 @@ const FormularioVenta = () => {
                     </div>
                 </div>
                 <div className="row mt-2">
-                    <div className="col-4 mt-2"><strong>Sube tus fotos, un vídeo y la carta</strong>
+                    <div className="col-4 mt-2">
                         <div className="input-group input-group-sm mb-3 mt-2">
-                            <span className="input-group-text" id="inputGroup-sizing-sm">Sube tus fotos</span>
-                            <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder= "tus archivos en JPEG" onChange={()=>{}}/>
+                            <label>Sube tus fotos</label>                            
+                            <input type="file" id="formImages" name="avatar" accept="image/jpeg, image/jpg" multiple></input>
+                        </div>
+
+                        <div className="input-group input-group-sm mb-3 mt-2">
+                        <label>Sube tu video</label>                              
+                            <input type="file" id="formImages" name="avatar" accept="image/jpeg, image/jpg" multiple></input>
                         </div>
                         <div className="input-group input-group-sm mb-3 mt-2">
-                            <span className="input-group-text" id="inputGroup-sizing-sm">Sube tu video</span>
-                            <input type="text" className="form-control" aria-label="Sizing example input" placeholder= "tu archivo en MP4"aria-describedby="inputGroup-sizing-sm" onChange={()=>{}}/>
-                        </div>
-                        <div className="input-group input-group-sm mb-3 mt-2">
-                            <span className="input-group-text" id="inputGroup-sizing-sm">Sube la carta</span>
-                            <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"placeholder= "tu archivo en PDF" onChange={()=>{}}/>
+                        <label>Sube la carta</label>                             
+                            <input type="file" id="formImages" name="avatar" accept="document/pdf," multiple></input>
                         </div>
                     </div>
                     <div className="col-8 mt-2"><strong>Descripción</strong><textarea className="form-control mt-2" id="message" name="message" placeholder="Describe aquí tu caballo"
                             rows="8"></textarea>
                     </div>
                     <div className="invalid-feedback">
-                        Debes añadir la descrippción
+                        Debes añadir la descripción
                     </div>
                 </div>
                 <div className="row mt-2">
