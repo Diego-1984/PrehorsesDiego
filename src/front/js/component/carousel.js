@@ -22,7 +22,7 @@ const Carousel = () =>{
                                     disponibles y poder ofertar con su dueño.
                                 </p>
                                 <Link to="/male">
-                                    <button type="button" class="btn btn-outline-secondary">Ver Caballos Machos</button>
+                                    <button type="button" className="btn">Ver Caballos Machos</button>
                                 </Link>
                             </div>
                         </div>
@@ -42,8 +42,8 @@ const Carousel = () =>{
                                     En esta sección podras descubrir todas las Yeguas
                                     disponibles y poder ofertar con su dueño.
                                 </p>
-                                <Link to="/male">
-                                    <button type="button" class="btn btn-outline-secondary">Ver Caballos Machos</button>
+                                <Link to="/mares">
+                                    <button type="button" className="btn">Ver Yeguas</button>
                                 </Link>
                             </div>
                         </div>
@@ -63,8 +63,8 @@ const Carousel = () =>{
                                     En esta sección podras descubrir todos los caballos castrados
                                     disponibles y poder ofertar con su dueño.
                                 </p>
-                                <Link to="/male">
-                                    <button type="button" class="btn btn-outline-secondary">Ver Caballos Machos</button>
+                                <Link to="/gelding">
+                                    <button type="button" className="btn">Ver Caballos Castrados</button>
                                 </Link>
                             </div>
                         </div>
