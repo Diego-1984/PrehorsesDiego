@@ -1,11 +1,15 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			user: {}
+			user: {},
+			messages: []
 		},
 		actions: {
 			setUser:(user) => {
-				setStore({user:user})
+				setStore({ ...store, user })
+			},
+			setMessages: (messages) => {
+				setStore({ ...store, messages })
 			},
 			loginUser: (user) =>{
 				fetch(
@@ -29,6 +33,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				})
 			  },
+
+			getMessages: async(horseId) => {
+				const response = await fetch(process.env.BACKEND_URL + `/api/message/${horseId}`,{
+					method : "GET",
+					headers: {
+						"Authorization": "Bearer" + localStorage.getItem("token"),
+						"Content-type": "application/json"
+					},
+				})
+				const data = await response.json()
+				return data
+			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
