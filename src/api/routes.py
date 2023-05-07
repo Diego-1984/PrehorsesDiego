@@ -11,6 +11,7 @@ from api.models.horse import Horse
 from api.models.message import Message
 from api.datastructure.userstructure import UserStructure
 from api.datastructure.horsestructure import HorseStructure
+from api.datastructure.ganaderiastructure import GanaderiaStructure
 from flasgger import swag_from
 from api.swagger_definitions import add_user_swag
 
@@ -280,9 +281,6 @@ def get_horse(id):
     get_one_horse = HorseStructure.get_especific_horse(id)
     return get_one_horse,200
 
-
-#falta refactorizar
-
 #lo que ve el vendedor
 
 def get_messages_user_owner_id(user_owner_id, horse_id):
@@ -359,3 +357,40 @@ def post_message():
     message = MessageStructure.post_one_message(message, horse_id, user_owner_id,
     user_interested_id, date_time)
     return message, 200
+
+@api.route('/ganaderia', methods=['POST'])
+def add_ganaderia():
+    """Agregar ganaderia a la lista
+    ---
+    description: Agregar una nueva ganaderia
+    "parameters": [
+        {
+            "name": "body",
+            "in": "body",
+            "required": "true",
+            "type": "object"
+        }
+    ]
+    """
+    nombre = request.json.get('nombre', None)
+    
+    add_ganaderia = GanaderiaStructure.add_ganaderia(nombre)
+
+    return jsonify(add_ganaderia), 200
+
+@api.route('/ganaderia', methods=['GET'])
+def get_ganaderias():
+    """Ver todas las ganaderias
+    ---
+    description: Ver todas las ganaderias
+    "parameters": [
+        {
+            "name": "body",
+            "in": "body",
+            "required": "true",
+            "type": "object"
+        }
+    ]
+    """
+    get_all_ganaderias = GanaderiaStructure.get_all_ganaderias()
+    return jsonify(get_all_ganaderias), 200

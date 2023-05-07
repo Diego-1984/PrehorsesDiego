@@ -1,11 +1,21 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			user: {}
+			user: {},
+			messages: [],
+			ganderia:[]
 		},
 		actions: {
 			setUser:(user) => {
-				setStore({user:user})
+				setStore({ ...store, user })
+			},
+			setMessages: (messages) => {
+				setStore({ ...store, messages })
+			},	
+			
+			setGanaderias: (ganaderias) => {
+					setStore({ ...store, ganaderias })
+				
 			},
 			loginUser: (user) =>{
 				fetch(
@@ -29,6 +39,42 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				})
 			  },
+
+			  addGanaderia: (ganaderia) =>{
+				fetch(
+					process.env.BACKEND_URL + "/api/ganaderia",
+					{
+						method: "POST",
+						headers: {
+							// Authorization: "Bearer" + localStorage.getItem("token"),
+							"Content-type": "application/json"
+						},
+						body: JSON.stringify(ganaderia)
+					}
+				)
+				.then((resp)=> resp.json())
+				.then((data)=>{
+					console.log(data)
+					if (data.token){
+						localStorage.setItem("token", data.token)
+					}else{
+						console.log(data)
+					}
+				})
+			  },
+  
+
+			getMessages: async(horseId) => {
+				const response = await fetch(process.env.BACKEND_URL + `/api/message/${horseId}`,{
+					method : "GET",
+					headers: {
+						"Authorization": "Bearer" + localStorage.getItem("token"),
+						"Content-type": "application/json"
+					},
+				})
+				const data = await response.json()
+				return data
+			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
