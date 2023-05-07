@@ -4,7 +4,7 @@
 
 #carouselDiv{
     background: rgb(246,246,246);
-    background: linear-gradient(0deg, rgba(246,246,246,1) 0%, rgba(187,160,113,1) 51%, rgba(129,97,43,1) 87%, rgba(75,55,24,1) 95%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(0deg, rgba(246,246,246,1) 0%, rgba(187,160,113,1) 51%, rgba(129,97,43,1) 85%, rgba(52,38,16,1) 100%);
     /* background: rgb(253,194,96);
     background: linear-gradient(0deg, rgba(253,194,96,1) 0%, rgba(208,148,49,1) 85%, rgba(0,0,0,1) 100%); */
 }

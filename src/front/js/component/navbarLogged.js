@@ -26,8 +26,8 @@ export const NavbarLogged = ({userIsLogged, setUserIsLogged}) => {
                        	</span>
                    	</a>
                   	<ul className="dropdown-menu dropdown-menu-end bg-warning">
-                      	<li><Link to="/" className="dropdown-item" style={{ textDecoration: 'none', color: 'black'}}>Ver mis caballos</Link></li>
-                    	<li><Link to="/" className="dropdown-item" style={{ textDecoration: 'none', color: 'black' }}>Publicar un caballo</Link></li>
+                      	<li><Link to="/private/myhorses" className="dropdown-item" style={{ textDecoration: 'none', color: 'black'}}>Ver mis caballos</Link></li>
+                    	<li><Link to="/private/addhorse" className="dropdown-item" style={{ textDecoration: 'none', color: 'black' }}>Publicar un caballo</Link></li>
                         <li><Link to="/private/modifyuser" className="dropdown-item" style={{ textDecoration: 'none', color: 'black'}}>Modificar mis datos de usuario</Link></li>
                         <li><hr className="dropdown-divider"/></li>
                     	<li><a className="dropdown-item" href="#" onClick = {()=>{logOut(userIsLogged)}}>Cerrar sesión</a></li>
