@@ -18,8 +18,8 @@ const Carousel = () =>{
                             <div>
                                 <h3 className="text-white fs-8">Caballos Macho</h3>
                                 <p>
-                                    En esta sección podras descubrir todos los caballos macho
-                                    disponibles y poder ofertar con su dueño.
+                                    En esta sección podrá descubrir todos los caballos macho
+                                    disponibles y contactar con su dueño.
                                 </p>
                                 <Link to="/male">
                                     <button type="button" className="btn">Ver Caballos Machos</button>
@@ -39,8 +39,8 @@ const Carousel = () =>{
                             <div>
                                 <h3 className="text-white fs-8">Hembras</h3>
                                 <p>
-                                    En esta sección podras descubrir todas las Yeguas
-                                    disponibles y poder ofertar con su dueño.
+                                    En esta sección podrá descubrir todas las yeguas
+                                    disponibles y contactar con su dueño.
                                 </p>
                                 <Link to="/mares">
                                     <button type="button" className="btn">Ver Yeguas</button>
@@ -60,8 +60,8 @@ const Carousel = () =>{
                             <div>
                                 <h3 className="text-white fs-8">Caballos Castrados</h3>
                                 <p>
-                                    En esta sección podras descubrir todos los caballos castrados
-                                    disponibles y poder ofertar con su dueño.
+                                    En esta sección podrá descubrir todos los caballos castrados
+                                    disponibles y contactar con su dueño.
                                 </p>
                                 <Link to="/gelding">
                                     <button type="button" className="btn">Ver Caballos Castrados</button>
