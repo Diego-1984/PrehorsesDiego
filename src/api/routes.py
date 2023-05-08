@@ -278,7 +278,9 @@ def get_horse(id):
         }
     ]
     """
-    get_one_horse = HorseStructure.get_especific_horse(id)
+    current_user_id = get_jwt_identity()
+
+    get_one_horse = HorseStructure.get_especific_horse(id, current_user_id)
     return get_one_horse,200
 
 #lo que ve el vendedor
@@ -348,13 +350,13 @@ def get_messages(horse_id):
 def post_message():
     current_user_id = get_jwt_identity()
 
-    message = request.json.get('message')
+    text = request.json.get('text')
     horse_id = request.json.get('horseId')
     user_owner_id = request.json.get('userOwnerId')
     user_interested_id = current_user_id
     date_time = request.json.get('dateTime')
     
-    message = MessageStructure.post_one_message(message, horse_id, user_owner_id,
+    message = MessageStructure.post_one_message(text, horse_id, user_owner_id,
     user_interested_id, date_time)
     return message, 200
 

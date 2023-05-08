@@ -65,9 +65,12 @@ class HorseStructure:
         }
         return response_body
 
-    def get_especific_horse(id):
-        horse = Horse.query.filter_by(id = id).first().serialize()
-        return horse
+    def get_especific_horse(id, current_user_id):
+        horse = Horse.query.filter_by(id = id).first()
+        if horse.user_owner_id == current_user_id:
+            return horse.serialize()
+        else:
+            return horse.serialize_not_owner()
 
     def get_all_horses():
         return [horse.serialize() for horse in Horse.query.all()]

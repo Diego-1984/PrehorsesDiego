@@ -1,9 +1,9 @@
-  
 import os
 from flask_admin import Admin
 from api.models.db import db
 from api.models.user import User
 from api.models.horse import Horse
+from api.models.message import Message
 from api.models.message import Message
 from api.models.ganaderia import Ganaderia
 from flask_admin.contrib.sqla import ModelView
@@ -23,6 +23,7 @@ def setup_admin(app):
     admin.add_view(ModelView(Horse, db.session))
     admin.add_view(ModelView(Message, db.session))
     admin.add_view(ModelView(Ganaderia, db.session))
+    
 
     # You can duplicate that line to add mew models
     # admin.add_view(ModelView(YourModelName, db.session))
