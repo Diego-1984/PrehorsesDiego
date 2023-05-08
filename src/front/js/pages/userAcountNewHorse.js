@@ -5,7 +5,7 @@ import FormularioVenta from "../component/formularioventa";
 export const UserAcountNewHorse = () => {
 
     const colStyle={
-		width: 20 + 'rem',
+		width: 15 + 'rem',
 		height: 33 + 'rem',
 		padding: 0
 	}

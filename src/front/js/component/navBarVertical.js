@@ -4,7 +4,7 @@ const NavbarVertical = () => {
   const navigate = useNavigate();
 
   const buttonStyle= {
-    width: 20 + 'rem', 
+    width: 15 + 'rem', 
     border: 'none', 
     paddingTop: 2 + 'rem', 
     paddingBottom: 2 + 'rem'

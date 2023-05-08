@@ -3,7 +3,7 @@ import NavbarVertical from "../component/navBarVertical";
 
 export const UserAcountMyHorses = () =>{
 	const colStyle={
-		width: 20 + 'rem',
+		width: 15 + 'rem',
 		height: 33 + 'rem',
 		padding: 0
 	}
