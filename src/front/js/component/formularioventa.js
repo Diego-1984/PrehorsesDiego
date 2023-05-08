@@ -3,8 +3,8 @@ import React from "react";
 const FormularioVenta = () => {
 
     return(
-        <div>
-            <div className="row justify-content-center mt-2">
+        <div className="container-fluid">
+            <div className="row justify-content-center mt-2 me-4">
                 <div className="col justify-content-center">
                     <form action="https://cataas.com/cat" method="post">
                         <div className="card ms-5 mb-5">
@@ -102,7 +102,7 @@ const FormularioVenta = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="row">
+                                            <div className="row mt-2">
                                                 <div className="col-4 mt-2">
                                                     <div className="input-group input-group-sm mb-3 mt-2">
                                                         <label>Sube tus fotos</label>                            
@@ -118,7 +118,7 @@ const FormularioVenta = () => {
                                                     </div>
                                                 </div>
                                                 <div className="col-8 mt-2"><strong>Descripción</strong><textarea className="form-control mt-2" id="message" name="message" placeholder="Describe aquí tu caballo"
-                                                        rows="6"></textarea>
+                                                        rows="7"></textarea>
                                                 </div>
                                                 <span className="invalid-feedback">
                                                     Debes añadir la descripción
