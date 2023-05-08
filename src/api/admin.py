@@ -4,7 +4,6 @@ from api.models.db import db
 from api.models.user import User
 from api.models.horse import Horse
 from api.models.message import Message
-from api.models.message import Message
 from api.models.ganaderia import Ganaderia
 from flask_admin.contrib.sqla import ModelView
 from datetime import timedelta

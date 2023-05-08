@@ -1,6 +1,7 @@
 from api.models.db import db
 
 class Ganaderia(db.Model):
+    __tablename__="ganadería"
     id = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(250), nullable=False)
     
@@ -12,3 +13,5 @@ class Ganaderia(db.Model):
             "id": self.id,
             "nombre": self.nombre,            
         }
+   
+        

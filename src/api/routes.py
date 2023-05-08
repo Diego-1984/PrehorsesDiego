@@ -283,59 +283,6 @@ def get_horse(id):
     get_one_horse = HorseStructure.get_especific_horse(id, current_user_id)
     return get_one_horse,200
 
-#lo que ve el vendedor
-
-def get_messages_user_owner_id(user_owner_id, horse_id):
-    #mensajes del propietario del caballo 
-    messages = [
-        {
-            'id': 1,
-            'from': 'Diego',
-            'to': 'Ale',
-            'message': 'Hola, ¿está disponible el caballo para la venta?',
-            'date': '2023-04-29 10:30:00'
-        },
-        {
-            'id': 2,
-            'from': 'Ale',
-            'to': 'Diego',
-            'message': 'Sí, está disponible. ¿Te gustaría venir a verlo?',
-            'date': '2023-04-29 11:15:00'
-        }
-    ]
-    return messages
-
-
-    #lo que ve el interesado
-def get_messages_user_interested_id(user_interested_id, horse_id):
-    # mensajes del interesado en el caballo
-    messages = [
-        {
-            'id': 1,
-            'from': 'Diego',
-            'to': 'Ale',
-            'message': 'Hola, ¿está disponible el caballo para la venta?',
-            'date': '2023-04-29 10:30:00'
-        },
-        {
-            'id': 2,
-            'from': 'Ale',
-            'to': 'Diego',
-            'message': 'Sí, está disponible. ¿Te gustaría venir a verlo?',
-            'date': '2023-04-29 11:15:00'
-        },
-        {
-            'id': 3,
-            'from': 'Diego',
-            'to': 'Ale',
-            'message': 'Sí, me gustaría verlo. ¿Cuándo podríamos encontrarnos?',
-            'date': '2023-04-29 13:45:00'
-        }
-    ]
-    return messages
-
-    #esto si es de routes.py
-
 @api.route("/message/<int:horse_id>", methods=['GET'])
 @jwt_required()
 def get_messages(horse_id):
@@ -361,6 +308,7 @@ def post_message():
     return message, 200
 
 @api.route('/ganaderia', methods=['POST'])
+@jwt_required
 def add_ganaderia():
     """Agregar ganaderia a la lista
     ---
@@ -374,9 +322,19 @@ def add_ganaderia():
         }
     ]
     """
-    nombre = request.json.get('nombre', None)
+    current_user_id = get_jwt_identity()
+    nombre_ganaderia = request.json.get('nombre', None)
     
-    add_ganaderia = GanaderiaStructure.add_ganaderia(nombre)
+   
+    is_ganaderia_duplicated = GanaderiaStructure.verify_ganaderia(nombre_ganaderia)
+
+    if(is_ganaderia_duplicated != None):
+        response_body={
+            "message": "Esta ganaderia ya existe"
+        }
+        return jsonify(response_body), 409
+
+    add_ganaderia = GanaderiaStructure.add_ganaderia(nombre_ganaderia)
 
     return jsonify(add_ganaderia), 200
 

@@ -3,7 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			user: {},
 			messages: [],
-			ganderia:[]
+			ganaderia:[]
 		},
 		actions: {
 			setUser:(user) => {
@@ -13,8 +13,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ ...store, messages })
 			},	
 			
-			setGanaderias: (ganaderias) => {
-					setStore({ ...store, ganaderias })
+			setGanaderia: (ganaderia) => {
+					setStore({ganaderia:ganaderia})
 				
 			},
 			loginUser: (user) =>{
@@ -40,28 +40,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 			  },
 
-			  addGanaderia: (ganaderia) =>{
-				fetch(
-					process.env.BACKEND_URL + "/api/ganaderia",
-					{
-						method: "POST",
-						headers: {
-							// Authorization: "Bearer" + localStorage.getItem("token"),
-							"Content-type": "application/json"
-						},
-						body: JSON.stringify(ganaderia)
-					}
-				)
-				.then((resp)=> resp.json())
-				.then((data)=>{
-					console.log(data)
-					if (data.token){
-						localStorage.setItem("token", data.token)
-					}else{
-						console.log(data)
-					}
+			  getGanaderia: async() => {
+				const response = await fetch(process.env.BACKEND_URL + "/api/ganaderia",{
+					method : "GET",
+					headers: {
+						
+						"Content-type": "application/json"
+					},
 				})
-			  },
+				const data = await response.json()
+				getActions().setGanaderia(data)
+			},
   
 
 			getMessages: async(horseId) => {
