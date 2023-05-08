@@ -51,25 +51,25 @@ const getState = ({ getStore, getActions, setStore }) => {
         return data;
       },
 
-      getUser: async () => {
-        const response = await fetch(process.env.BACKEND_URL + "api/user", {
-          method: "GET",
-          headers: {
-            //"Authorization": "Bearer" + localStorage.getItem("token"),
-            "Content-type": "application/json",
-          },
-        });
-        const data = await response.json();
-        return data;
-      },
+      //getUser: async () => {
+      //  const response = await fetch(process.env.BACKEND_URL + "api/user", {
+      //    method: "GET",
+      //    headers: {
+      //      //"Authorization": "Bearer" + localStorage.getItem("token"),
+      //      "Content-type": "application/json",
+      //    },
+      //  });
+      //  const data = await response.json();
+      //  return data;
+      //},
 
-      editUser: async () => {
+      editUser: async (userId) => {
         const response = await fetch(
           process.env.BACKEND_URL + `api/user/${userId}`,
           {
             method: "PUT",
             headers: {
-              Authorization: "Bearer" + localStorage.getItem("token"),
+              "Authorization": "Bearer" + localStorage.getItem("token"),
               "Content-type": "application/json",
             },
           }
@@ -78,26 +78,25 @@ const getState = ({ getStore, getActions, setStore }) => {
         return data;
       },
 
-      deleteUser: async (userId) => {
-        const response = await fetch(
-          process.env.BACKEND_URL + `api/user/delete/${userId}`,
-          {
-            method: "DELETE",
-            headers: {
-              Autorization: "Bearer" + localStorage.getItem("token"),
-              "Content-type": "aplication/json",
-            },
-          }
-        );
-        const data = await response.json();
-        return data;
-      },
+      //deleteUser: async (userId) => {
+      //  const response = await fetch(
+      //    process.env.BACKEND_URL + `api/user/delete/${userId}`,
+      //    {
+      //      method: "DELETE",
+      //      headers: {
+      //        Autorization: "Bearer" + localStorage.getItem("token"),
+      //        "Content-type": "aplication/json",
+      //      },
+      //    }
+      //  );
+      //  const data = await response.json();
+      //  return data;
+      //},
 
       getHorse: async () => {
         const response = await fetch(process.env.BACKEN_URL + "/api/horse", {
           method: "GET",
           headers: {
-            Authorization: "Bearer" + localStorage.getItem("token"),
             "Content-type": "application/json",
           },
         });
@@ -109,7 +108,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         const response = await fetch(process.env.BACKEND_URL + "api/horse", {
           method: "POST",
           headers: {
-            Authorization: "Bearer" + localStorage.getItem("token"),
+            "Authorization": "Bearer" + localStorage.getItem("token"),
             "Content-type": "application/json",
           },
         });
@@ -119,11 +118,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       editHorse: async (horseId) => {
         const response = await fetch(
-          process.env.BACKEND_URL + "api/horse/${horseId}",
+          process.env.BACKEND_URL + `api/horse/${horseId}`,
           {
             method: "PUT",
             headers: {
-              Authorization: "Bearer" + localStorage.getItem("token"),
+              "Authorization": "Bearer" + localStorage.getItem("token"),
               "Content-type": "application/json",
             },
           }
@@ -132,13 +131,13 @@ const getState = ({ getStore, getActions, setStore }) => {
         return data;
       },
 
-      detleteHorse: async () => {
+      detleteHorse: async (horseId) => {
         const response = await fetch(
-          procsess.env.BACKEND_URL + "api/horse/${horseId}",
+          procsess.env.BACKEND_URL + `api/horse/${horseId}`,
           {
             method: "DELETE",
             headers: {
-              Authorization: "Bearer" + localStorage.getItem("token"),
+              "Authorization": "Bearer" + localStorage.getItem("token"),
               "Content-type": "application/json",
             },
           }
@@ -147,13 +146,12 @@ const getState = ({ getStore, getActions, setStore }) => {
         return data;
       },
 
-      getOneHorse: async () => {
+      getOneHorse: async (horseId) => {
         const response = await fetch(
-          process.env.BACKEN_URL + "/api/horse/${horseId}",
+          process.env.BACKEN_URL + `/api/horse/${horseId}`,
           {
             method: "GET",
             headers: {
-              Authorization: "Bearer" + localStorage.getItem("token"),
               "Content-type": "application/json",
             },
           }
