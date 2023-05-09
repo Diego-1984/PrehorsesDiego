@@ -12,9 +12,9 @@ export const Home = () => {
  
    return (
     <div  className="text-center">
-      <div id="fadein" className="bg bg-black">
-        <div className="container-fluid">
-          <div className="row d-flex">
+      <div  className="bg bg-black">
+        <div  className="container-fluid">
+          <div id="fadein" className="row d-flex">
             <div className="col justify-content-center pt-5 ps-5">
             <img  src={logo} style={{width: 25+'rem', margin:0.3+'rem'}}/>
               

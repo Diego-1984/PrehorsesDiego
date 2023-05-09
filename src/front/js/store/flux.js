@@ -4,6 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       user: {},
       messages: [],
       horse: {},
+      ganaderia:[]
     },
     actions: {
       setUser: (user) => {
@@ -15,6 +16,24 @@ const getState = ({ getStore, getActions, setStore }) => {
       setHorse: (horse) => {
         setStore({ ...store, horse });
       },
+     
+      setGanaderia: (ganaderia) => {
+				setStore({...getStore(), ganaderia})
+					
+				
+			},
+      getGanaderia: async() => {
+				const response = await fetch(process.env.BACKEND_URL + "/api/ganaderia",{
+					method : "GET",
+					headers: {
+						
+						"Content-type": "application/json"
+					},
+				})
+				const data = await response.json()
+				getActions().setGanaderia(data)
+				
+			},
 
       loginUser: (user) => {
         fetch(process.env.BACKEND_URL + "/api/user/login/", {

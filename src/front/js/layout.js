@@ -14,6 +14,7 @@ import { UserAcountMyHorses } from "./pages/userAcountMyHorses";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
+import { Mensajes } from "./pages/mensajes";
 
 //create your first component
 const Layout = () => {
@@ -36,9 +37,11 @@ const Layout = () => {
                         <Route element={<Male />} path="/male" />
                         <Route element={<Mares />} path="/mares" />
                         <Route element={<Gelding />} path="/gelding" />
+                        <Route element={<Mensajes />} path = "/private/mensajes" />
                         <Route element={<UserAcountModifyUser />} path="/private/modifyuser" />
                         <Route element={<UserAcountNewHorse />} path="/private/addhorse" />
                         <Route element={<UserAcountMyHorses />} path="/private/myhorses" />
+                        <Route element={<Mensajes />} path="/private/mensajes" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                 </ScrollToTop>

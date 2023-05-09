@@ -3,10 +3,10 @@ from api.models.db import db
 from api.models.message import Message
 
 class MessageStructure:
-    def post_one_message(message, horse_id, user_owner_id, 
+    def post_one_message(text, horse_id, user_owner_id, 
     user_interested_id, date_time):
 
-        message = Message( message = message, horse_id = horse_id, 
+        message = Message( text = text, horse_id = horse_id, 
         user_owner_id = user_owner_id, user_interested_id = user_interested_id,
         date_time = date_time)
 

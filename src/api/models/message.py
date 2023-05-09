@@ -5,7 +5,7 @@ from sqlalchemy.orm import relationship
 class Message(db.Model):
     __tablename__ = 'message'
     id = Column(Integer, primary_key=True)
-    message = Column(String(250))
+    text = Column(String(250))
     horse_id = Column(Integer, ForeignKey('horse.id'))
     user_owner_id = Column(Integer, ForeignKey('user.id'))
     user_interested_id = Column(Integer, ForeignKey('user.id'))
@@ -14,7 +14,7 @@ class Message(db.Model):
     def serialize(self):
         return {
             "id" : self.id,
-            "message" : self.message, 
+            "text" : self.text, 
             "horseId" : self.horse_id,
             "userOwnerId" : self.user_owner_id,
             "userInterestedId" : self.user_interested_id,
