@@ -8,9 +8,9 @@ export const Login = ({userIsLogged, setUserIsLogged}) => {
 	const { store, actions } = useContext(Context);
 
 	const logIn = (userIsLogged) =>{
-		console.log('change to true')
-        setUserIsLogged(userIsLogged = true)
-    }
+	console.log('change to true')
+    setUserIsLogged(userIsLogged = true)
+   }
 
 	return (
 		<>
@@ -35,7 +35,7 @@ export const Login = ({userIsLogged, setUserIsLogged}) => {
 						placeholder="Contraseña"
 						className="input-field"
 						onChange={(e)=>{setUser({...user, password:e.target.value})}}/>
-						<input type="submit"
+						<input 
 						value="Log in" className="submit-btn"
 						onClick={()=>{actions.loginUser(user); logIn(userIsLogged)}}/>
 					</form>

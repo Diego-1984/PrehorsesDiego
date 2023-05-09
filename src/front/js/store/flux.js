@@ -18,27 +18,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 					
 				
 			},
-			loginUser: (user) =>{
-				fetch(
-					process.env.BACKEND_URL + "/api/user/login/",
+			loginUser:async  (user) =>{
+				const resp = await fetch(process.env.BACKEND_URL + "/api/user/login/",
 					{
 						method: "POST",
-						headers: {
-							// Authorization: "Bearer" + localStorage.getItem("token"),
-							"Content-type": "application/json"
-						},
+						headers: {"Content-type": "application/json"},
 						body: JSON.stringify(user)
 					}
 				)
-				.then((resp)=> resp.json())
-				.then((data)=>{
+				const data = await resp.json()
+				console.log(data)
+				if (data.token){
+					localStorage.setItem("token", data.token);
+					getActions().setUser(data);
 					console.log(data)
-					if (data.token){
-						localStorage.setItem("token", data.token)
-					}else{
-						console.log(data)
-					}
-				})
+				}else{
+					console.log(data)
+				}
+				
 			  },
 
 			  getGanaderia: async() => {
