@@ -8,7 +8,7 @@ export const Footer = () => (
       className="mt-3 d-flex flex-wrap justify-content-between align-items-center"
     >
       <p className="Container m-4" id="Text">
-        @ Copyright PREHorses
+      © Copyright PRE Horses
       </p>
       <div className="col-">
         <img src={logo} style={{ width: 6 + "rem", margin: 0.3 + "rem" }} />

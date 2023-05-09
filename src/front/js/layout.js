@@ -41,6 +41,7 @@ const Layout = () => {
                         <Route element={<UserAcountModifyUser />} path="/private/modifyuser" />
                         <Route element={<UserAcountNewHorse />} path="/private/addhorse" />
                         <Route element={<UserAcountMyHorses />} path="/private/myhorses" />
+                        <Route element={<Mensajes />} path="/private/mensajes" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                 </ScrollToTop>

@@ -16,7 +16,7 @@ body{
 }
 
 #fadein {
-    animation: fadeIn 3s ease;
+    animation: fadeIn 10s ease;
 }
 @keyframes fadeIn {
     0% {
