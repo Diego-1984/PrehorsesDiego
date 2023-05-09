@@ -7,14 +7,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			setUser:(user) => {
-				setStore({ ...store, user })
+				setStore({ ...getStore(), user })
 			},
 			setMessages: (messages) => {
-				setStore({ ...store, messages })
+				setStore({ ...getStore(), messages })
 			},	
 			
 			setGanaderia: (ganaderia) => {
-					setStore({ganaderia:ganaderia})
+					setStore({...getStore(), ganaderia})
+					
 				
 			},
 			loginUser: (user) =>{
@@ -50,6 +51,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 				const data = await response.json()
 				getActions().setGanaderia(data)
+				
 			},
   
 
