@@ -2,7 +2,8 @@
     General Styles used on every website (Don't Repeat Yourself)
 */
 body{
-    background-color:  rgba(246,246,246,1);
+    background: rgb(246,246,246);
+    background: linear-gradient(0deg, rgba(246,246,246,1) 0%, rgba(187,160,113,1) 51%, rgba(129,97,43,1) 85%, rgba(52,38,16,1) 100%);
     font-family: 'Lora', serif;
 }
 
@@ -53,9 +54,9 @@ a:hover{
 
 .container1 .box{
     position: relative;
-    width: 600px;
+    width: 500px;
     height: 400px;
-    margin: 20px;
+    margin: 10px;
     transform-style: preserve-3d;
     perspective: 1000px;
     cursor: pointer;
@@ -95,7 +96,7 @@ a:hover{
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgb(237, 236, 221);
+    background: rgb(0, 0, 0);
     backface-visibility: hidden;
     transform-style: preserve-3d;
     transform: rotateY(180deg);
@@ -108,7 +109,7 @@ a:hover{
 .container1 .box .body .content div{
     transform-style: preserve-3d;
     padding: 80px;
-    background: linear-gradient(45deg, #e8d49f,#bfb135);
+    background: linear-gradient(45deg, #dbdada,#f8eeda);
     transform: translateZ(100px);
 }
 
@@ -116,13 +117,18 @@ a:hover{
     letter-spacing: 1px;
 }
 
+.container1 .box .body .content div p{
+    font-size: small;
+}
+
 .container1 .box .body .content .btn{
-    background-color: #fcd86e;
+    background-color: transparent;
+    border-color: black;
     color: black;
 }
 
 .container1 .box .body .content .btn:hover{
-    background-color: #a4780f;
+    background-color: #010101;
     color: white;
 }
 

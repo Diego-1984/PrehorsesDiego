@@ -8,20 +8,19 @@ const getState = ({ getStore, getActions, setStore }) => {
     },
     actions: {
       setUser: (user) => {
-        setStore({ ...store, user });
+        setStore({ ...getStore(), user });
       },
       setMessages: (messages) => {
-        setStore({ ...store, messages });
+        setStore({ ...getStore(), messages });
       },
       setHorse: (horse) => {
-        setStore({ ...store, horse });
+        setStore({ ...getStore(), horse });
       },
      
       setGanaderia: (ganaderia) => {
 				setStore({...getStore(), ganaderia})
-					
-				
 			},
+      
       getGanaderia: async() => {
 				const response = await fetch(process.env.BACKEND_URL + "/api/ganaderia",{
 					method : "GET",
