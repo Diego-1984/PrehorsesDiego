@@ -1,6 +1,6 @@
 import React from "react";
 
-const CardSimple = () => {
+const CardSimple = ({item}) => {
   return (
     <>
       <div className="container p-5">
@@ -13,14 +13,14 @@ const CardSimple = () => {
           <div className="card-body bg-black border border-warning">
             <div className="row">
               <h7 className="card-title  d-flex justify-content-start col-6 text-white p-1 ">
-                Nombre
+                {item.nombre}
               </h7>
               <h9 className="card-title d-flex justify-content-center col-6 text-white p-1">
-                Fecha
+                {item.fecha_nacimiento}
               </h9>
             </div>
             <p className="card-text text-white"></p>
-            <p className="card-text text-white ">Ganaderia</p>
+            <p className="card-text text-white ">{item.ganaderia}</p>
             <a href="#" className="btn btn-outline-warning">
               Más Información
             </a>

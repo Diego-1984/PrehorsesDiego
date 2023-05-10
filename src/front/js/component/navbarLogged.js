@@ -19,6 +19,9 @@ export const NavbarLogged = ({userIsLogged, setUserIsLogged}) => {
 				<img src={logo} style={{width: 8+'rem', margin:0.3+'rem'}}/>
 			</Link>
 			<div className="ml-auto bg-black">
+				<Link to="/private/addhorse" className="bg-black me-5">
+					<button className="btn btn-outline-warning">Publica tu caballo</button>
+				</Link>
             	<li className="nav-item dropdown btn-group bg-black">
                 	<a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                        	<span id="account" className="material-symbols-outlined">

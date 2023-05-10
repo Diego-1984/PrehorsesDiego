@@ -1,11 +1,13 @@
 import React, { useState, useContext} from "react";
 import "../../styles/login.css"
 import { Context } from "../store/appContext";
+import { useNavigate } from "react-router-dom";
 
 export const Login = ({userIsLogged, setUserIsLogged}) => {
 
 	const [user, setUser] = useState({})
 	const { store, actions } = useContext(Context);
+	const navigate = useNavigate();
 
 	const logIn = (userIsLogged) =>{
 	console.log('change to true')
@@ -35,9 +37,9 @@ export const Login = ({userIsLogged, setUserIsLogged}) => {
 						placeholder="Contraseña"
 						className="input-field"
 						onChange={(e)=>{setUser({...user, password:e.target.value})}}/>
-						<input 
+						<input id="loginButton"
 						value="Log in" className="submit-btn"
-						onClick={()=>{actions.loginUser(user); logIn(userIsLogged)}}/>
+						onClick={()=>{actions.loginUser(user); logIn(userIsLogged); navigate("/")}}/>
 					</form>
 				</div>
 				<div className="signup">
