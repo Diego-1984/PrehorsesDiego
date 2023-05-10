@@ -116,6 +116,10 @@ body{
     text-transform: uppercase;
     outline: none;
 }
+
+#loginButton{
+    text-align: center;
+}
 .login .submit-btn{
     background-image: linear-gradient(135deg, #d6aa09 30%, #f5ec85 90%);
 }

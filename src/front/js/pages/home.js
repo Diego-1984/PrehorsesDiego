@@ -9,7 +9,7 @@ import {Footer} from ".//../component/footer"
 
 export const Home = () => {
    const { store, actions } = useContext(Context);
- 
+  
    return (
     <div  className="text-center">
       <div  className="bg bg-black">
@@ -54,11 +54,23 @@ export const Home = () => {
 					</div>
 				</div>
 			</div>
-			<div id="carouselDiv" className="pt-3">
-				<h1 className="mt-5 pt-5 text-warning">Escoja su sección entre las siguientes opciones:</h1>
+			<div id="carouselDiv" className="pt-3 pb-5">
+				<h3 className="pt-5 pb-2">CABALLOS PURA RAZA ESPAÑOLA PARA COMPRAR</h3>
+        <p>Disponemos de gran cantidad de sementales, yeguas y castrados puestos a la venta por nuestros usuarios. Escoja a qué sección quiere dirigrise:</p>
 			  <div className="d-flex p-5 justify-content-center">
 				  <Carousel />
 			  </div>
+      </div>
+      <div id="sellHorse" className="pt-5 pb-5">
+        <h3 className="pt-5 pb-2 text-white">¿QUIERE VENDER SU CABALLO?</h3>
+        <p className="text-white">Si quiere vender su caballo también puede hacerlo. Regístrese en nuestra web y publique su anuncio.</p>
+        <div className="p-2 pb-5">
+          <Link to="/login">
+            <button type="button" className="btn btn-outline-light btn-lg">
+              Publicar caballo
+            </button>
+          </Link>
+        </div>
       </div>
       <Footer />
 		</div>

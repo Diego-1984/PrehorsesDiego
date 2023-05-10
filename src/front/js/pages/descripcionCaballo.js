@@ -1,9 +1,24 @@
-import React from "react";
-import { Navbar } from "./navbar";
-const CardAmpliada = () => {
+import React, {useContext, useState, useEffect} from "react";
+import { Navbar } from "../component/navbar";
+import { Context } from "../store/appContext";
+import {useParams } from "react-router-dom";
+
+const DescripcionCaballo = () => {
+
+  const params = useParams();
+	const {id} = params;
+	const { store } = useContext(Context);
+	const [actualPage, setActualPage] = useState();
+
+	useEffect(()=>{
+		if(store.horse == 0) return;
+		const actualInfo = store.horse.find((item)=>item.id == id);
+		console.log(actualInfo);
+		setActualPage(actualInfo);
+	}, [params])
+
   return (
     <>
-      <Navbar />
       <div className="container bg-black">
         <div className="card mb-3 border-0" style={{ maxwidth: 540 }}>
           <div className="row g-0">
@@ -17,14 +32,10 @@ const CardAmpliada = () => {
             <div className="col-md-5 bg-black">
               <div className="card-body bg-black">
                 <h5 className="card-title text-white d-flex justify-content-center">
-                  Descripción
+                  Descripcion
                 </h5>
                 <p className="card-text text-white">
-                  Este joven semental lusitano es un caballo con una cabeza
-                  fantástica, y una inmejorable aptitud para el trabajo. Con un
-                  gran temperamento este lusitano nacido en 2019, es un caballo
-                  de confianza y muy agradable montado. Con tres aires
-                  correctos, es llamativo por su equilibrio, ritmo y cadencia.
+                  {actualPage?.descripcion}
                 </p>
                 <div className="Container d-flex justify-content-center">
                   <button type="button" className="btn btn-outline-warning">
@@ -49,13 +60,13 @@ const CardAmpliada = () => {
           </thead>
           <tbody>
             <tr className="Container text-white">
-              <td>6.000</td>
-              <td>Madrid</td>
-              <td>2019</td>
-              <td>Castaño</td>
-              <td>1.66</td>
-              <td>Iniciando Doma</td>
-              <td>La Bellota</td>
+              <td>{actualPage?.precio}</td>
+              <td>{actualPage?.provincia}</td>
+              <td>{actualPage?.año_nacimiento}</td>
+              <td>{actualPage?.capa}</td>
+              <td>{actualPage?.alzada}</td>
+              <td>{actualPage?.nivel_doma}</td>
+              <td>{actualPage?.ganaderia}</td>
             </tr>
           </tbody>
         </table>
@@ -64,4 +75,4 @@ const CardAmpliada = () => {
   );
 };
 
-export default CardAmpliada;
+export default DescripcionCaballo;

@@ -3,25 +3,24 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       user: {},
       messages: [],
-      horse: {},
+      horse: [],
       ganaderia:[]
     },
     actions: {
       setUser: (user) => {
-        setStore({ ...store, user });
+        setStore({ ...getStore(), user });
       },
       setMessages: (messages) => {
-        setStore({ ...store, messages });
+        setStore({ ...getStore(), messages });
       },
       setHorse: (horse) => {
-        setStore({ ...store, horse });
+        setStore({ ...getStore(), horse });
       },
      
       setGanaderia: (ganaderia) => {
 				setStore({...getStore(), ganaderia})
-					
-				
 			},
+      
       getGanaderia: async() => {
 				const response = await fetch(process.env.BACKEND_URL + "/api/ganaderia",{
 					method : "GET",
@@ -113,14 +112,14 @@ const getState = ({ getStore, getActions, setStore }) => {
       //},
 
       getHorse: async () => {
-        const response = await fetch(process.env.BACKEN_URL + "/api/horse", {
-          method: "GET",
-          headers: {
+        const response = await fetch(process.env.BACKEND_URL + "/api/horse",{
+					method : "GET",
+					headers: {
             "Content-type": "application/json",
           },
-        });
-        const data = await response.json();
-        return data;
+				})
+				const data = await response.json()
+				getActions().setHorse(data)
       },
 
       addHorse: async () => {
@@ -132,7 +131,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           },
         });
         const data = await response.json();
-        return data;
+        getActions().setHorse(data)
       },
 
       editHorse: async (horseId) => {
