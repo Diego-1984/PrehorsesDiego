@@ -1,87 +1,37 @@
-import React, { useState } from 'react';
+import React from "react";
 
-const Filtrarpor = () => {
-  const [mostrarInputs, setMostrarInputs] = useState(false);
-
-  const handleClick = () => {
-    setMostrarInputs(!mostrarInputs);
-  };
-
-  return (
-    <>
-    <div>       
-    <button className="btn btn-primary" onClick={handleClick}>
-        {mostrarInputs ? 'Mostrar filtros' : 'Ocultar filtros'}
-    </button>
-       
-      <div class="col-md-4">
-                <label for="validationCustom04" class="form-label"><strong>Filtra por ganadería</strong></label>
-                    <select class="form-select" id="validationCustom04" required>
-                        <option selected disabled value="">Elige ganadería</option>
-                        <option> Ganadería X</option>
-                    
-                    </select>                
-            </div>
-            
-            <div class="col-md-2">
-                <label for="validationCustom04" class="form-label"><strong>Filtra por Precio (€)</strong></label>
-                <select class="form-select" id="validationCustom04" required>
-                    <option selected disabled value=""></option>
-                    <option>hasta 2000</option>
-                    <option>hasta 4000</option>
-                    <option>hasta 6000</option>
-                    <option>hasta 10000</option>
-                    <option>hasta 150000</option>
-                    <option>hasta 250000</option>
-                    <option>más de 25000</option>
+export const Filtrarpor =()=>{
+    return(
+        <>
+        <p>
+  <a className="btn btn-outline-warning mx-3 my-3" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    <span className="material-symbols-outlined p-1">
+<strong>tune</strong>
+</span>
+  </a>
+  
+</p>
+<div className="collapse" id="collapseExample">
+  <div className="row mx-3">
+    <div className="col-2">
+            <label for="validationCustom04" className="form-label"><strong>Precio (€)</strong></label>
+            <select className="form-select" id="validationCustom04" required>
+                <option selected disabled value="">€</option>
+                <option>hasta 2000</option>
+                <option>hasta 4000</option>
+                <option>hasta 6000</option>
+                <option>hasta 10000</option>
+                <option>hasta 150000</option>
+                <option>hasta 250000</option>
+                <option>más de 25000</option>
                                                               
-                </select>
+            </select>
                 
-            </div>
-            
-            <div class="col-md-2">
-                <label for="validationCustom04" class="form-label"><strong>Filtra por capa</strong></label>
-                <select class="form-select" id="validationCustom04" required>
-                    <option selected disabled value=""name="ads_coid" id="ads_coid">Elige capa</option>                    
-                        <option value="0">Cualquier Color</option>
-                        <option value="1">Appaloosa</option>
-                        <option value="2">Bayo</option>
-                        <option value="3">Bayo ruano</option>
-                        <option value="4">Negro</option>
-                        <option value="5">Ruano azul</option>
-                        <option value="6">Bayo brillante</option>
-                        <option value="7">Alazán</option>
-                        <option value="8">Manchado</option>
-                        <option value="9">Cremello</option>
-                        <option value="10">Tordo</option>
-                        <option value="11">Bayo oscuro</option>
-                        <option value="12">Leonado</option>
-                        <option value="13">Tordo mosqueado</option>
-                        <option value="14">Gris</option>
-                        <option value="15">Castaño encendido</option>
-                        <option value="16">Palomino</option>
-                        <option value="17">Pío</option>
-                        <option value="18">Tordo vinoso</option>
-                        <option value="19">Pinto</option>
-                        <option value="20">Tordo oscuro</option>
-                        <option value="21">Sabino o Rosillo</option>
-                        <option value="22">Tobiano</option>
-                        <option value="23">Moteado</option>
-                        <option value="24">Castaño oscuro</option>
-                        <option value="25">Castaño</option>
-                        <option value="27">Café con leche</option>
-                        <option value="28">Blanco</option>
-                        <option value="29">Isabelo</option>
-                        <option value="31">Ruano</option>
-                        <option value="32">Overo</option>                                                                                
-                    
-                </select>
-                
-            </div>
+        </div>
 
-            <div class="col-md-2">
-                <label for="validationCustom04" class="form-label"><strong>Filtra por alzada (m)</strong></label>
-                <select class="form-select" id="validationCustom04" required>
+        <div className="col-md-2">
+                <label for="validationCustom04" className="form-label"><strong>Alzada (m)</strong></label>
+                <select className="form-select" id="validationCustom04" required>
                     <option selected disabled value="">Elige alzada</option>
                     <option>1.20 - 1.30</option>
                     <option>1.30 - 1.40</option>
@@ -94,10 +44,9 @@ const Filtrarpor = () => {
                 </select>
                 
             </div>
-
-            <div class="col-md-2">
-                <label for="validationCustom04" class="form-label"><strong>Filtra por provincia</strong></label>
-                <select class="form-select" id="validationCustom04" required>
+            <div className="col-md-2">
+                <label for="validationCustom04" className="form-label"><strong>Provincia</strong></label>
+                <select className="form-select" id="validationCustom04" required>
                     <option selected disabled value="">Elige provincia</option>                    
                     <option value="1">Albacete</option>
                     <option value="2">Alicante</option>
@@ -153,16 +102,17 @@ const Filtrarpor = () => {
                            
                 </select>
             
-                <div class="invalid-feedback">
+                <div className="invalid-feedback">
                     Por favor selecciona una provincia
                 </div>
                 
+                
             </div>
-
-            <div class="col-md-2">
-                <label for="validationCustom04" class="form-label"><strong>Filtra por año</strong></label>
-                <select class="form-select" id="validationCustom04" required>
-                    <option selected disabled value="">Año de nacimiento</option>
+            
+            <div className="col-1">
+                <label for="validationCustom04" className="form-label"><strong>Nacimiento</strong></label>
+                <select className="form-select" id="validationCustom04" required>
+                    <option selected disabled value=""></option>
                     <option>1995</option>
                     <option>1996</option>
                     <option>1997</option>
@@ -195,34 +145,64 @@ const Filtrarpor = () => {
                                                      
                 </select>
             
-                <div class="invalid-feedback">
-                    Por favor selecciona una provincia
+                <div className="invalid-feedback">
+                    Por favor selecciona un año
                 </div>
                 
             </div>
-            <div class="col-md-3">
-                <label for="validationCustom04" class="form-label"><strong>Filtra por nivel de doma</strong></label>
-                <select class="form-select" id="validationCustom04" required>
+            <div className="col-md-3">
+                <label for="validationCustom04" className="form-label"><strong>Nivel de doma</strong></label>
+                <select className="form-select" id="validationCustom04" required>
                     <option selected disabled value="">Elige lo más aproximado</option>
                     <option>Sin doma</option>
                     <option>Paso ,trote, galope</option>
                     <option>Domado</option>
                 </select>
-
-                <div class="invalid-feedback">
-                    Por favor selecciona un nivel
-                </div>
-                <div class="d-flex p-2 justify-content-end  mt-3">
-                    <button class="btn btn-warning" type="submit"><strong>Filtrar</strong></button>
-                </div>
-            </div>                       
-
-        </div>
-                     
-           
+            </div>
+            
+            <div className="col-md-2">
+                <label for="validationCustom04" className="form-label"><strong>Capa</strong></label>
+                <select className="form-select" id="validationCustom04" required>
+                    <option selected disabled value=""name="ads_coid" id="ads_coid">Elige capa</option>                    
+                        <option value="0">Cualquier Color</option>
+                        <option value="1">Appaloosa</option>
+                        <option value="2">Bayo</option>
+                        <option value="3">Bayo ruano</option>
+                        <option value="4">Negro</option>
+                        <option value="5">Ruano azul</option>
+                        <option value="6">Bayo brillante</option>
+                        <option value="7">Alazán</option>
+                        <option value="8">Manchado</option>
+                        <option value="9">Cremello</option>
+                        <option value="10">Tordo</option>
+                        <option value="11">Bayo oscuro</option>
+                        <option value="12">Leonado</option>
+                        <option value="13">Tordo mosqueado</option>
+                        <option value="14">Gris</option>
+                        <option value="15">Castaño encendido</option>
+                        <option value="16">Palomino</option>
+                        <option value="17">Pío</option>
+                        <option value="18">Tordo vinoso</option>
+                        <option value="19">Pinto</option>
+                        <option value="20">Tordo oscuro</option>
+                        <option value="21">Sabino o Rosillo</option>
+                        <option value="22">Tobiano</option>
+                        <option value="23">Moteado</option>
+                        <option value="24">Castaño oscuro</option>
+                        <option value="25">Castaño</option>
+                        <option value="27">Café con leche</option>
+                        <option value="28">Blanco</option>
+                        <option value="29">Isabelo</option>
+                        <option value="31">Ruano</option>
+                        <option value="32">Overo</option>                                                                                                  
+                    
+                </select>
+                
+            </div>              
+    </div>
     
-    </>
-  );
-};
-
-export default Filtrarpor;
+</div>
+        </>
+    )
+}
+export default Filtrarpor
