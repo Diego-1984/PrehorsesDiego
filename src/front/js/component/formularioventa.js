@@ -50,7 +50,7 @@ const FormularioVenta = () => {
                                                     id="validationCustom04" required onChange={(e)=>{setHorse({...horse, sexo:e.target.value})}}>
                                                         <option defaultValue=""></option>
                                                         <option className="p-1" value="macho">Macho</option>
-                                                        <option className="p-1" value="hembra">Hembra</option>
+                                                        <option className="p-1" value="yegua">Yegua</option>
                                                         <option className="p-1" value="castrado">Castrado</option>   
                                                     </select> 
                                                 </div>

@@ -12,7 +12,7 @@ export const Male = () =>{
     return (
         <div>
             Esta es la ruta para machos carajo!
-            {Object.entries(store.horse).map((item, i) => {
+            {store.horse.map((item, i) => {
                     if(item.sexo == 'Macho'){
                         return <CardSimple key={item.id} item={item}/>
                     }

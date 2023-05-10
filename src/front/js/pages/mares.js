@@ -11,7 +11,12 @@ export const Mares = () =>{
 
     return (
         <div>
-            Esta es la ruta para yeguas carajo!
+            Esta es la ruta para machos carajo!
+            {store.horse.map((item, i) => {
+                    if(item.sexo == 'Yegua'){
+                        return <CardSimple key={item.id} item={item}/>
+                    }
+                })}
         </div>
     )
 }
