@@ -1,6 +1,8 @@
 import React, { useState, useContext, useEffect} from "react";
 import { Context } from "../store/appContext";
 import CardSimple from "../component/cardSimple";
+import React, { useState, useContext} from "react";
+import Filtrarpor from "../component/filtrarpor";
 
 export const Male = () =>{
     const { store, actions } = useContext(Context);
@@ -16,6 +18,7 @@ export const Male = () =>{
                         return <div className="col-3"><CardSimple key={item.id} item={item}/></div>
                     }
                 })}
+            <Filtrarpor/>
         </div>
     )
 }
