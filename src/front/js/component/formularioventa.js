@@ -3,6 +3,7 @@ import React, {useState} from "react";
 const FormularioVenta = () => {
     
     const [horse, setHorse] = useState({})
+    
     return(
         <div className="container-fluid">
             <div className="row justify-content-center mt-2 me-4">

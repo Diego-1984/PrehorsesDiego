@@ -10,11 +10,10 @@ export const Male = () =>{
     },[])
 
     return (
-        <div>
-            Esta es la ruta para machos carajo!
+        <div className="row">
             {store.horse.map((item, i) => {
                     if(item.sexo == 'Macho'){
-                        return <CardSimple key={item.id} item={item}/>
+                        return <div className="col-3"><CardSimple key={item.id} item={item}/></div>
                     }
                 })}
         </div>
