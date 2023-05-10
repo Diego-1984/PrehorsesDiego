@@ -1,6 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const CardSimple = ({item}) => {
+
+  const navigate= useNavigate()
+  
   return (
     <>
       <div className="container p-5">
@@ -12,16 +16,16 @@ const CardSimple = ({item}) => {
           />
           <div className="card-body bg-black border border-warning">
             <div className="row">
-              <h7 className="card-title  d-flex justify-content-start col-6 text-white p-1 ">
+              <h5 className="card-title  d-flex justify-content-start col-6 text-white p-1 ">
                 {item.nombre}
-              </h7>
-              <h9 className="card-title d-flex justify-content-center col-6 text-white p-1">
+              </h5>
+              <h6 className="card-title d-flex justify-content-center col-6 text-white p-1">
                 {item.fecha_nacimiento}
-              </h9>
+              </h6>
             </div>
             <p className="card-text text-white"></p>
             <p className="card-text text-white ">{item.ganaderia}</p>
-            <a href="#" className="btn btn-outline-warning">
+            <a href="#" className="btn btn-outline-warning" onClick={()=>{navigate(`/descripcion/${item.id}`)}}>
               Más Información
             </a>
           </div>
