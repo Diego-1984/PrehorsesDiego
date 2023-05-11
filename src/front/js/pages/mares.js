@@ -1,6 +1,7 @@
-import React, { useState, useContext} from "react";
+import React, { useState, useContext, useEffect} from "react";
 import Filtrarpor from "../component/filtrarpor";
 import { Context } from "../store/appContext";
+import CardSimple from "../component/cardSimple";
 
 
 export const Mares = () =>{
@@ -12,7 +13,7 @@ export const Mares = () =>{
 
     return (
         <div>
-            Esta es la ruta para machos carajo!
+            Esta es la ruta para yeguas
             <Filtrarpor/>
             {store.horse.map((item, i) => {
                     if(item.sexo == 'Yegua'){

@@ -11,12 +11,12 @@ export const Male = () => {
   }, []);
 
   return (
-    <div className="row">
+    <div className="row mx-2">
       <Filtrarpor />
       {store.horse.map((item) => {
         if (item.sexo == "Macho") {
           return (
-            <div className="col-3">
+            <div className="col-3 mt-5">
               <CardSimple key={item.id} item={item} />
             </div>
           );

@@ -7,13 +7,23 @@ export const Mensajes = () =>{
 
     return (
         <div>
-            Esta es la ruta para ver los mensajes
-            <button onClick={() => actions.getGanaderia()}>Traete los mensajes</button>
-            <div>{store.ganaderia.map((item)=>{
-                return (
-                    <p>{item.nombre}</p>
-                )
-            })}</div>
+            <div>
+                <button onClick={() => actions.getGanaderia()}>Traete las ganaderias</button>
+                <div>{store.ganaderia.map((item)=>{
+                    return (
+                        <p>{item.nombre}</p>
+                    )
+                })}</div>
+            </div>
+            <div>
+                <button onClick={() => actions.getMessages()}>Traete los mensajes</button>
+                <div>{store.messages.map((item)=>{
+                    return (
+                        <p>{item.text}</p>
+                    )
+                })}</div>
+            </div>
+            
         </div>
     )
 }
