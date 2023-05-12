@@ -50,8 +50,8 @@ const Layout = () => {
             <Route element={<Male />} path="/male" />
             <Route element={<Mares />} path="/mares" />
             <Route element={<Gelding />} path="/gelding" />
-            <Route element={<DescripcionCaballo />} path="/private/descripcion/:id" />
-            <Route element={<Mensajes />} path="/private/mensajes" />
+            <Route element={<DescripcionCaballo />} path="/descripcion/:id" />
+            <Route element={<Mensajes />} path="/mensajes" />
             <Route
               element={<UserAcountModifyUser />}
               path="/private/modifyuser"
