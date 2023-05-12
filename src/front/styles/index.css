@@ -156,7 +156,7 @@ a:hover{
     transition : 0.3s ease-in-out;
   }
   .horseCardContainer .horseCard:hover {
-    height : 280px;
+    height : 350px;
   }
 
   .horseCardContainer .horseCard .horseCardImage {
@@ -164,7 +164,7 @@ a:hover{
     width : 260px;
     height : 260px;
     top : -40%;
-    left: 8px;
+    left: 4px;
     box-shadow : 0 5px 20px rgba(0, 0, 0, 0.2);
     z-index : 1;
   }
@@ -175,10 +175,10 @@ a:hover{
 
   .horseCardContainer .horseCard .horseCardContent {
     position : relative;
-    top : -90px;
+    top : -100px;
     padding : 10px 15px;
     color : #111;
-    text-align : center;
+    text-align : start;
     visibility : hidden;
     opacity : 0;
     transition : 0.3s ease-in-out;

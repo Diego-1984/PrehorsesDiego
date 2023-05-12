@@ -54,19 +54,19 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
       },
 
-      getMessages: async (horseId) => {
+      getMessages: async(horseId) => {
         const response = await fetch(
           process.env.BACKEND_URL + `/api/message/${horseId}`,
           {
             method: "GET",
             headers: {
-              Authorization: "Bearer" + localStorage.getItem("token"),
+              "Authorization": "Bearer " + localStorage.getItem("token"),
               "Content-type": "application/json",
             },
           }
         );
         const data = await response.json();
-        return data;
+        getActions().setMessages(data)
       },
 
       //getUser: async () => {

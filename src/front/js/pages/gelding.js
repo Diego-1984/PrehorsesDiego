@@ -13,17 +13,16 @@ export const Gelding = () =>{
 
     return (
         <div className="row mx-2">
-            Esta es la ruta para castrados
-        <Filtrarpor />
-        {store.horse.map((item) => {
-          if (item.sexo == "Castrado") {
-            return (
-              <div className="col-3 mt-3">
-                <CardSimple key={item.id} item={item} />
-              </div>
-            );
-          }
-        })}
+          <Filtrarpor />
+          {store.horse.map((item) => {
+            if (item.sexo == "Castrado") {
+              return (
+                <div className="col-3 mt-5">
+                  <CardSimple key={item.id} item={item} />
+                </div>
+              );
+            }
+          })}
       </div>
     )
 }

@@ -14,7 +14,7 @@ const CardSimple = ({item}) => {
           </div>
           <div className="horseCardContent">
             <div className="row justify-content-around mb-2">
-              <div className="col">
+              <div className="col me-3">
                 <h5>{item.nombre}</h5>
               </div>
               <div className="col">
@@ -23,6 +23,9 @@ const CardSimple = ({item}) => {
             </div>
             <p>Ganadería: {item.ganaderia}</p>
             <p>Provincia: {item.provincia}</p>
+            <a href="#" className="btn btn-outline-dark mt-3" onClick={()=>{navigate(`/private/descripcion/${item.id}`)}}>
+              Más Información
+            </a>
           </div>
         </div>    
       </div>

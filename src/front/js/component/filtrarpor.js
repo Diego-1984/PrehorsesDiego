@@ -5,7 +5,6 @@ export const Filtrarpor =()=>{
         <>
         <p>
             <a className="btn btn-outline-warning mx-3 my-3" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                Filtros
                 <span className="material-symbols-outlined p-1">
             <strong>tune</strong>
             </span>

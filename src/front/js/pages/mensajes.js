@@ -7,16 +7,16 @@ export const Mensajes = () =>{
 
     return (
         <div>
-            <div>
+            {/* <div>
                 <button onClick={() => actions.getGanaderia()}>Traete las ganaderias</button>
                 <div>{store.ganaderia.map((item)=>{
                     return (
                         <p>{item.nombre}</p>
                     )
                 })}</div>
-            </div>
+            </div> */}
             <div>
-                <button onClick={() => actions.getMessages()}>Traete los mensajes</button>
+                <button onClick={() => actions.getMessages(1)}>Traete los mensajes</button>
                 <div>{store.messages.map((item)=>{
                     return (
                         <p>{item.text}</p>
