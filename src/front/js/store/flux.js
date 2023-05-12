@@ -64,7 +64,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
           }
         );
-        const data = await response.json();
+        const messages = await response.json();
+        setStore({ ...getStore(), messages });
         return data;
       },
 
