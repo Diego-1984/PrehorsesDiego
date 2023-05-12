@@ -8,10 +8,10 @@ export const Mensajes = () =>{
     return (
         <div>
             Esta es la ruta para ver los mensajes
-            <button onClick={() => actions.getGanaderia()}>Traete los mensajes</button>
-            <div>{store.ganaderia.map((item)=>{
+            <button onClick={() => actions.getMessages(1)}>Traete los mensajes</button>
+            <div>{store.messages.map((item)=>{
                 return (
-                    <p>{item.nombre}</p>
+                    <p>{item.text}</p>
                 )
             })}</div>
         </div>

@@ -55,12 +55,11 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       getMessages: async (horseId) => {
-        const response = await fetch(
-          process.env.BACKEND_URL + `/api/message/${horseId}`,
+        const response = await fetch(`${process.env.BACKEND_URL}/api/message/${horseId}`,
           {
             method: "GET",
             headers: {
-              Authorization: "Bearer" + localStorage.getItem("token"),
+              Authorization: "Bearer " + localStorage.getItem("token"),
               "Content-type": "application/json",
             },
           }
