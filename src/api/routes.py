@@ -12,6 +12,7 @@ from api.models.message import Message
 from api.datastructure.userstructure import UserStructure
 from api.datastructure.horsestructure import HorseStructure
 from api.datastructure.ganaderiastructure import GanaderiaStructure
+from api.datastructure.messagestructure import MessageStructure
 from flasgger import swag_from
 from api.swagger_definitions import add_user_swag
 
@@ -288,7 +289,7 @@ def get_horse(id):
 def get_messages(horse_id):
     current_user_id = get_jwt_identity()
     
-    messages = MessageStructure.get_all_messages()
+    messages = MessageStructure.get_all_messages(horse_id, current_user_id)
     return messages, 200
     
 
