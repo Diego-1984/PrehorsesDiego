@@ -23,7 +23,7 @@ const CardSimple = ({item}) => {
             </div>
             <p>Ganadería: {item.ganaderia}</p>
             <p>Provincia: {item.provincia}</p>
-            <a href="#" className="btn btn-outline-dark mt-3" onClick={()=>{navigate(`/private/descripcion/${item.id}`)}}>
+            <a href="#" className="btn btn-outline-dark mt-3" onClick={()=>{navigate(`/descripcion/${item.id}`)}}>
               Más Información
             </a>
           </div>

@@ -25,7 +25,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const response = await fetch(process.env.BACKEND_URL + "/api/ganaderia",{
 					method : "GET",
 					headers: {
-						
 						"Content-type": "application/json"
 					},
 				})
@@ -38,7 +37,6 @@ const getState = ({ getStore, getActions, setStore }) => {
         fetch(process.env.BACKEND_URL + "/api/user/login/", {
           method: "POST",
           headers: {
-            // Authorization: "Bearer" + localStorage.getItem("token"),
             "Content-type": "application/json",
           },
           body: JSON.stringify(user),
@@ -66,50 +64,30 @@ const getState = ({ getStore, getActions, setStore }) => {
         );
         const messages = await response.json();
         setStore({ ...getStore(), messages });
-        return data;
       },
 
-      //getUser: async () => {
-      //  const response = await fetch(process.env.BACKEND_URL + "api/user", {
-      //    method: "GET",
-      //    headers: {
-      //      //"Authorization": "Bearer" + localStorage.getItem("token"),
-      //      "Content-type": "application/json",
-      //    },
-      //  });
-      //  const data = await response.json();
-      //  return data;
-      //},
+      postMessage:async() =>{
+        const response = await fetch(`${process.env.BACKEND_URL}/api/message`,
+        {
 
-      editUser: async (userId) => {
+        })
+      },
+
+      editUser: async(userId, user) => {
         const response = await fetch(
           process.env.BACKEND_URL + `api/user/${userId}`,
           {
             method: "PUT",
             headers: {
-              "Authorization": "Bearer" + localStorage.getItem("token"),
+              "Authorization": "Bearer " + localStorage.getItem("token"),
               "Content-type": "application/json",
             },
+            body: JSON.stringify(user) 
           }
         );
         const data = await response.json();
-        return data;
+        getActions().setUser(data)
       },
-
-      //deleteUser: async (userId) => {
-      //  const response = await fetch(
-      //    process.env.BACKEND_URL + `api/user/delete/${userId}`,
-      //    {
-      //      method: "DELETE",
-      //      headers: {
-      //        Autorization: "Bearer" + localStorage.getItem("token"),
-      //        "Content-type": "aplication/json",
-      //      },
-      //    }
-      //  );
-      //  const data = await response.json();
-      //  return data;
-      //},
 
       getHorse: async () => {
         const response = await fetch(process.env.BACKEND_URL + "/api/horse",{
@@ -122,40 +100,42 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().setHorse(data)
       },
 
-      addHorse: async () => {
-        const response = await fetch(process.env.BACKEND_URL + "api/horse", {
+      addHorse: async (horse) => {
+        const response = await fetch(process.env.BACKEND_URL + "/api/horse", {
           method: "POST",
           headers: {
-            "Authorization": "Bearer" + localStorage.getItem("token"),
+            Authorization: "Bearer " + localStorage.getItem("token"),
             "Content-type": "application/json",
           },
+          body: JSON.stringify(horse)
         });
         const data = await response.json();
         getActions().setHorse(data)
       },
 
-      editHorse: async (horseId) => {
+      editHorse: async (horseId, horse) => {
         const response = await fetch(
           process.env.BACKEND_URL + `api/horse/${horseId}`,
           {
             method: "PUT",
             headers: {
-              "Authorization": "Bearer" + localStorage.getItem("token"),
+              Authorization: "Bearer " + localStorage.getItem("token"),
               "Content-type": "application/json",
             },
+            body: JSON.stringify(horse)
           }
         );
         const data = await response.json();
-        return data;
+        getActions().setHorse(data)
       },
 
-      detleteHorse: async (horseId) => {
+      deleteHorse: async (horseId) => {
         const response = await fetch(
           procsess.env.BACKEND_URL + `api/horse/${horseId}`,
           {
             method: "DELETE",
             headers: {
-              "Authorization": "Bearer" + localStorage.getItem("token"),
+              Authorization: "Bearer " + localStorage.getItem("token"),
               "Content-type": "application/json",
             },
           }
