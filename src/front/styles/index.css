@@ -1,4 +1,4 @@
-/* 
+/*
     General Styles used on every website (Don't Repeat Yourself)
 */
 body{
@@ -42,7 +42,7 @@ a:hover{
     color: #b79b36;
     font-size: x-large;
 }
-  
+
 #Text {
     color: #b79b36;
     font-size: small;
@@ -132,6 +132,65 @@ a:hover{
     color: white;
 }
 
+/* ---------- */
 
+.horseCardContainer {
+    position : relative;
+    display : flex;
+    align-items : center;
+    justify-content : center;
+    flex-wrap : wrap;
+    padding : 3px;
+  }
 
+  .horseCardContainer .horseCard {
+    position: relative;
+    max-width : 300px;
+    height : 215px;
+    background-color : #d5b47643;
+    margin : 0 10px;
+    padding : 40px 15px;
+    display : flex;
+    flex-direction : column;
+    box-shadow : 0 5px 10px #a7a0938a;
+    transition : 0.3s ease-in-out;
+  }
+  .horseCardContainer .horseCard:hover {
+    height : 350px;
+  }
 
+  .horseCardContainer .horseCard .horseCardImage {
+    position : relative;
+    width : 260px;
+    height : 260px;
+    top : -40%;
+    left: 4px;
+    box-shadow : 0 5px 20px rgba(0, 0, 0, 0.2);
+    z-index : 1;
+  }
+
+  .horseCardContainer .horseCard .horseCardImage img {
+    max-width : 100%;
+  }
+
+  .horseCardContainer .horseCard .horseCardContent {
+    position : relative;
+    top : -100px;
+    padding : 10px 15px;
+    color : #111;
+    text-align : start;
+    visibility : hidden;
+    opacity : 0;
+    transition : 0.3s ease-in-out;
+  }
+  .horseCardContainer .horseCard .horseCardContent p{
+    margin: 0;
+    text-align: left;
+  }
+
+  .horseCardContainer .horseCard:hover .horseCardContent {
+     margin-top : 30px;
+     visibility : visible;
+     opacity : 1;
+     transition-delay: 0.2s;
+  }
