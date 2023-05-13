@@ -1,4 +1,4 @@
-import React, { useState, useContext} from "react";
+import React, { useState, useContext, useEffect} from "react";
 import "../../styles/login.css"
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
@@ -34,7 +34,7 @@ export const Login = () => {
 						onChange={(e)=>{setUser({...user, password:e.target.value}, console.log(user))}}/>
 						<input id="loginButton"
 						value="Log in" className="submit-btn"
-						onClick={()=>{actions.loginUser(user), navigate("/")}}/>
+						onClick={()=>{actions.loginUser(user, navigate)}}/>
 					</form>
 				</div>
 				<div className="signup">

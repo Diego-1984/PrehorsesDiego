@@ -1,7 +1,8 @@
 import React, {useContext, useState, useEffect} from "react";
 import { Navbar } from "../component/navbar";
 import { Context } from "../store/appContext";
-import {useNavigate, useParams } from "react-router-dom";
+import {useParams } from "react-router-dom";
+import ButtonContact from "../component/buttonContact";
 
 const DescripcionCaballo = () => {
 
@@ -9,7 +10,7 @@ const DescripcionCaballo = () => {
 	const {id} = params;
 	const { store } = useContext(Context);
 	const [actualPage, setActualPage] = useState();
-  const navigate= useNavigate()
+
 
 	useEffect(()=>{
 		if(store.horse == 0) return;
@@ -40,13 +41,7 @@ const DescripcionCaballo = () => {
                     {actualPage?.descripcion}
                   </p>
                 </div>
-                <div className="d-flex justify-content-center">
-                  <div className="row align-items-end">
-                    <button type="button" className="btn btn-outline-warning text-end" onClick={() => navigate('/private/mensajes')}>
-                      Contacta con el Vendedor
-                    </button>
-                  </div>
-                </div>
+                {localStorage.getItem('token') ? <ButtonContact /> : null}
               </div>
             </div>
           </div>
