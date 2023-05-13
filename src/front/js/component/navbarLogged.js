@@ -2,15 +2,9 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../img/logo.png";
 
-export const NavbarLogged = ({userIsLogged, setUserIsLogged}) => {
+export const NavbarLogged = () => {
 
 	const navigate = useNavigate()
-
-    const logOut = (userIsLogged) =>{
-        console.log('change to false')
-        setUserIsLogged(userIsLogged = false)
-		navigate("/")
-    }
 
 	return (
 		<nav className="navbar bg-black">
@@ -33,7 +27,7 @@ export const NavbarLogged = ({userIsLogged, setUserIsLogged}) => {
                     	<li><Link to="/private/addhorse" className="dropdown-item" style={{ textDecoration: 'none', color: 'black' }}>Publicar un caballo</Link></li>
                         <li><Link to="/private/modifyuser" className="dropdown-item" style={{ textDecoration: 'none', color: 'black'}}>Modificar mis datos de usuario</Link></li>
                         <li><hr className="dropdown-divider"/></li>
-                    	<li><a className="dropdown-item" href="#" onClick = {()=>{logOut(userIsLogged)}}>Cerrar sesión</a></li>
+                    	<li><a className="dropdown-item" href="#" onClick={()=>{localStorage.clear(), navigate('/')}}>Cerrar sesión</a></li>
                 	</ul>
                 </li>	
 			</div>

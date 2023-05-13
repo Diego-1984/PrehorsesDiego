@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import { BackendURL } from "./component/backendURL";
@@ -26,36 +26,22 @@ const Layout = () => {
   if (!process.env.BACKEND_URL || process.env.BACKEND_URL == "")
     return <BackendURL />;
 
-  const [userIsLogged, setUserIsLogged] = useState(false);
+
 
   return (
     <div>
       <BrowserRouter basename={basename}>
         <ScrollToTop>
-          <Navbar
-            userIsLogged={userIsLogged}
-            setUserIsLogged={setUserIsLogged}
-          />
+          <Navbar/>
           <Routes>
             <Route element={<Home />} path="/" />
-            <Route
-              element={
-                <Login
-                  userIsLogged={userIsLogged}
-                  setUserIsLogged={setUserIsLogged}
-                />
-              }
-              path="/login"
-            />
+            <Route element={<Login />}path="/login"/>
             <Route element={<Male />} path="/male" />
             <Route element={<Mares />} path="/mares" />
             <Route element={<Gelding />} path="/gelding" />
             <Route element={<DescripcionCaballo />} path="/descripcion/:id" />
             <Route element={<Mensajes />} path="/private/mensajes" />
-            <Route
-              element={<UserAcountModifyUser />}
-              path="/private/modifyuser"
-            />
+            <Route element={<UserAcountModifyUser />} path="/private/modifyuser"/>
             <Route element={<UserAcountNewHorse />} path="/private/addhorse" />
             <Route element={<UserAcountMyHorses />} path="/private/myhorses" />
             <Route element={<Mensajes />} path="/private/mensajes" />

@@ -34,12 +34,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
       loginUser: (user) => {
-        fetch(process.env.BACKEND_URL + "/api/user/login/", {
+        fetch(process.env.BACKEND_URL + "/api/user/login", {
           method: "POST",
           headers: {
             "Content-type": "application/json",
           },
-          body: JSON.stringify(user),
+          body: JSON.stringify(user)
         })
           .then((resp) => resp.json())
           .then((data) => {
@@ -53,7 +53,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       getMessages: async (horseId) => {
-        const response = await fetch(`${process.env.BACKEND_URL}/api/message/${horseId}`,
+        const response = await fetch(`${process.env.BACKEND_URL} + /api/message/${horseId}`,
           {
             method: "GET",
             headers: {
@@ -90,7 +90,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       getHorse: async () => {
-        const response = await fetch(process.env.BACKEND_URL + "/api/horse",{
+        const response = await fetch("https://3001-4geeksacade-pt36horsesp-4354ul6dcd5.ws-eu97.gitpod.io/api/horse",{
 					method : "GET",
 					headers: {
             "Content-type": "application/json",
