@@ -68,7 +68,7 @@ const DescripcionCaballo = () => {
             </div>
             <div className="row">
               {isChatShown ?
-              <><div className="col mt-3">
+              <><div className="col-4 mt-3">
                 <div className="d-flex descriptionIcons w-50">
                   <span className="material-symbols-outlined me-3">
                     badge
@@ -94,7 +94,7 @@ const DescripcionCaballo = () => {
                   <p>{actualPage?.provincia}</p>
                 </div>
                 </div>
-                <div className="col mt-3">
+                <div className="col-8 mt-3">
                   <div className="d-flex w-50 descriptionIcons">
                   <span className="material-symbols-outlined me-3">
                   palette
