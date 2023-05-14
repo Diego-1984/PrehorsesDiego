@@ -195,10 +195,21 @@ a:hover{
      transition-delay: 0.2s;
   }
 
+.oneHorse{
+    width: 100%;
+    box-sizing: content-box;
+}
+.descripcion{
+    box-sizing: content-box;
+    float: left;
+}
+.chat{
+    box-sizing: content-box;
+    float: right;
+    width: 40%;
+}
 .messagesBox{
     background-color: #faf8f5;
-    margin: auto;
-    width: 90%;
     height: 600px;
     box-sizing: content-box;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.434);
@@ -241,7 +252,7 @@ a:hover{
 .messageToSend input{
     width: 70%;
     height: 2em;
-    margin-left: 18em;
+    margin-left: 8em;
     box-sizing: content-box;
     background-color: #fcfcfc;
     border: none;
