@@ -3,8 +3,9 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       user: {},
       messages: [],
-      horse: [],
-      ganaderia:[]
+      horses: [],
+      ganaderia:['SR4', 'De la cruz'],
+      token: ''
     },
     actions: {
       setUser: (user) => {
@@ -13,10 +14,13 @@ const getState = ({ getStore, getActions, setStore }) => {
       setMessages: (messages) => {
         setStore({ ...getStore(), messages });
       },
-      setHorse: (horse) => {
-        setStore({ ...getStore(), horse });
+      addHorse: (horse) => {
+        const store = getStore()
+        setStore({ ...store, horses: [...store.horses, horse] });
       },
-     
+      setHorses:(horses) =>{
+        setStore({...getStore(), horses})
+      },
       setGanaderia: (ganaderia) => {
 				setStore({...getStore(), ganaderia})
 			},
@@ -33,7 +37,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				
 			},
 
-      loginUser: (user, navigate) => {
+      loginUser: (user) => {
         fetch(`${process.env.BACKEND_URL}/api/user/login`, {
           method: "POST",
           headers: {
@@ -46,11 +50,16 @@ const getState = ({ getStore, getActions, setStore }) => {
             console.log(data);
             if (data.token) {
               localStorage.setItem("token", data.token);
+              setStore({...getStore(), token: data.token})
             } else {
               console.log(data);
             }
           });
-          navigate("/");
+      },
+
+      clearToken: () => {
+        setStore({...getStore(), token: ''})
+        localStorage.removeItem('token')
       },
 
       getMessages: async (horseId) => {
@@ -90,15 +99,16 @@ const getState = ({ getStore, getActions, setStore }) => {
         getActions().setUser(data)
       },
 
-      getHorse: async () => {
+      getHorses: async () => {
         const response = await fetch(`${process.env.BACKEND_URL}/api/horse`,{
 					method : "GET",
 					headers: {
             "Content-type": "application/json",
           },
 				})
-				const data = await response.json()
-				getActions().setHorse(data)
+				const horses = await response.json()
+        console.log(horses)
+        setStore({...getStore(), horses})
       },
 
       addHorse: async (horse) => {
@@ -111,7 +121,9 @@ const getState = ({ getStore, getActions, setStore }) => {
           body: JSON.stringify(horse)
         });
         const data = await response.json();
-        getActions().setHorse(data)
+        const store = getStore()
+        setStore({ ...store, horses: [...store.horses, horse] });
+        console.log(store)
       },
 
       editHorse: async (horseId, horse) => {

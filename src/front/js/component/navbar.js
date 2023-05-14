@@ -1,12 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import { NavbarNotLogged } from "./navbarNotLogged";
 import { NavbarLogged } from "./navbarLogged";
+import { Context } from "../store/appContext";
 
 export const Navbar = () => {
-
-	if(!localStorage.getItem("token")){
-		return <NavbarNotLogged />
-	}
-	return <NavbarLogged />
-	
+	const {store} = useContext(Context)
+	return (
+		<>
+			{store.token ? <NavbarLogged /> : <NavbarNotLogged />}
+		</>
+	)
 };

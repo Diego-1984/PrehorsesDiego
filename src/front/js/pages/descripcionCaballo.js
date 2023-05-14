@@ -13,8 +13,8 @@ const DescripcionCaballo = () => {
 
 
 	useEffect(()=>{
-		if(store.horse == 0) return;
-		const actualInfo = store.horse.find((item)=>item.id == id);
+		if(store.horses.length == 0) return;
+		const actualInfo = store.horses.find((item)=>item.id == id);
 		console.log(actualInfo);
 		setActualPage(actualInfo);
 	}, [params])
