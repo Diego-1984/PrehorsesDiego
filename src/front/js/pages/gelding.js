@@ -8,14 +8,14 @@ export const Gelding = () =>{
     const { store, actions } = useContext(Context);
     
     useEffect(()=> {
-        actions.getHorse()
+        actions.getHorses()
     },[])
 
     return (
         <div className="row mx-2">
           <Filtrarpor />
-          {store.horse.map((item) => {
-            if (item.sexo == "Castrado") {
+          {store.horses.map((item) => {
+            if (item.sexo == "castrado") {
               return (
                 <div className="col-3 mt-5">
                   <CardSimple key={item.id} item={item} />

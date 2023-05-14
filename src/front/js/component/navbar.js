@@ -1,12 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import { NavbarNotLogged } from "./navbarNotLogged";
 import { NavbarLogged } from "./navbarLogged";
+import { Context } from "../store/appContext";
 
-export const Navbar = ({userIsLogged, setUserIsLogged}) => {
-
-	if(userIsLogged == false){
-		return <NavbarNotLogged />
-	}else{
-		return <NavbarLogged userIsLogged = {userIsLogged} setUserIsLogged = {setUserIsLogged}/>
-	}
+export const Navbar = () => {
+	const {store} = useContext(Context)
+	return (
+		<>
+			{store.token ? <NavbarLogged /> : <NavbarNotLogged />}
+		</>
+	)
 };

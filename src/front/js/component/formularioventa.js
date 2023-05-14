@@ -1,11 +1,14 @@
-import React, {useState, useContext} from "react";
+import React, {useState, useContext, useEffect} from "react";
 import { Context } from "../store/appContext";
 
 const FormularioVenta = () => {
     
     const [horse, setHorse] = useState({})
     const { store, actions } = useContext(Context);
-    
+    useEffect(()=>{
+        actions.getGanaderia()
+    })
+
     return(
         <div className="container-fluid">
             <div className="row justify-content-center mt-2 me-4">
@@ -66,14 +69,16 @@ const FormularioVenta = () => {
                                                         <option value="2023">2023</option>
                                                     </select> 
                                                 </div>
-                                                <div className="col-md-4">
+                                                <div className="col-md-2">
                                                     <label htmlFor="validationCustom04" 
                                                     className="form-label"><strong>Ganadería</strong></label>
                                                     <select className="form-select" 
-                                                    id="validationCustom04" required onChange={(e)=>{setHorse({...horse, ganaderia:e.target.value}, console.log(horse))}}>
+                                                    id="validationCustom04" onChange={(e)=>{setHorse({...horse, ganaderia:e.target.value}, console.log(horse))}}>
                                                         <option defaultValue="">Elige ganadería</option>
-                                                        <option className="p-1" 
-                                                        value="a.y.d.juan manuel">Ganadería ejemplo</option>    
+                                                        {store.ganaderia.map((ganaderia)=>{
+                                                            return(<option className="p-1" 
+                                                            value={ganaderia}>{ganaderia}</option>)
+                                                        })}  
                                                     </select> 
                                                 </div>
                                                 <div className="col-md-1">

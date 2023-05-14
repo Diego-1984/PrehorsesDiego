@@ -65,11 +65,16 @@ export const Home = () => {
         <h3 className="pt-5 pb-2 text-white">¿QUIERE VENDER SU CABALLO?</h3>
         <p className="text-white">Si quiere vender su caballo también puede hacerlo. Regístrese en nuestra web y publique su anuncio.</p>
         <div className="p-2 pb-5">
-          <Link to="/login">
+          {localStorage.getItem('token') ? <Link to="/private/addhorse">
             <button type="button" className="btn btn-outline-light btn-lg">
               Publicar caballo
             </button>
-          </Link>
+          </Link> : <Link to="/login">
+            <button type="button" className="btn btn-outline-light btn-lg">
+              Publicar caballo
+            </button>
+          </Link> }
+          
         </div>
       </div>
       <Footer />

@@ -3,8 +3,53 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       user: {},
       messages: [],
-      horse: [],
-      ganaderia:[]
+      horses: [],
+      ganaderia:[ "ALMA CASTIZA",
+      "ALONSO CARRERO PALACIOS",
+      "ALVARO ALVAREZ REDONDO",
+      "AMIGO SANCHEZ",
+      "ANA BELEN DIAZ RAMIREZ",
+      "ANA ECHAVE MARCO",
+      "ANA FUENTES",
+      "ANDRES CABRERA MONTERO",
+      "ANDRES CANOVAS RODRIGUEZ",
+      "ANDRES HOLGADO DIANEZ",
+      "ANDRES MOYA RICO",
+      "ANGEL ADIN RODRIGUEZ PEINADO",
+      "ANGEL BALLESTEROS MONDEJAR",
+      "ANGEL BOHORQUEZ MARTINEZ",
+      "ANGEL CANTOS GARCIA",
+      "ANGEL FERNANDEZ RODRIGUEZ",
+      "ANGEL GONZALEZ FERNANDEZ",
+      "ANGEL RECUERO RIVERO",
+      "ANICETO FERNANDEZ ORDAS",
+      "ANNE KRISTIINA KORTETMAKI",
+      "ANTIGUA LINEA DEL BOCADO",
+      "ANTONIO ABAD BLANCO PRIETO",
+      "ANTONIO ACEDO DOMINGUEZ",
+      "ANTONIO BAENA ARIZA",
+      "ANTONIO BARCELO ARTIGUES",
+      "ANTONIO BERENGUER HURTADO",
+      "ANTONIO BERRIO BUENO",
+      "ANTONIO BRAVO ASSENSIO",
+      "ANTONIO CAMPOS CABELLO",
+      "ANTONIO CARRILLO BAEZA",
+      "ANTONIO CORTES RODRIGUEZ",
+      "ANTONIO CRESPO NOGAL",
+      "ANTONIO CUENCA DELGADO",
+      "ANTONIO DIOSDADO GALAN",
+      "ANTONIO DOMINGUEZ RUBIO",
+      "ANTONIO DOMINGUEZ SANCHEZ",
+      "ANTONIO FERNANDEZ MONTERO",
+      "ANTONIO FERRIOL GELABERT",
+      "ANTONIO GARCIA BENITEZ",
+      "ANTONIO GARCIA MORENO",
+      "ANTONIO GOMEZ CABEZAS",
+      "ANTONIO GUIRAL GUARGA",
+      "ANTONIO HIDALGO HIDALGO",
+      "ANTONIO HURTADO QUINTANILLA",
+      "ANTONIO IGNACIO CASTRO PEREZ"],
+      token: ''
     },
     actions: {
       setUser: (user) => {
@@ -13,10 +58,13 @@ const getState = ({ getStore, getActions, setStore }) => {
       setMessages: (messages) => {
         setStore({ ...getStore(), messages });
       },
-      setHorse: (horse) => {
-        setStore({ ...getStore(), horse });
+      addHorse: (horse) => {
+        const store = getStore()
+        setStore({ ...store, horses: [...store.horses, horse] });
       },
-     
+      setHorses:(horses) =>{
+        setStore({...getStore(), horses})
+      },
       setGanaderia: (ganaderia) => {
 				setStore({...getStore(), ganaderia})
 			},
@@ -29,31 +77,37 @@ const getState = ({ getStore, getActions, setStore }) => {
 					},
 				})
 				const data = await response.json()
-				getActions().setGanaderia(data)
+				return data
 				
 			},
 
       loginUser: (user) => {
-        fetch(process.env.BACKEND_URL + "/api/user/login/", {
+        fetch(`${process.env.BACKEND_URL}/api/user/login`, {
           method: "POST",
           headers: {
             "Content-type": "application/json",
           },
-          body: JSON.stringify(user),
+          body: JSON.stringify(user)
         })
           .then((resp) => resp.json())
           .then((data) => {
             console.log(data);
             if (data.token) {
               localStorage.setItem("token", data.token);
+              setStore({...getStore(), token: data.token})
             } else {
               console.log(data);
             }
           });
       },
 
+      clearToken: () => {
+        setStore({...getStore(), token: ''})
+        localStorage.removeItem('token')
+      },
+
       getMessages: async (horseId) => {
-        const response = await fetch(`${process.env.BACKEND_URL}/api/message/${horseId}`,
+        const response = await fetch(`${process.env.BACKEND_URL} + /api/message/${horseId}`,
           {
             method: "GET",
             headers: {
@@ -89,19 +143,20 @@ const getState = ({ getStore, getActions, setStore }) => {
         getActions().setUser(data)
       },
 
-      getHorse: async () => {
-        const response = await fetch(process.env.BACKEND_URL + "/api/horse",{
+      getHorses: async () => {
+        const response = await fetch(`${process.env.BACKEND_URL}/api/horse`,{
 					method : "GET",
 					headers: {
             "Content-type": "application/json",
           },
 				})
-				const data = await response.json()
-				getActions().setHorse(data)
+				const horses = await response.json()
+        console.log(horses)
+        setStore({...getStore(), horses})
       },
 
       addHorse: async (horse) => {
-        const response = await fetch(process.env.BACKEND_URL + "/api/horse", {
+        const response = await fetch(`${process.env.BACKEND_URL}/api/horse`, {
           method: "POST",
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
@@ -110,7 +165,9 @@ const getState = ({ getStore, getActions, setStore }) => {
           body: JSON.stringify(horse)
         });
         const data = await response.json();
-        getActions().setHorse(data)
+        const store = getStore()
+        setStore({ ...store, horses: [...store.horses, horse] });
+        console.log(store)
       },
 
       editHorse: async (horseId, horse) => {

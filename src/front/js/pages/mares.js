@@ -8,14 +8,14 @@ export const Mares = () =>{
     const { store, actions } = useContext(Context);
     
     useEffect(()=> {
-        actions.getHorse()
+        actions.getHorses()
     },[])
 
     return (
         <div className="row mx-2">
             <Filtrarpor/>
-            {store.horse.map((item, i) => {
-                    if(item.sexo == 'Yegua'){
+            {store.horses.map((item, i) => {
+                    if(item.sexo == 'yegua'){
                         return (
                             <div className="col-3 mt-5">
                               <CardSimple key={item.id} item={item} />
