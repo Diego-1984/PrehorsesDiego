@@ -199,14 +199,25 @@ a:hover{
     width: 100%;
     box-sizing: content-box;
 }
-.descripcion{
-    box-sizing: content-box;
-    float: left;
+
+.descriptionIcons .material-symbols-outlined{
+    font-size: 4em;
+    margin-bottom: 10px;
+    color:rgba(190, 125, 71, 0.952)
+}
+.descriptionIcons p{
+    padding-top: 20px;
+    padding-left: 5px;
+}
+
+.descriptionAndPrice{
+    width: 50%;
+
 }
 .chat{
     box-sizing: content-box;
     float: right;
-    width: 40%;
+    width: 35%;
 }
 .messagesBox{
     background-color: #faf8f5;

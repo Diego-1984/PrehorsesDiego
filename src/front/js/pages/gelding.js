@@ -15,7 +15,7 @@ export const Gelding = () =>{
         <div className="row mx-2">
           <Filtrarpor />
           {store.horses.map((item) => {
-            if (item.sexo == "castrado") {
+            if (item.sexo == "Castrado") {
               return (
                 <div className="col-3 mt-5">
                   <CardSimple key={item.id} item={item} />

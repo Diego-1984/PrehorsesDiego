@@ -87,9 +87,9 @@ const FormularioVenta = () => {
                                                     <select className="form-select" 
                                                     id="validationCustom04" required onChange={(e)=>{setHorse({...horse, sexo:e.target.value}, console.log(horse))}}>
                                                         <option defaultValue=""></option>
-                                                        <option className="p-1" value="macho">Macho</option>
-                                                        <option className="p-1" value="yegua">Yegua</option>
-                                                        <option className="p-1" value="castrado">Castrado</option>   
+                                                        <option className="p-1" value="Macho">Macho</option>
+                                                        <option className="p-1" value="Yegua">Yegua</option>
+                                                        <option className="p-1" value="Castrado">Castrado</option>   
                                                     </select> 
                                                 </div>
                                                 <div className="col-md-2">
@@ -105,36 +105,36 @@ const FormularioVenta = () => {
                                                     <select className="form-select" id="validationCustom04" required onChange={(e)=>{setHorse({...horse, capa:e.target.value}, console.log(horse))}}>
                                                         <option defaultValue="">Elige capa</option>
                                                         <option value="0">Cualquier Color</option>
-                                                        <option value="1">Appaloosa</option>
-                                                        <option value="2">Bayo</option>
-                                                        <option value="3">Bayo ruano</option>
-                                                        <option value="4">Negro</option>
-                                                        <option value="5">Ruano azul</option>
-                                                        <option value="6">Bayo brillante</option>
-                                                        <option value="7">Alazán</option>
-                                                        <option value="8">Manchado</option>
-                                                        <option value="9">Cremello</option>
-                                                        <option value="10">Tordo</option>
-                                                        <option value="11">Bayo oscuro</option>
-                                                        <option value="12">Leonado</option>
-                                                        <option value="13">Tordo mosqueado</option>
-                                                        <option value="14">Gris</option>
-                                                        <option value="15">Castaño encendido</option>
-                                                        <option value="16">Palomino</option>
-                                                        <option value="17">Pío</option>
-                                                        <option value="18">Tordo vinoso</option>
-                                                        <option value="19">Pinto</option>
-                                                        <option value="20">Tordo oscuro</option>
-                                                        <option value="21">Sabino o Rosillo</option>
-                                                        <option value="22">Tobiano</option>
-                                                        <option value="23">Moteado</option>
-                                                        <option value="24">Castaño oscuro</option>
-                                                        <option value="25">Castaño</option>
-                                                        <option value="27">Café con leche</option>
-                                                        <option value="28">Blanco</option>
-                                                        <option value="29">Isabelo</option>
-                                                        <option value="31">Ruano</option>
-                                                        <option value="32">Overo</option>                
+                                                        <option value="Appaloosa">Appaloosa</option>
+                                                        <option value="Bayo">Bayo</option>
+                                                        <option value="Bayo ruano">Bayo ruano</option>
+                                                        <option value="Negro">Negro</option>
+                                                        <option value="Ruano azul">Ruano azul</option>
+                                                        <option value="Bayo brillante">Bayo brillante</option>
+                                                        <option value="Alazán">Alazán</option>
+                                                        <option value="Manchado">Manchado</option>
+                                                        <option value="Cremello">Cremello</option>
+                                                        <option value="Tordo">Tordo</option>
+                                                        <option value="Bayo oscuro">Bayo oscuro</option>
+                                                        <option value="Leonado">Leonado</option>
+                                                        <option value="Tordo mosqueado">Tordo mosqueado</option>
+                                                        <option value="Gris">Gris</option>
+                                                        <option value="Castaño encendido">Castaño encendido</option>
+                                                        <option value="Palomino">Palomino</option>
+                                                        <option value="Pío">Pío</option>
+                                                        <option value="Tordo vinoso">Tordo vinoso</option>
+                                                        <option value="Pinto">Pinto</option>
+                                                        <option value="Tordo oscuro">Tordo oscuro</option>
+                                                        <option value="Sabino o Rosillo">Sabino o Rosillo</option>
+                                                        <option value="Tobiano">Tobiano</option>
+                                                        <option value="Moteado">Moteado</option>
+                                                        <option value="Castaño oscuro">Castaño oscuro</option>
+                                                        <option value="Castaño">Castaño</option>
+                                                        <option value="Café con leche">Café con leche</option>
+                                                        <option value="Blanco">Blanco</option>
+                                                        <option value="Isabelo">Isabelo</option>
+                                                        <option value="Ruano">Ruano</option>
+                                                        <option value="Overo">Overo</option>                
                                                     </select>
                                                 </div>
 
