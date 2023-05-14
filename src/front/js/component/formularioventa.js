@@ -1,10 +1,13 @@
-import React, {useState, useContext} from "react";
+import React, {useState, useContext, useEffect} from "react";
 import { Context } from "../store/appContext";
 
 const FormularioVenta = () => {
     
     const [horse, setHorse] = useState({})
     const { store, actions } = useContext(Context);
+    useEffect(()=>{
+        actions.getGanaderia()
+    })
 
     return(
         <div className="container-fluid">
@@ -72,8 +75,10 @@ const FormularioVenta = () => {
                                                     <select className="form-select" 
                                                     id="validationCustom04" onChange={(e)=>{setHorse({...horse, ganaderia:e.target.value}, console.log(horse))}}>
                                                         <option defaultValue="">Elige ganadería</option>
-                                                        <option className="p-1" 
-                                                        value="a.y.d.juan manuel">Ganadería ejemplo</option>    
+                                                        {store.ganaderia.map((ganaderia)=>{
+                                                            return(<option className="p-1" 
+                                                            value={ganaderia}>{ganaderia}</option>)
+                                                        })}  
                                                     </select> 
                                                 </div>
                                                 <div className="col-md-1">
