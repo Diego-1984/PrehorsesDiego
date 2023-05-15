@@ -154,8 +154,9 @@ def delete_one_user(id):
     return jsonify(deleted_user), 200
 
 @api.route('/horse', methods=['GET'])
+@jwt_required()
 def get_horses():
-    """Ver todos los caballos
+    """Ver todos los caballos que no me pertenecen
     ---
     description: Ver todos los caballos
     "parameters": [
@@ -167,7 +168,27 @@ def get_horses():
         }
     ]
     """
-    all_horses = HorseStructure.get_all_horses()
+    current_user_id = get_jwt_identity()
+    all_horses = HorseStructure.get_all_horses(current_user_id)
+    return jsonify(all_horses), 200
+
+@api.route('/user/horse', methods=['GET'])
+@jwt_required()
+def get_my_horses():
+    """Ver todos los caballos que no me pertenecen
+    ---
+    description: Ver todos los caballos
+    "parameters": [
+        {
+            "name": "body",
+            "in": "body",
+            "required": "true",
+            "type": "object"
+        }
+    ]
+    """
+    current_user_id = get_jwt_identity()
+    all_horses = HorseStructure.get_my_horses(current_user_id)
     return jsonify(all_horses), 200
 
 

@@ -173,6 +173,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					method : "GET",
 					headers: {
             "Content-type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("token"),
           },
 				})
 				const horses = await response.json()
