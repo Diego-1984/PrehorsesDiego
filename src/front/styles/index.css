@@ -295,3 +295,22 @@ a:hover{
 .nav-pills{
     width: 20%;
 }
+
+.accordion-button:focus {
+    z-index: 3;
+    border-color: #67480a;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(246, 200, 102, 0.25);
+}
+.accordion-button{
+    color:black;
+    background-color: #f8eeda;;
+    border-color: red;
+}
+.accordion-button:not(.collapsed){
+    color:rgb(37, 28, 17);
+    background-color: #e3d2b2;
+}
+button .accordion-button:active{
+    color: white;
+}
