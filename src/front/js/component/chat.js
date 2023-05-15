@@ -18,7 +18,8 @@ const Chat = ({horse}) => {
 
   const postMessage = async() =>{
     const {id: horseId, user_id: userOwnerId} = horse
-    await actions.postMessage(message.text, userOwnerId, horseId, getDate(new Date()))
+    console.log(horseId)
+    await actions.postMessage(message.text, horseId, userOwnerId, getDate(new Date()))
     await actions.getMessages(horseId)
   }
 
