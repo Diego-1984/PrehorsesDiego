@@ -168,6 +168,10 @@ const getState = ({ getStore, getActions, setStore }) => {
         getActions().setUser(data)
       },
 
+      clearHorses:() => {
+        setStore({ ...getStore(), horses: [] });
+      },
+
       getHorses: async () => {
         const response = await fetch(`${process.env.BACKEND_URL}/api/horse`,{
 					method : "GET",
@@ -178,6 +182,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 				const horses = await response.json()
         console.log(horses)
+        setStore({...getStore(), horses})
+      },
+
+      getMyHorses: async () => {
+        const response = await fetch(`${process.env.BACKEND_URL}/api/user/horse`,{
+					method : "GET",
+					headers: {
+            "Content-type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("token"),
+          },
+				})
+				const horses = await response.json()
         setStore({...getStore(), horses})
       },
 

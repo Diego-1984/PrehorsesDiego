@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { Context } from "../store/appContext";
 
-export const UserAcountMyHorses = () =>{
-    return (
-		<div className="container m-0">
-			hola soy la pagina para ver mis caballos
-		</div>
-	);
-}
+export const UserAcountMyHorses = () => {
+  const { store, actions } = useContext(Context);
+
+  useEffect(async () => {
+    await actions.clearHorses();
+    await actions.getMyHorses();
+  }, []);
+
+  return (
+    <div className="container m-0">
+      <ul>
+        {store.horses.map((horse) => (
+          <li> {JSON.stringify(horse.messages)}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};

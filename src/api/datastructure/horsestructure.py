@@ -73,7 +73,7 @@ class HorseStructure:
             return horse.serialize_not_owner()
 
     def get_my_horses(user_owner_id):
-        horses = Horse.query.filter_by(user_id = user_owner_id).all()
+        horses = Horse.query.filter(Horse.user_id == user_owner_id).all()
         return [horse.serialize() for horse in horses]
 
     def get_all_horses(user_owner_id):
