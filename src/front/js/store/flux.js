@@ -122,7 +122,6 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       postMessage:async(text, horseId, userOwnerId, dateTime) =>{
-        console.log(horseId, userOwnerId, dateTime)
        return fetch(`${process.env.BACKEND_URL}/api/message`,
         {
           method: "POST",

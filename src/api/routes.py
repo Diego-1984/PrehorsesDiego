@@ -324,9 +324,10 @@ def post_message():
     user_owner_id = request.json.get('userOwnerId')
     user_interested_id = current_user_id
     date_time = request.json.get('dateTime')
+    sender_id = current_user_id
     
     message = MessageStructure.post_one_message(text, horse_id, user_owner_id,
-    user_interested_id, date_time)
+    user_interested_id, date_time, sender_id)
     return message, 200
 
 @api.route('/ganaderia', methods=['POST'])

@@ -4,7 +4,7 @@ import { Context } from "../store/appContext";
 const Chat = ({horse}) => {
 
   const [message, setMessage] = useState([]);
-  const {actions} = useContext(Context);
+  const {store, actions} = useContext(Context);
 
   const getDate = (now) => {
     var date = now.getDate();
@@ -27,15 +27,13 @@ const Chat = ({horse}) => {
   return (
     <>
       <div className="container text-center messagesBox">
-        {/* <div>
-                Esta es la ruta para ver los mensajes
-                <button onClick={() => actions.getMessages(1)}>Traete los mensajes</button>
-                    <div>{store.messages.map((item)=>{
-                        return (
-                            <p>{item.text}</p>
-                        )
-                    })}</div>
-                            </div> */}
+        {<div>
+            <div>{store.messages.map((item)=>{
+              return (
+                <p>{item.text}</p>
+              )
+           })}</div>
+          </div>}
         <div className="row borber border-bottom messagesTitle">
           <div className="col p-3 text-start">
             <span className="material-symbols-outlined align-center me-2">

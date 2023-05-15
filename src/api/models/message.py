@@ -10,6 +10,7 @@ class Message(db.Model):
     user_owner_id = Column(Integer, ForeignKey('user.id'))
     user_interested_id = Column(Integer, ForeignKey('user.id'))
     date_time = db.Column(db.DateTime)
+    sender_id = Column(Integer, ForeignKey('user.id'))
 
     def serialize(self):
         return {
@@ -18,6 +19,7 @@ class Message(db.Model):
             "horseId" : self.horse_id,
             "userOwnerId" : self.user_owner_id,
             "userInterestedId" : self.user_interested_id,
-            "dateTime" : self.date_time
+            "dateTime" : self.date_time,
+            "senderId" : self.sender_id
         }
         
