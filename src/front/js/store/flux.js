@@ -106,6 +106,10 @@ const getState = ({ getStore, getActions, setStore }) => {
         localStorage.removeItem('token')
       },
 
+      clearMessages: () => {
+        setStore({ ...getStore(), messages: [] });
+      },
+
       getMessages: async (horseId) => {
         const response = await fetch(`${process.env.BACKEND_URL}/api/message/${horseId}`,
           {
