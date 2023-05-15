@@ -121,7 +121,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         return messages;
       },
 
-      postMessage:async(message, horseId, userOwnerId, dateTime) =>{
+      postMessage:async(text, horseId, userOwnerId, dateTime) =>{
         console.log(horseId, userOwnerId, dateTime)
        return fetch(`${process.env.BACKEND_URL}/api/message`,
         {
@@ -130,7 +130,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             Authorization: "Bearer " + localStorage.getItem("token"),
             "Content-type": "application/json",
           },
-          body : JSON.stringify(message, horseId, userOwnerId, dateTime)
+          body : JSON.stringify({text, horseId, userOwnerId, dateTime})
         });
       },
 

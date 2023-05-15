@@ -6,29 +6,23 @@ const Chat = ({horse}) => {
   const [message, setMessage] = useState([]);
   const {actions} = useContext(Context);
 
-  const [dateTime, setDateTime] = useState('');
-
-  const getDate = () => {
-    var date = new Date().getDate();
-    var month = new Date().getMonth() + 1;
-    var year = new Date().getFullYear();
-    var hours = new Date().getHours();
-    var min = new Date().getMinutes();
-    var sec = new Date().getSeconds();
-    var finalObject = date + '/' + month + '/' + year + ' ' + hours + ':' + min + ':' + sec;
-    setDateTime(finalObject);
+  const getDate = (now) => {
+    var date = now.getDate();
+    var month = now.getMonth() + 1;
+    var year = now.getFullYear();
+    var hours = now.getHours();
+    var min = now.getMinutes();
+    var sec = now.getSeconds();
+    return year + '/' + month + '/' + date + 'T' + hours + ':' + min + ':' + sec;
   }
+
   const postMessage = async() =>{
-    console.log(horse)
     const {id: horseId, user_id: userOwnerId} = horse
-    console.log(horseId, userOwnerId)
-    await actions.postMessage(message, userOwnerId, horseId, dateTime)
+    await actions.postMessage(message.text, userOwnerId, horseId, getDate(new Date()))
     await actions.getMessages(horseId)
   }
 
-  useEffect(()=>{
-    getDate()
-  }, [])
+
   return (
     <>
       <div className="container text-center messagesBox">
