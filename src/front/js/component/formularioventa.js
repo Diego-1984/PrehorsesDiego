@@ -87,9 +87,9 @@ const FormularioVenta = () => {
                                                     <select className="form-select" 
                                                     id="validationCustom04" required onChange={(e)=>{setHorse({...horse, sexo:e.target.value}, console.log(horse))}}>
                                                         <option defaultValue=""></option>
-                                                        <option className="p-1" value="macho">Macho</option>
-                                                        <option className="p-1" value="yegua">Yegua</option>
-                                                        <option className="p-1" value="castrado">Castrado</option>   
+                                                        <option className="p-1" value="Macho">Macho</option>
+                                                        <option className="p-1" value="Yegua">Yegua</option>
+                                                        <option className="p-1" value="Castrado">Castrado</option>   
                                                     </select> 
                                                 </div>
                                                 <div className="col-md-2">
@@ -105,36 +105,36 @@ const FormularioVenta = () => {
                                                     <select className="form-select" id="validationCustom04" required onChange={(e)=>{setHorse({...horse, capa:e.target.value}, console.log(horse))}}>
                                                         <option defaultValue="">Elige capa</option>
                                                         <option value="0">Cualquier Color</option>
-                                                        <option value="1">Appaloosa</option>
-                                                        <option value="2">Bayo</option>
-                                                        <option value="3">Bayo ruano</option>
-                                                        <option value="4">Negro</option>
-                                                        <option value="5">Ruano azul</option>
-                                                        <option value="6">Bayo brillante</option>
-                                                        <option value="7">Alazán</option>
-                                                        <option value="8">Manchado</option>
-                                                        <option value="9">Cremello</option>
-                                                        <option value="10">Tordo</option>
-                                                        <option value="11">Bayo oscuro</option>
-                                                        <option value="12">Leonado</option>
-                                                        <option value="13">Tordo mosqueado</option>
-                                                        <option value="14">Gris</option>
-                                                        <option value="15">Castaño encendido</option>
-                                                        <option value="16">Palomino</option>
-                                                        <option value="17">Pío</option>
-                                                        <option value="18">Tordo vinoso</option>
-                                                        <option value="19">Pinto</option>
-                                                        <option value="20">Tordo oscuro</option>
-                                                        <option value="21">Sabino o Rosillo</option>
-                                                        <option value="22">Tobiano</option>
-                                                        <option value="23">Moteado</option>
-                                                        <option value="24">Castaño oscuro</option>
-                                                        <option value="25">Castaño</option>
-                                                        <option value="27">Café con leche</option>
-                                                        <option value="28">Blanco</option>
-                                                        <option value="29">Isabelo</option>
-                                                        <option value="31">Ruano</option>
-                                                        <option value="32">Overo</option>                
+                                                        <option value="Appaloosa">Appaloosa</option>
+                                                        <option value="Bayo">Bayo</option>
+                                                        <option value="Bayo ruano">Bayo ruano</option>
+                                                        <option value="Negro">Negro</option>
+                                                        <option value="Ruano azul">Ruano azul</option>
+                                                        <option value="Bayo brillante">Bayo brillante</option>
+                                                        <option value="Alazán">Alazán</option>
+                                                        <option value="Manchado">Manchado</option>
+                                                        <option value="Cremello">Cremello</option>
+                                                        <option value="Tordo">Tordo</option>
+                                                        <option value="Bayo oscuro">Bayo oscuro</option>
+                                                        <option value="Leonado">Leonado</option>
+                                                        <option value="Tordo mosqueado">Tordo mosqueado</option>
+                                                        <option value="Gris">Gris</option>
+                                                        <option value="Castaño encendido">Castaño encendido</option>
+                                                        <option value="Palomino">Palomino</option>
+                                                        <option value="Pío">Pío</option>
+                                                        <option value="Tordo vinoso">Tordo vinoso</option>
+                                                        <option value="Pinto">Pinto</option>
+                                                        <option value="Tordo oscuro">Tordo oscuro</option>
+                                                        <option value="Sabino o Rosillo">Sabino o Rosillo</option>
+                                                        <option value="Tobiano">Tobiano</option>
+                                                        <option value="Moteado">Moteado</option>
+                                                        <option value="Castaño oscuro">Castaño oscuro</option>
+                                                        <option value="Castaño">Castaño</option>
+                                                        <option value="Café con leche">Café con leche</option>
+                                                        <option value="Blanco">Blanco</option>
+                                                        <option value="Isabelo">Isabelo</option>
+                                                        <option value="Ruano">Ruano</option>
+                                                        <option value="Overo">Overo</option>                
                                                     </select>
                                                 </div>
 
@@ -158,57 +158,57 @@ const FormularioVenta = () => {
                                                     <select className="form-select" id="validationCustom04" required onChange={(e)=>{setHorse({...horse, provincia:e.target.value}, console.log(horse))}}>
                                                         <option defaultValue="">Elige provincia</option>
                                                         <option className="p-1"></option>
-                                                        <option value="1">Albacete</option>
-                                                        <option value="2">Alicante</option>
-                                                        <option value="3">Almería</option>
-                                                        <option value="4">Asturias</option>
-                                                        <option value="5">Ávila</option>
-                                                        <option value="6">Badajoz</option>
-                                                        <option value="7">Barcelona</option>
-                                                        <option value="8">Burgos</option>
-                                                        <option value="9">Cáceres</option>
-                                                        <option value="10">Cádiz</option>
-                                                        <option value="11">Cantabria</option>
-                                                        <option value="12">Castellón</option>
-                                                        <option value="13">Ciudad Real</option>
-                                                        <option value="14">Córdoba</option>
-                                                        <option value="15">Cuenca</option>
-                                                        <option value="16">Gerona (Girona)</option>
-                                                        <option value="17">Granada</option>
-                                                        <option value="18">Guadalajara</option>
-                                                        <option value="19">Guipúzcoa (Gipuzkoa)</option>
-                                                        <option value="20">Huelva</option>
-                                                        <option value="21">Huesca</option>
-                                                        <option value="22">Islas Baleares (Balearic Islands)</option>
-                                                        <option value="23">Jaén</option>
-                                                        <option value="24">La Coruña (A Coruña)</option>
-                                                        <option value="25">La Rioja</option>
-                                                        <option value="26">Las Palmas</option>
-                                                        <option value="27">León</option>
-                                                        <option value="28">Lérida (Lleida)</option>
-                                                        <option value="29">Lugo</option>
-                                                        <option value="30">Madrid</option>
-                                                        <option value="31">Málaga</option>
-                                                        <option value="32">Murcia</option>
-                                                        <option value="33">Navarra</option>
-                                                        <option value="34">Orense (Ourense)</option>
-                                                        <option value="35">Palencia</option>
-                                                        <option value="36">Pontevedra</option>
-                                                        <option value="37">Salamanca</option>
-                                                        <option value="38">Santa Cruz de Tenerife</option>
-                                                        <option value="39">Segovia</option>
-                                                        <option value="40">Sevilla</option>
-                                                        <option value="41">Soria</option>
-                                                        <option value="42">Tarragona</option>
-                                                        <option value="43">Teruel</option>
-                                                        <option value="44">Toledo</option>
-                                                        <option value="45">Valencia</option>
-                                                        <option value="46">Valladolid</option>
-                                                        <option value="47">Vizcaya (Bizkaia)</option>
-                                                        <option value="48">Zamora</option>
-                                                        <option value="49">Zaragoza</option>
-                                                        <option value="50">Ceuta</option>
-                                                        <option value="51">Melilla</option>                                  
+                                                        <option value="Albacete">Albacete</option>
+                                                        <option value="Alicante">Alicante</option>
+                                                        <option value="Almería">Almería</option>
+                                                        <option value="Asturias">Asturias</option>
+                                                        <option value="Ávila">Ávila</option>
+                                                        <option value="Badajoz">Badajoz</option>
+                                                        <option value="Barcelona">Barcelona</option>
+                                                        <option value="Burgos">Burgos</option>
+                                                        <option value="Cáceres">Cáceres</option>
+                                                        <option value="Cádiz">Cádiz</option>
+                                                        <option value="Cantabria">Cantabria</option>
+                                                        <option value="Castellón">Castellón</option>
+                                                        <option value="Ciudad Real">Ciudad Real</option>
+                                                        <option value="Córdoba">Córdoba</option>
+                                                        <option value="Cuenca">Cuenca</option>
+                                                        <option value="Gerona">Gerona (Girona)</option>
+                                                        <option value="Granada">Granada</option>
+                                                        <option value="Guadalajara">Guadalajara</option>
+                                                        <option value="Guipúzcoa">Guipúzcoa (Gipuzkoa)</option>
+                                                        <option value="Huelva">Huelva</option>
+                                                        <option value="Huesca">Huesca</option>
+                                                        <option value="Islas Baleares">Islas Baleares (Balearic Islands)</option>
+                                                        <option value="Jaén">Jaén</option>
+                                                        <option value="La Coruña">La Coruña (A Coruña)</option>
+                                                        <option value="La Rioja">La Rioja</option>
+                                                        <option value="Las Palmas">Las Palmas</option>
+                                                        <option value="León">León</option>
+                                                        <option value="Lleida">Lérida (Lleida)</option>
+                                                        <option value="Lugo">Lugo</option>
+                                                        <option value="Madrid">Madrid</option>
+                                                        <option value="Málaga">Málaga</option>
+                                                        <option value="Murcia">Murcia</option>
+                                                        <option value="Navarra">Navarra</option>
+                                                        <option value="Orense">Orense (Ourense)</option>
+                                                        <option value="Palencia">Palencia</option>
+                                                        <option value="Pontevedra">Pontevedra</option>
+                                                        <option value="Salamanca">Salamanca</option>
+                                                        <option value="Santa Cruz de Tenerife">Santa Cruz de Tenerife</option>
+                                                        <option value="Segovia">Segovia</option>
+                                                        <option value="Sevilla">Sevilla</option>
+                                                        <option value="Soria">Soria</option>
+                                                        <option value="Tarragona">Tarragona</option>
+                                                        <option value="Teruel">Teruel</option>
+                                                        <option value="Toledo">Toledo</option>
+                                                        <option value="Valencia">Valencia</option>
+                                                        <option value="Valladolid">Valladolid</option>
+                                                        <option value="Vizcaya">Vizcaya (Bizkaia)</option>
+                                                        <option value="Zamora">Zamora</option>
+                                                        <option value="Zaragoza">Zaragoza</option>
+                                                        <option value="Ceuta">Ceuta</option>
+                                                        <option value="Melilla">Melilla</option>                                  
                                                     </select>
                                                     <div className="invalid-feedback">
                                                         Por favor selecciona una provincia
@@ -254,7 +254,7 @@ const FormularioVenta = () => {
                                     <div className="row justify-content-end">
                                         <div className="col-2 justify-content-end pt-2">
                                             <div className="d-flex justify-content-end">
-                                                <button className="btn btn-warning p-2 pe-3 ps-3 fs-5" onClick={()=>{actions.addHorse(horse)}}>Publicar</button>
+                                                <button className="btn btn-warning p-2 pe-3 ps-3 fs-5" onClick={()=>{actions.addHorse(horse); alert('Caballo publicado')}}>Publicar</button>
                                             </div>
                                         </div>
                                     </div>

@@ -88,6 +88,27 @@ def get_users():
     all_users = UserStructure.get_all_users()
     return all_users
 
+@api.route('/oneUser', methods=['GET'])
+@jwt_required()
+def get_one_user():
+    """Ver un caballo determinado
+    ---
+    description: Ver un caballo determinado
+    "parameters": [
+        {
+            "name": "body",
+            "in": "body",
+            "required": "true",
+            "type": "object"
+        }
+    ]
+    """
+    current_user_id = get_jwt_identity()
+
+    get_one_user = UserStructure.get_especific_user(current_user_id)
+    return get_one_user,200
+
+
 @api.route('/user/<int:id>', methods=['PUT'])
 @jwt_required()
 def edit_user(id):
@@ -303,9 +324,10 @@ def post_message():
     user_owner_id = request.json.get('userOwnerId')
     user_interested_id = current_user_id
     date_time = request.json.get('dateTime')
+    sender_id = current_user_id
     
     message = MessageStructure.post_one_message(text, horse_id, user_owner_id,
-    user_interested_id, date_time)
+    user_interested_id, date_time, sender_id)
     return message, 200
 
 @api.route('/ganaderia', methods=['POST'])

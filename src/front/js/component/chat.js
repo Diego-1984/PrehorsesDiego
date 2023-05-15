@@ -1,18 +1,32 @@
-import React from "react";
+import React, {useContext, useEffect, useState} from "react";
+import { Context } from "../store/appContext";
 
-const Chat = () => {
+const Chat = ({horse}) => {
+
+  const [message, setMessage] = useState([]);
+  const {store, actions} = useContext(Context);
+
+  const getDate = (now) => {
+    var date = now.getDate();
+    var month = now.getMonth() + 1;
+    var year = now.getFullYear();
+    var hours = now.getHours();
+    var min = now.getMinutes();
+    var sec = now.getSeconds();
+    return year + '/' + month + '/' + date + 'T' + hours + ':' + min + ':' + sec;
+  }
+
+  const postMessage = async() =>{
+    const {id: horseId, user_id: userOwnerId} = horse
+    console.log(horseId)
+    await actions.postMessage(message.text, horseId, userOwnerId, getDate(new Date()))
+    await actions.getMessages(horseId)
+  }
+
+
   return (
     <>
       <div className="container text-center messagesBox">
-        {/* <div>
-                Esta es la ruta para ver los mensajes
-                <button onClick={() => actions.getMessages(1)}>Traete los mensajes</button>
-                    <div>{store.messages.map((item)=>{
-                        return (
-                            <p>{item.text}</p>
-                        )
-                    })}</div>
-                            </div> */}
         <div className="row borber border-bottom messagesTitle">
           <div className="col p-3 text-start">
             <span className="material-symbols-outlined align-center me-2">
@@ -24,55 +38,22 @@ const Chat = () => {
           </div>
         </div>
         <div className="row mt-3 messages">
-          <span className="messagesSpan text-start">
-            <p className="otro">
-              Hola estoy interesado en el caballo, ¿está disponible?
-            </p>
-          </span>
-          <span className="messagesSpan text-end">
-            <p className="usuarioLogeado">
-              Buenas! Sí, todavía está disponible
-            </p>
-          </span>
-          <span className="messagesSpan text-start">
-            <p className="otro">
-              Genial. Me gustaría poder verlo y así comprobar que se encuentre
-              en buen estado porque soy un super defensor de los animales
-            </p>
-          </span>
-          <span className="messagesSpan text-end">
-            <p className="usuarioLogeado">
-              ¿Es que no se fía de mí? Horze Luis es un caballo espléndido, bien
-              cuidado, alimentado con hierba de las más altas y frondosas
-              montañas! No encontrará otro igual, se lo aseguro
-            </p>
-          </span>
-          <span className="messagesSpan text-start">
-            <p className="otro">
-              Bueno, bueno, no se ponga así buen hombre! Solo quería un paseíto
-              con el caballo, tomar un poco el aire y ver cómo galopa
-            </p>
-          </span>
-          <span className="messagesSpan text-end">
-            <p className="usuarioLogeado">
-              ¿No será uno de esos frikis con rastas, no? Mire usted que a un
-              caballo hay que tratarlo con respeto
-            </p>
-          </span>
-          <span className="messagesSpan text-end">
-            <p className="usuarioLogeado">
-              No estoy dispuesto a dejar mi caballo en manos de cualquiera
-            </p>
-          </span>
+        {<div>
+            <div>{store.messages.map((item)=>{
+              return (
+                <p>{item.text}</p>
+              )
+           })}</div>
+          </div>}
         </div>
         <div className="row messageToSend align-items-center border-top">
           <div className="col justify-content-end mt-3 me-2">
             <div className="row">
               <div className="col-11 p-0">
-                <input typeof="text" value="" onChange></input>
+                <input type="message" onChange={(e)=>{setMessage({...message, text: e.target.value})}}></input>
               </div>
               <div className="col-1 p-0">
-                <span className="material-symbols-outlined send" onClick>
+                <span className="material-symbols-outlined send" onClick={()=>postMessage()}>
                   send
                 </span>
               </div>

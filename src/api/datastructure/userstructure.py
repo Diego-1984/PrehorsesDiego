@@ -48,5 +48,9 @@ class UserStructure:
         }
         return response_body
 
+    def get_especific_user(current_user_id):
+        user = User.query.filter_by(id = current_user_id).first()
+        return user.serialize_authorized()
+
     def get_all_users():
         return jsonify([user.serialize() for user in User.query.all()]), 200

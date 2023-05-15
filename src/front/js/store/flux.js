@@ -107,7 +107,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       getMessages: async (horseId) => {
-        const response = await fetch(`${process.env.BACKEND_URL} + /api/message/${horseId}`,
+        const response = await fetch(`${process.env.BACKEND_URL}/api/message/${horseId}`,
           {
             method: "GET",
             headers: {
@@ -117,14 +117,35 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
         );
         const messages = await response.json();
-        setStore({ ...getStore(), messages });
+        setStore({...getStore(), messages})
+        return messages;
       },
 
-      postMessage:async() =>{
-        const response = await fetch(`${process.env.BACKEND_URL}/api/message`,
+      postMessage:async(text, horseId, userOwnerId, dateTime) =>{
+       return fetch(`${process.env.BACKEND_URL}/api/message`,
         {
+          method: "POST",
+          headers : {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+            "Content-type": "application/json",
+          },
+          body : JSON.stringify({text, horseId, userOwnerId, dateTime})
+        });
+      },
 
-        })
+      getOneUser: async () => {
+        const response = await fetch(
+          process.env.BACKEN_URL + `/api/oneUser`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: "Bearer " + localStorage.getItem("token"),
+              "Content-type": "application/json",
+            },
+          }
+        );
+        const data = await response.json();
+        return data;
       },
 
       editUser: async(userId, user) => {
