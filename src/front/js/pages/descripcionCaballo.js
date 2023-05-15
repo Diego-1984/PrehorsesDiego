@@ -1,6 +1,5 @@
 import React, {useContext, useState, useEffect} from "react";
 import Chat from "../component/chat";
-import { Navbar } from "../component/navbar";
 import { Context } from "../store/appContext";
 import {useParams } from "react-router-dom";
 import ButtonContact from "../component/buttonContact";
@@ -15,7 +14,7 @@ const DescripcionCaballo = () => {
   const [isChatShown, setIsChatShown] = useState(false);
   
   const datosCaballoConChat = {
-    'width': 60+'%',
+    'width': 40+'%',
     'boxSizing': 'contentBox',
     'float': 'left'
   }
@@ -28,6 +27,8 @@ const DescripcionCaballo = () => {
 		console.log(actualInfo);
 		setActualPage(actualInfo);
 	}, [params])
+
+  const horse = store.horses.find((item)=>item.id == id);
 
   return (
     <>
@@ -46,18 +47,12 @@ const DescripcionCaballo = () => {
                 <div className="card-body">
                   <div className="row">
                     <div className="col-12">
-                      <h5 className="card-title d-flex justify-content-start">
-                        Descripción:
-                      </h5>
-                      <p className="card-text p-2 mb-2 text-center">
+                      <p className="card-text p-2 mb-2">
                         {actualPage?.descripcion}
                       </p>
                     </div>
-                    <div className="col-12 text-start">
-                      <h5 className="card-title d-flex justify-content-start">
-                        Precio:
-                      </h5>
-                      <p className="card-text p-2 mb-2 text-center fs-4 text">
+                    <div className="col-12 text-start pt-1">
+                      <p className="card-text p-2 pb-2 fs-4 text">
                         {actualPage?.precio}€
                       </p>
                     </div>
@@ -95,25 +90,25 @@ const DescripcionCaballo = () => {
                 </div>
                 </div>
                 <div className="col-8 mt-3">
-                  <div className="d-flex w-50 descriptionIcons">
+                  <div className="d-flex descriptionIcons">
                   <span className="material-symbols-outlined me-3">
                   palette
                   </span>
                   <p>{actualPage?.capa}</p>
                   </div>
-                  <div className="d-flex w-50 descriptionIcons">
+                  <div className="d-flex descriptionIcons">
                   <span className="material-symbols-outlined me-3">
                   height
                   </span>
                   <p>{actualPage?.alzada}</p>
                   </div>
-                  <div className="d-flex w-50 descriptionIcons">
+                  <div className="d-flex descriptionIcons">
                   <span className="material-symbols-outlined me-3">
                   military_tech
                   </span>
                   <p>{actualPage?.nivel_doma}</p>
                   </div>
-                  <div className="d-flex w-50 descriptionIcons">
+                  <div className="d-flex descriptionIcons">
                   <span className="material-symbols-outlined me-3">
                   fence
                   </span>
@@ -148,28 +143,28 @@ const DescripcionCaballo = () => {
                       <p>{actualPage?.provincia}</p>
                     </div>
                   </div>
-                  <div className="col mt-3">
-                    <div className="d-flex w-50 descriptionIcons">
+                  <div className="col p-0 mt-3">
+                    <div className="d-flex descriptionIcons">
                       <span className="material-symbols-outlined me-3">
                       palette
                       </span>
                       <p>{actualPage?.capa}</p>
                     </div>
-                    <div className="d-flex w-50 descriptionIcons">
+                    <div className="d-flex descriptionIcons">
                       <span className="material-symbols-outlined me-3">
                       height
                       </span>
                       <p>{actualPage?.alzada}</p>
                     </div>
                   </div>
-                  <div className="col mt-3">
-                    <div className="d-flex w-50 descriptionIcons">
+                  <div className="col p-0 mt-3">
+                    <div className="d-flex descriptionIcons">
                       <span className="material-symbols-outlined me-3">
                       military_tech
                       </span>
                       <p>{actualPage?.nivel_doma}</p>
                     </div>
-                    <div className="d-flex w-50 descriptionIcons">
+                    <div className="d-flex descriptionIcons">
                       <span className="material-symbols-outlined me-3">
                       fence
                       </span>
@@ -181,7 +176,7 @@ const DescripcionCaballo = () => {
           </div>
         </div>
         <div className="chat">
-          {isChatShown ? < Chat/> : null}
+          {isChatShown ? < Chat horse={horse}/> : null}
         </div>
         
       </div>

@@ -1,20 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {useContext } from "react";
-import Context from "../store/appContext"
+import { Context } from "../store/appContext";
+
 
 const ModifyUser = () => {
+  const {store, actions} = useContext(Context);
+
+  useEffect(()=>{
+    actions.getOneUser()
+  }, [])
+
   return (
     <form id="modifyUser" style={{ width: 45 + "rem", padding: 2 + "rem", marginLeft: 7+'rem'}}>
       <div
         className="container-fluid m-1"
       >
-        <div className="row">
+          <div className="row">
           <div className="col">
             <div className="mb-3">
               <label className="form-label mb-3">Nombre :</label>
               <input
                 className="form-control mb-3"
-                placeholder="Introduzca nuevo nombre de Usuario"
+                placeholder={user.name}
               />
               <div id="emailHelp" className="form-text"></div>
               <label hmtlfor="exampleInputEmail1" className="form-label mb-3">
@@ -25,7 +32,7 @@ const ModifyUser = () => {
                 className="form-control mb-3"
                 id="exampleInputEmail2"
                 aria-describedby="emailHelp"
-                placeholder="{user.email}"
+                placeholder={user.email}
                 disabled
               />
               <div id="emailHelp" className="form-text"></div>
@@ -38,7 +45,7 @@ const ModifyUser = () => {
                 type="password"
                 className="form-control mb-3"
                 id="exampleInputPassword1"
-                placeholder="Introduzca su nueva Contraseña"
+                placeholder={user.password}
               />
             </div>
             <button type="button" className="btn btn-outline-dark mt-3">

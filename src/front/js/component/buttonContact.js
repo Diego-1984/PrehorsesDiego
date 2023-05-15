@@ -13,9 +13,9 @@ const ButtonContact = ({isChatShown, setIsChatShown}) =>{
       }
 
     return (
-        <div className="d-flex justify-content-center">
+        <div className="d-flex ps-3">
             <div className="row align-items-end">
-                <button type="button" className="btn btn-outline-warning text-end" onClick={()=>{showChat(isChatShown)}}>
+                <button type="button" className="btn btn-warning text-end" onClick={()=>{showChat(isChatShown)}}>
                     Contacta con el Vendedor
                 </button>
             </div>

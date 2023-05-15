@@ -203,7 +203,9 @@ a:hover{
 .descriptionIcons .material-symbols-outlined{
     font-size: 4em;
     margin-bottom: 10px;
-    color:rgba(190, 125, 71, 0.952)
+    padding: 3px;
+    color:rgba(190, 125, 71, 0.952);
+    background-color: #f8eeda;
 }
 .descriptionIcons p{
     padding-top: 20px;
@@ -217,7 +219,7 @@ a:hover{
 .chat{
     box-sizing: content-box;
     float: right;
-    width: 35%;
+    width: 55%;
 }
 .messagesBox{
     background-color: #faf8f5;

@@ -1,6 +1,34 @@
-import React from "react";
+import React, {useContext, useEffect, useState} from "react";
+import { Context } from "../store/appContext";
 
-const Chat = () => {
+const Chat = ({horse}) => {
+
+  const [message, setMessage] = useState([]);
+  const {actions} = useContext(Context);
+
+  const [dateTime, setDateTime] = useState('');
+
+  const getDate = () => {
+    var date = new Date().getDate();
+    var month = new Date().getMonth() + 1;
+    var year = new Date().getFullYear();
+    var hours = new Date().getHours();
+    var min = new Date().getMinutes();
+    var sec = new Date().getSeconds();
+    var finalObject = date + '/' + month + '/' + year + ' ' + hours + ':' + min + ':' + sec;
+    setDateTime(finalObject);
+  }
+  const postMessage = async() =>{
+    console.log(horse)
+    const {id: horseId, user_id: userOwnerId} = horse
+    console.log(horseId, userOwnerId)
+    await actions.postMessage(message, userOwnerId, horseId, dateTime)
+    await actions.getMessages(horseId)
+  }
+
+  useEffect(()=>{
+    getDate()
+  }, [])
   return (
     <>
       <div className="container text-center messagesBox">
@@ -24,55 +52,15 @@ const Chat = () => {
           </div>
         </div>
         <div className="row mt-3 messages">
-          <span className="messagesSpan text-start">
-            <p className="otro">
-              Hola estoy interesado en el caballo, ¿está disponible?
-            </p>
-          </span>
-          <span className="messagesSpan text-end">
-            <p className="usuarioLogeado">
-              Buenas! Sí, todavía está disponible
-            </p>
-          </span>
-          <span className="messagesSpan text-start">
-            <p className="otro">
-              Genial. Me gustaría poder verlo y así comprobar que se encuentre
-              en buen estado porque soy un super defensor de los animales
-            </p>
-          </span>
-          <span className="messagesSpan text-end">
-            <p className="usuarioLogeado">
-              ¿Es que no se fía de mí? Horze Luis es un caballo espléndido, bien
-              cuidado, alimentado con hierba de las más altas y frondosas
-              montañas! No encontrará otro igual, se lo aseguro
-            </p>
-          </span>
-          <span className="messagesSpan text-start">
-            <p className="otro">
-              Bueno, bueno, no se ponga así buen hombre! Solo quería un paseíto
-              con el caballo, tomar un poco el aire y ver cómo galopa
-            </p>
-          </span>
-          <span className="messagesSpan text-end">
-            <p className="usuarioLogeado">
-              ¿No será uno de esos frikis con rastas, no? Mire usted que a un
-              caballo hay que tratarlo con respeto
-            </p>
-          </span>
-          <span className="messagesSpan text-end">
-            <p className="usuarioLogeado">
-              No estoy dispuesto a dejar mi caballo en manos de cualquiera
-            </p>
-          </span>
         </div>
         <div className="row messageToSend align-items-center border-top">
           <div className="col justify-content-end mt-3 me-2">
             <div className="row">
               <div className="col-11 p-0">
-                <input typeof="text" value="" onChange></input>
+                <input type="message" onChange={(e)=>{setMessage({...message, text: e.target.value})}}></input>
               </div>
               <div className="col-1 p-0">
-                <span className="material-symbols-outlined send" onClick>
+                <span className="material-symbols-outlined send" onClick={()=>postMessage()}>
                   send
                 </span>
               </div>
