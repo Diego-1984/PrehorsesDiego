@@ -15,6 +15,5 @@ class MessageStructure:
         return jsonify(message.serialize())
 
     def get_all_messages(horse_id, current_user_id):
-        # messages = Message.query.filter_by(horse_id = horse_id, user_interested_id = current_user_id).all()
-        messages = Message.query.all()
+        messages = Message.query.filter_by(horse_id = horse_id, user_interested_id = current_user_id).all()
         return jsonify([message.serialize() for message in messages])
