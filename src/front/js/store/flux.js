@@ -139,26 +139,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       getOneUser: async () => {
         const response = await fetch(
-          process.env.BACKEN_URL + `/api/oneUser`,
+          `${process.env.BACKEND_URL}/api/oneUser`,
           {
             method: "GET",
             headers: {
               Authorization: "Bearer " + localStorage.getItem("token"),
-              "Content-type": "application/json",
             },
           }
         );
-        const data = await response.json();
-        return data;
+        const user = await response.json()
+        console.log(user);
+        setStore({...getStore(), user})
       },
 
-      editUser: async(userId, user) => {
+      editUser: async(user) => {
         const response = await fetch(
-          process.env.BACKEND_URL + `api/user/${userId}`,
+          `${process.env.BACKEND_URL}/api/editUser`,
           {
             method: "PUT",
             headers: {
-              "Authorization": "Bearer " + localStorage.getItem("token"),
+              Authorization: "Bearer " + localStorage.getItem("token"),
               "Content-type": "application/json",
             },
             body: JSON.stringify(user) 
