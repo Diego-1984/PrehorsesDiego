@@ -22,9 +22,13 @@ const Carousel = () =>{
                                         En esta sección podrá descubrir todos los sementales
                                         disponibles y contactar con su dueño.
                                     </p>
-                                    <Link to="/male">
+                                    {localStorage.getItem('token') ? <Link to="/male">
+                                        <button type="button" className="btn mt-3">Ver sementales</button>
+                                    </Link> :<Link to="/login">
                                         <button type="button" className="btn mt-3">Ver sementales</button>
                                     </Link>
+                                    }
+                                    
                                 </div>
                             </div>
                         </div>
