@@ -22,9 +22,12 @@ const Carousel = () =>{
                                         En esta sección podrá descubrir todos los sementales
                                         disponibles y contactar con su dueño.
                                     </p>
-                                    <Link to="/male">
+                                    {localStorage.getItem('token') ? <Link to="/male">
+                                        <button type="button" className="btn mt-3">Ver sementales</button>
+                                    </Link> :<Link to="/login">
                                         <button type="button" className="btn mt-3">Ver sementales</button>
                                     </Link>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -45,9 +48,12 @@ const Carousel = () =>{
                                         En esta sección podrá descubrir todas las yeguas
                                         disponibles y contactar con su dueño.
                                     </p>
-                                    <Link to="/mares">
-                                        <button type="button" className="btn mt-3">Ver Yeguas</button>
+                                    {localStorage.getItem('token') ? <Link to="/male">
+                                        <button type="button" className="btn mt-3">Ver sementales</button>
+                                    </Link> :<Link to="/login">
+                                        <button type="button" className="btn mt-3">Ver sementales</button>
                                     </Link>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -68,9 +74,12 @@ const Carousel = () =>{
                                         En esta sección podrá descubrir todos los caballos castrados
                                         disponibles y contactar con su dueño.
                                     </p>
-                                    <Link to="/gelding">
-                                        <button type="button" className="btn mt-3">Ver Castrados</button>
+                                    {localStorage.getItem('token') ? <Link to="/male">
+                                        <button type="button" className="btn mt-3">Ver sementales</button>
+                                    </Link> :<Link to="/login">
+                                        <button type="button" className="btn mt-3">Ver sementales</button>
                                     </Link>
+                                    }
                                 </div>
                             </div>
                         </div>
