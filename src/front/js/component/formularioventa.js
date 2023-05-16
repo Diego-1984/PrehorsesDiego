@@ -254,7 +254,7 @@ const FormularioVenta = () => {
                                     <div className="row justify-content-end">
                                         <div className="col-2 justify-content-end pt-2">
                                             <div className="d-flex justify-content-end">
-                                                <button className="btn btn-warning p-2 pe-3 ps-3 fs-5" onClick={()=>{actions.addHorse(horse); alert('Caballo publicado')}}>Publicar</button>
+                                                <button className="btn btn-warning p-2 pe-3 ps-3 fs-5" onClick={()=>{actions.addHorse(horse); alert('Caballo publicado'), window.location.reload()}}>Publicar</button>
                                             </div>
                                         </div>
                                     </div>
