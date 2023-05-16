@@ -1,8 +1,16 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useId } from "react";
 import { Context } from "../store/appContext";
 
 export const UserAcountMyHorses = () => {
   const { store, actions } = useContext(Context);
+
+  const getMessages = (horse) => {
+    const usersInterested = new Set();
+    horse.messages.forEach(({userInterestedId}) => usersInterested.add(userInterestedId));
+    const messageArranged = Array.from(usersInterested)
+      .map((userId) => horse.messages.filter(({userInterestedId}) => (userInterestedId === userId)));
+    return messageArranged;
+  }
 
   useEffect(async () => {
     await actions.clearHorses();
@@ -32,9 +40,11 @@ export const UserAcountMyHorses = () => {
                 </h2>
                 <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                   <div className="accordion-body">
-                    <ul>
-                      <li> {JSON.stringify(horse.messages)}</li>
-                    </ul>
+                    { getMessages(horse).map((messages => (<>
+                      <ul>
+                        {messages.map(message => (<li>{message.text}</li>))}
+                      </ul>
+                    </>)))}
                   </div>
                 </div>
               </div>
