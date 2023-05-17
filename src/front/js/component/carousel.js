@@ -49,9 +49,12 @@ const Carousel = () =>{
                                         En esta sección podrá descubrir todas las yeguas
                                         disponibles y contactar con su dueño.
                                     </p>
-                                    <Link to="/mares">
+                                    {localStorage.getItem('token') ? <Link to="/mares">
+                                        <button type="button" className="btn mt-3">Ver Yeguas</button>
+                                    </Link> :<Link to="/login">
                                         <button type="button" className="btn mt-3">Ver Yeguas</button>
                                     </Link>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -72,9 +75,12 @@ const Carousel = () =>{
                                         En esta sección podrá descubrir todos los caballos castrados
                                         disponibles y contactar con su dueño.
                                     </p>
-                                    <Link to="/gelding">
+                                    {localStorage.getItem('token') ? <Link to="/geldings">
+                                        <button type="button" className="btn mt-3">Ver Castrados</button>
+                                    </Link> :<Link to="/login">
                                         <button type="button" className="btn mt-3">Ver Castrados</button>
                                     </Link>
+                                    }
                                 </div>
                             </div>
                         </div>
