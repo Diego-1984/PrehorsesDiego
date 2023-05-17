@@ -30,13 +30,13 @@ const FormularioVenta = () => {
                                                     className="form-label"><strong>Nombre</strong></label>
                                                     <input type="text" className="form-control" 
                                                     id="validationDefault01" required
-                                                    placeholder="Nombre caballo" onChange={(e)=>{setHorse({...horse, nombre:e.target.value}, console.log(horse))}}/>
+                                                    placeholder="Nombre caballo" onChange={(e)=>{setHorse({...horse, nombre:e.target.value})}}/>
                                                 </div>
                                                 <div className="col-md-3">
                                                     <label htmlFor="validationCustom04" 
                                                     className="form-label"><strong>Año de nacimiento</strong></label>
                                                     <select className="form-select" 
-                                                    id="validationCustom04" required onChange={(e)=>{setHorse({...horse, fecha_nacimiento:e.target.value}, console.log(horse))}}>
+                                                    id="validationCustom04" required onChange={(e)=>{setHorse({...horse, fecha_nacimiento:e.target.value})}}>
                                                         <option defaultValue=""></option>
                                                         <option value="1995">1995</option>
                                                         <option value="1996">1996</option>
@@ -73,7 +73,7 @@ const FormularioVenta = () => {
                                                     <label htmlFor="validationCustom04" 
                                                     className="form-label"><strong>Ganadería</strong></label>
                                                     <select className="form-select" 
-                                                    id="validationCustom04" onChange={(e)=>{setHorse({...horse, ganaderia:e.target.value}, console.log(horse))}}>
+                                                    id="validationCustom04" onChange={(e)=>{setHorse({...horse, ganaderia:e.target.value})}}>
                                                         <option defaultValue="">Elige ganadería</option>
                                                         {store.ganaderia.map((ganaderia)=>{
                                                             return(<option className="p-1" 
@@ -85,7 +85,7 @@ const FormularioVenta = () => {
                                                     <label htmlFor="validationCustom04" 
                                                     className="form-label"><strong>Sexo</strong></label>
                                                     <select className="form-select" 
-                                                    id="validationCustom04" required onChange={(e)=>{setHorse({...horse, sexo:e.target.value}, console.log(horse))}}>
+                                                    id="validationCustom04" required onChange={(e)=>{setHorse({...horse, sexo:e.target.value})}}>
                                                         <option defaultValue=""></option>
                                                         <option className="p-1" value="Macho">Macho</option>
                                                         <option className="p-1" value="Yegua">Yegua</option>
@@ -96,13 +96,13 @@ const FormularioVenta = () => {
                                                     <label htmlFor="validationDefault03" 
                                                     className="form-label"><strong>Precio €</strong></label>
                                                     <input type="number" className="form-control" 
-                                                    id="validationDefault02" onChange={(e)=>{setHorse({...horse, precio:e.target.value}, console.log(horse))}}/>
+                                                    id="validationDefault02" onChange={(e)=>{setHorse({...horse, precio:e.target.value})}}/>
                                                 </div>
                                             </div>
                                             <div className="row">
                                                 <div className="col-md-2">
                                                     <label htmlFor="validationCustom04" className="form-label"><strong>Capa</strong></label>
-                                                    <select className="form-select" id="validationCustom04" required onChange={(e)=>{setHorse({...horse, capa:e.target.value}, console.log(horse))}}>
+                                                    <select className="form-select" id="validationCustom04" required onChange={(e)=>{setHorse({...horse, capa:e.target.value})}}>
                                                         <option defaultValue="">Elige capa</option>
                                                         <option value="0">Cualquier Color</option>
                                                         <option value="Appaloosa">Appaloosa</option>
@@ -140,7 +140,7 @@ const FormularioVenta = () => {
 
                                                 <div className="col-md-3">
                                                     <label htmlFor="validationCustom04" className="form-label"><strong>Alzada (m)</strong></label>
-                                                    <select className="form-select" id="validationCustom04" required onChange={(e)=>{setHorse({...horse, alzada:e.target.value}, console.log(horse))}}>
+                                                    <select className="form-select" id="validationCustom04" required onChange={(e)=>{setHorse({...horse, alzada:e.target.value})}}>
                                                         <option defaultValue="">Elige alzada</option>
                                                         <option className="p-1"></option>
                                                         <option>1.20 - 1.30</option>
@@ -155,7 +155,7 @@ const FormularioVenta = () => {
                                                 </div>
                                                 <div className="col-md-3">
                                                     <label htmlFor="validationCustom04" className="form-label"><strong>Provincia</strong></label>
-                                                    <select className="form-select" id="validationCustom04" required onChange={(e)=>{setHorse({...horse, provincia:e.target.value}, console.log(horse))}}>
+                                                    <select className="form-select" id="validationCustom04" required onChange={(e)=>{setHorse({...horse, provincia:e.target.value})}}>
                                                         <option defaultValue="">Elige provincia</option>
                                                         <option className="p-1"></option>
                                                         <option value="Albacete">Albacete</option>
@@ -216,7 +216,7 @@ const FormularioVenta = () => {
                                                 </div>
                                                 <div className="col-md-4">
                                                     <label htmlFor="validationCustom04" className="form-label"><strong>Nivel de doma</strong></label>
-                                                    <select className="form-select" id="validationCustom04" required onChange={(e)=>{setHorse({...horse, nivel_doma:e.target.value}, console.log(horse))}}>
+                                                    <select className="form-select" id="validationCustom04" required onChange={(e)=>{setHorse({...horse, nivel_doma:e.target.value})}}>
                                                         <option defaultValue="">Elige lo más aproximado</option>
                                                         <option className="p-1">Sin doma</option>
                                                         <option className="p-1">Paso, trote, galope</option>
@@ -235,7 +235,7 @@ const FormularioVenta = () => {
                                                     </div>
                                                 </div>
                                                 <div className="col-8 mt-2"><strong>Descripción</strong><textarea className="form-control mt-2" id="message" name="message" placeholder="Describe aquí tu caballo"
-                                                        rows="7" onChange={(e)=>{setHorse({...horse, descripcion:e.target.value}, console.log(horse))}}></textarea>
+                                                        rows="7" onChange={(e)=>{setHorse({...horse, descripcion:e.target.value})}}></textarea>
                                                 </div>
                                                 <span className="invalid-feedback">
                                                     Debes añadir la descripción

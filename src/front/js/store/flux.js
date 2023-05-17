@@ -91,7 +91,6 @@ const getState = ({ getStore, getActions, setStore }) => {
         })
           .then((resp) => resp.json())
           .then((data) => {
-            console.log(data);
             if (data.token) {
               localStorage.setItem("token", data.token);
               setStore({...getStore(), token: data.token})
@@ -137,7 +136,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         });
       },
 
-      
+
       getOneUser: async () => {
         const response = await fetch(
           `${process.env.BACKEND_URL}/api/oneUser`,
@@ -149,7 +148,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
         );
         const user = await response.json()
-        console.log(user);
         setStore({...getStore(), user})
       },
 
@@ -182,7 +180,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           },
 				})
 				const horses = await response.json()
-        console.log(horses)
         setStore({...getStore(), horses})
       },
 

@@ -22,7 +22,7 @@ const ModifyUser = () => {
                 <input
                   className="form-control mb-3"
                   placeholder={store.user.name}
-                  onChange={(e)=>{setEditedUser({...editedUser, name:e.target.value}, console.log(editedUser))}}/>
+                  onChange={(e)=>{setEditedUser({...editedUser, name:e.target.value})}}/>
                 <div id="emailHelp" className="form-text"></div>
                 <label hmtlfor="exampleInputEmail1" className="form-label mb-3">
                   Email:
@@ -46,15 +46,12 @@ const ModifyUser = () => {
                   className="form-control mb-3"
                   id="exampleInputPassword1"
                   placeholder={store.user.password}
-                  onChange={(e)=>{setEditedUser( {...editedUser, password: e.target.value}), console.log(editedUser)}}
+                  onChange={(e)=>{setEditedUser( {...editedUser, password: e.target.value})}}
                 />
               </div>
               <button type="button" className="btn btn-outline-dark mt-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 Guardar cambios
               </button>
-              {/* <button type="button" className="btn btn-outline-dark mt-3" >
-                Guardar Cambios
-              </button> */}
             </div>
         </div>
       </div>
