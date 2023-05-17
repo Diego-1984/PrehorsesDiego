@@ -67,14 +67,14 @@ export const UserAcountMyHorses = () => {
                         {getMessages(horse).map(({userInterestedId, messages}) => (<>
                           <li class="nav-item" role="presentation">
                             <button class="nav-link" data-bs-toggle="tab" data-bs-target={`#tab-${userInterestedId}-${horse.id}`} type="button" role="tab"
-                            onClick={()=>setMessagesState(messages)}>{userInterestedId}</button>
+                            >{userInterestedId}</button>
                           </li>
                         </>))}
                       </ul>
                       <div class="tab-content" id="myTabContent">
                         {getMessages(horse).map(({userInterestedId, messages}, index) => (<>
                           <div class="tab-pane fade show" id={`tab-${userInterestedId}-${horse.id}`} role="tabpanel" tabindex={index}>
-                            <Chat horse={horse}/>
+                            <Chat horse={horse} messages={messages}/>
                           </div>
                         </>))}
                       </div>
