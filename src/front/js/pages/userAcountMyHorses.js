@@ -62,13 +62,13 @@ export const UserAcountMyHorses = () => {
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         {getMessages(horse).map(({userInterestedId, messages}) => (<>
                           <li class="nav-item" role="presentation">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target={`#tab-${userInterestedId}`} type="button" role="tab">{userInterestedId}</button>
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target={`#tab-${userInterestedId}-${horse.id}`} type="button" role="tab">{userInterestedId}</button>
                           </li>
                         </>))}
                       </ul>
                       <div class="tab-content" id="myTabContent">
                         {getMessages(horse).map(({userInterestedId, messages}, index) => (<>
-                          <div class="tab-pane fade show" id={`tab-${userInterestedId}`} role="tabpanel" tabindex={index}>
+                          <div class="tab-pane fade show" id={`tab-${userInterestedId}-${horse.id}`} role="tabpanel" tabindex={index}>
                             {JSON.stringify(messages)}
                           </div>
                         </>))}
