@@ -15,6 +15,10 @@ export const UserAcountMyHorses = () => {
         }))
   }
 
+  const setMessagesState= (messages) =>{
+    actions.setMessages(messages)
+  }
+
   useEffect(async () => {
     await actions.clearHorses();
     await actions.getMyHorses();
@@ -25,7 +29,7 @@ export const UserAcountMyHorses = () => {
       
         {store.horses.map((horse) =>{
           return (
-            <div className="accordion" id="accordionExample">
+            <div className="accordion" id={"accordionExample"}>
               <div className="accordion-item mt-2">
                 <h2 className="accordion-header">
                   <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -62,14 +66,15 @@ export const UserAcountMyHorses = () => {
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         {getMessages(horse).map(({userInterestedId, messages}) => (<>
                           <li class="nav-item" role="presentation">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target={`#tab-${userInterestedId}-${horse.id}`} type="button" role="tab">{userInterestedId}</button>
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target={`#tab-${userInterestedId}-${horse.id}`} type="button" role="tab"
+                            onClick={()=>setMessagesState(messages)}>{userInterestedId}</button>
                           </li>
                         </>))}
                       </ul>
                       <div class="tab-content" id="myTabContent">
                         {getMessages(horse).map(({userInterestedId, messages}, index) => (<>
                           <div class="tab-pane fade show" id={`tab-${userInterestedId}-${horse.id}`} role="tabpanel" tabindex={index}>
-                            {JSON.stringify(messages)}
+                            <Chat horse={horse}/>
                           </div>
                         </>))}
                       </div>

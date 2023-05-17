@@ -137,6 +137,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         });
       },
 
+      
       getOneUser: async () => {
         const response = await fetch(
           `${process.env.BACKEND_URL}/api/oneUser`,
