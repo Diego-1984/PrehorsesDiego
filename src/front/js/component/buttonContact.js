@@ -5,10 +5,8 @@ const ButtonContact = ({isChatShown, setIsChatShown}) =>{
     const showChat = (isChatShown) =>{
         if(isChatShown == false){
             setIsChatShown(isChatShown = true);
-            console.log('change chat to true')
         }else{
             setIsChatShown(isChatShown = false);
-            console.log('change chat to false')
         }
       }
 

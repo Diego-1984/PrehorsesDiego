@@ -109,9 +109,9 @@ def get_one_user():
     return get_one_user,200
 
 
-@api.route('/user/<int:id>', methods=['PUT'])
+@api.route('/editUser', methods=['PUT'])
 @jwt_required()
-def edit_user(id):
+def edit_user():
     """Editar un usuario
     ---
     description: Editar un usuario. No estoy segura de esta refactorización
@@ -124,13 +124,8 @@ def edit_user(id):
         }
     ]
     """
-    try:
-        current_user_id = get_jwt_identity()
-        if current_user_id!=id:
-            return jsonify({"message": "Acceso no permitido"}), 401
-    except:
-        return jsonify({"error": e}), 404
-
+    current_user_id = get_jwt_identity()
+    id = current_user_id
     name = request.json.get('name')
     password = request.json.get('password')
     modify_user = UserStructure.modify_user(id, name, password)

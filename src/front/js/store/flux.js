@@ -91,7 +91,6 @@ const getState = ({ getStore, getActions, setStore }) => {
         })
           .then((resp) => resp.json())
           .then((data) => {
-            console.log(data);
             if (data.token) {
               localStorage.setItem("token", data.token);
               setStore({...getStore(), token: data.token})
@@ -137,28 +136,28 @@ const getState = ({ getStore, getActions, setStore }) => {
         });
       },
 
+
       getOneUser: async () => {
         const response = await fetch(
-          process.env.BACKEN_URL + `/api/oneUser`,
+          `${process.env.BACKEND_URL}/api/oneUser`,
           {
             method: "GET",
             headers: {
               Authorization: "Bearer " + localStorage.getItem("token"),
-              "Content-type": "application/json",
             },
           }
         );
-        const data = await response.json();
-        return data;
+        const user = await response.json()
+        setStore({...getStore(), user})
       },
 
-      editUser: async(userId, user) => {
+      editUser: async(user) => {
         const response = await fetch(
-          process.env.BACKEND_URL + `api/user/${userId}`,
+          `${process.env.BACKEND_URL}/api/editUser`,
           {
             method: "PUT",
             headers: {
-              "Authorization": "Bearer " + localStorage.getItem("token"),
+              Authorization: "Bearer " + localStorage.getItem("token"),
               "Content-type": "application/json",
             },
             body: JSON.stringify(user) 
@@ -181,7 +180,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           },
 				})
 				const horses = await response.json()
-        console.log(horses)
         setStore({...getStore(), horses})
       },
 

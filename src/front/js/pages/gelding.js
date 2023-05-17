@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect} from "react";
+import React, {useContext, useEffect} from "react";
 import Filtrarpor from "../component/filtrarpor.js";
 import { Context } from "../store/appContext.js";
 import CardSimple from "../component/cardSimple.js";

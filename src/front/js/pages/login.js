@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export const Login = () => {
 
 	const [user, setUser] = useState({})
-	const { store, actions } = useContext(Context);
+	const {actions } = useContext(Context);
 	const navigate = useNavigate();
 
 	const logIn = () =>{
@@ -32,11 +32,11 @@ export const Login = () => {
 						<input type="email"
 						placeholder="Email"
 						className="input-field"
-						onChange={(e)=>{setUser({...user, email:e.target.value}, console.log(user))}}/>
+						onChange={(e)=>{setUser({...user, email:e.target.value})}}/>
 						<input type="password"
 						placeholder="Contraseña"
 						className="input-field"
-						onChange={(e)=>{setUser({...user, password:e.target.value}, console.log(user))}}/>
+						onChange={(e)=>{setUser({...user, password:e.target.value})}}/>
 						<input id="loginButton"
 						value="Log in" className="submit-btn"
 						onClick={()=>{logIn(user)}}/>
@@ -51,21 +51,21 @@ export const Login = () => {
 						className="input-field"
 						onChange={(e) => {
 							setUser({...user, name: e.target.value}); 
-							console.log(user)}}
+							}}
 						required/>
 						<input type="email"
 						placeholder="Email"
 						className="input-field"
 						onChange={(e) => {
 							setUser({ ...user, email: e.target.value }); 
-							console.log(user)}}
+							}}
 						required/>
 						<input type="password"
 						placeholder="Contraseña"
 						className="input-field"
 						onChange={(e) => {
 							setUser({...user, password: e.target.value}); 
-							console.log(user)}}
+							}}
 						required/>
 						<input type="submit"
 						value="Sign up" className="submit-btn"

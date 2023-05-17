@@ -12,6 +12,22 @@ const DescripcionCaballo = () => {
 
   const [isChatShown, setIsChatShown] = useState(false);
 
+  const getDate = (now) => {
+    var date = now.getDate();
+    var month = now.getMonth() + 1;
+    var year = now.getFullYear();
+    var hours = now.getHours();
+    var min = now.getMinutes();
+    var sec = now.getSeconds();
+    return year + '/' + month + '/' + date + 'T' + hours + ':' + min + ':' + sec;
+  }
+
+  const postMessage = async(horse, message) =>{
+    const {id: horseId, user_id: userOwnerId} = horse
+    await actions.postMessage(message.text, horseId, userOwnerId, getDate(new Date()))
+    await actions.getMessages(horseId)
+  }
+
   const datosCaballoConChat = {
     width: 40 + "%",
     boxSizing: "contentBox",
@@ -23,7 +39,6 @@ const DescripcionCaballo = () => {
   useEffect(() => {
     if (store.horses.length == 0) return;
     const actualInfo = store.horses.find((item) => item.id == id);
-    console.log(actualInfo);
     setActualPage(actualInfo);
   }, [params]);
 
@@ -193,61 +208,9 @@ const DescripcionCaballo = () => {
           </div>
         </div>
         <div className="chat">
-          {isChatShown ? <Chat horse={horse} /> : null}
+          {isChatShown ? <Chat horse={horse} messages={store.messages} postMessage={postMessage}/> : null}
         </div>
       </div>
-      {/* <div className="container bg-black">
-        <div className="card mb-3 border-0" style={{ maxwidth: 540 }}>
-          <div className="row g-0">
-            <div className="col-md-7 bg-black">
-              <img
-                src="https://img.freepik.com/foto-gratis/hermoso-caballo-marron-primer-plano-hocico-aspecto-lindo-melena-fondo-campo-corral-arboles-caballos-son-animales-maravillosos_639032-566.jpg?w=740&t=st=1681810671~exp=1681811271~hmac=45210fe48436757ec95dc233ee001b37fd52395ddce4143d4ee9bae56cd2fa6e"
-                className="img-fluid rounded-start"
-                alt="..."
-              />
-            </div>
-            <div className="col-md-5 bg-black">
-              <div className="card-body bg-black">
-                <h5 className="card-title text-white d-flex justify-content-center">
-                  Descripcion
-                </h5>
-                <p className="card-text text-white">
-                  {actualPage?.descripcion}
-                </p>
-                <div className="Container d-flex justify-content-center">
-                  <button type="button" className="btn btn-outline-warning">
-                    Contacta con el Vendedor
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <table className="table table-borderless border-top text-warning">
-          <thead>
-            <tr>
-              <th scope="col">Precio</th>
-              <th scope="col">Ubicación</th>
-              <th scope="col">Fecha de Nacimiento</th>
-              <th scope="col">Capa</th>
-              <th scope="col">Alzada</th>
-              <th scope="col">Doma</th>
-              <th scope="col">Ganaderia</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="Container text-white">
-              <td>{actualPage?.precio}</td>
-              <td>{actualPage?.provincia}</td>
-              <td>{actualPage?.año_nacimiento}</td>
-              <td>{actualPage?.capa}</td>
-              <td>{actualPage?.alzada}</td>
-              <td>{actualPage?.nivel_doma}</td>
-              <td>{actualPage?.ganaderia}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div> */}
     </>
   );
 };
