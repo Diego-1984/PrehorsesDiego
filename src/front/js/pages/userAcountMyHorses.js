@@ -1,5 +1,6 @@
 import React, { useContext, useEffect} from "react";
 import { Context } from "../store/appContext";
+import Chat from "../component/chat";
 
 export const UserAcountMyHorses = () => {
   const { store, actions } = useContext(Context);
@@ -7,9 +8,11 @@ export const UserAcountMyHorses = () => {
   const getMessages = (horse) => {
     const usersInterested = new Set();
     horse.messages.forEach(({userInterestedId}) => usersInterested.add(userInterestedId));
-    const messageArranged = Array.from(usersInterested)
-      .map((userId) => horse.messages.filter(({userInterestedId}) => (userInterestedId === userId)));
-    return messageArranged;
+    return Array.from(usersInterested)
+        .map((userInterestedId) =>  ({
+          userInterestedId,
+          messages: horse.messages.filter(({userInterestedId}) => (userInterestedId === userInterestedId))
+        }))
   }
 
   useEffect(async () => {
@@ -56,8 +59,21 @@ export const UserAcountMyHorses = () => {
                 </h2>
                 <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                   <div className="accordion-body">
-                    {getMessages(horse).map((messages => (<>
-                      <div className="container text-center messagesBox mb-5 w-75">
+                    {getMessages(horse).map(({userInterestedId, messages}) => (
+
+                          <>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Home</button>
+                              </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                              <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">...</div>
+                            </div>
+                          </>
+                          
+
+                      /* <div className="container text-center messagesBox mb-5 w-75">
                         <div className="row borber border-bottom messagesTitle">
                           <div className="col p-3 text-start">
                             <span className="material-symbols-outlined align-center me-2">
@@ -87,10 +103,9 @@ export const UserAcountMyHorses = () => {
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </>
+                      </div> */
                     )
-                    ))}
+                    )}
                   </div>
                 </div>
               </div>
