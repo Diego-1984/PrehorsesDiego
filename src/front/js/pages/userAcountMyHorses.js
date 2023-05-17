@@ -15,10 +15,6 @@ export const UserAcountMyHorses = () => {
         }))
   }
 
-  const setMessagesState= (messages) =>{
-    actions.setMessages(messages)
-  }
-
   useEffect(async () => {
     await actions.clearHorses();
     await actions.getMyHorses();
