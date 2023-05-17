@@ -193,7 +193,7 @@ const DescripcionCaballo = () => {
           </div>
         </div>
         <div className="chat">
-          {isChatShown ? <Chat horse={horse} /> : null}
+          {isChatShown ? <Chat horse={horse} messages={store.messages}/> : null}
         </div>
       </div>
       {/* <div className="container bg-black">
