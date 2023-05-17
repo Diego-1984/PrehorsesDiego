@@ -12,6 +12,7 @@ const ModifyUser = () => {
   }, [])
 
   return (
+    <>
     <div id="modifyUser" style={{ width: 45 + "rem", padding: 2 + "rem", marginLeft: 7+'rem'}}>
       <div
         className="container-fluid m-1"
@@ -50,13 +51,35 @@ const ModifyUser = () => {
                 onChange={(e)=>{setEditedUser( {...editedUser, password: e.target.value}), console.log(editedUser)}}
               />
             </div>
-            <button type="button" className="btn btn-outline-dark mt-3" onClick={()=>{actions.editUser(editedUser), alert('Usuario modificado'), window.location.reload()}}>
-              Guardar Cambios
+            <button type="button" className="btn btn-outline-dark mt-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              Guardar cambios
             </button>
+            {/* <button type="button" className="btn btn-outline-dark mt-3" >
+              Guardar Cambios
+            </button> */}
           </div>
         </div>
       </div>
     </div>
+    <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div className="modal-dialog">
+      <div className="modal-content">
+        <div className="modal-header">
+          <h1 className="modal-title fs-5" id="staticBackdropLabel">Modificar datos de usuario</h1>
+          <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div className="modal-body">
+          Está a punto de modificar sus datos de usuario.
+          ¿Desea continuar?
+        </div>
+        <div className="modal-footer">
+          <button type="button" className="btn btn-danger" data-bs-dismiss="modal" onClick={()=>window.location.reload()}>Cancelar</button>
+          <button type="button" className="btn btn-success" onClick={()=>{actions.editUser(editedUser), alert('Usuario modificado'), window.location.reload()}}>Modificar datos</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </>
   );
 };
 
