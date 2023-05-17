@@ -8,13 +8,11 @@ export const UserAcountMyHorses = () => {
   const getMessages = (horse) => {
     const usersInterested = new Set();
     horse.messages.forEach(({userInterestedId}) => usersInterested.add(userInterestedId));
-    const diego = Array.from(usersInterested)
+    return Array.from(usersInterested)
         .map((userInterestedId) =>  ({
           userInterestedId,
           messages: horse.messages.filter(({userInterestedId: messageUserInterestedId}) => (userInterestedId === messageUserInterestedId))
         }))
-    console.log(diego);
-    return diego
   }
 
   useEffect(async () => {
