@@ -12,6 +12,22 @@ const DescripcionCaballo = () => {
 
   const [isChatShown, setIsChatShown] = useState(false);
 
+  const getDate = (now) => {
+    var date = now.getDate();
+    var month = now.getMonth() + 1;
+    var year = now.getFullYear();
+    var hours = now.getHours();
+    var min = now.getMinutes();
+    var sec = now.getSeconds();
+    return year + '/' + month + '/' + date + 'T' + hours + ':' + min + ':' + sec;
+  }
+
+  const postMessage = async(horse, message) =>{
+    const {id: horseId, user_id: userOwnerId} = horse
+    await actions.postMessage(message.text, horseId, userOwnerId, getDate(new Date()))
+    await actions.getMessages(horseId)
+  }
+
   const datosCaballoConChat = {
     width: 40 + "%",
     boxSizing: "contentBox",
@@ -193,7 +209,7 @@ const DescripcionCaballo = () => {
           </div>
         </div>
         <div className="chat">
-          {isChatShown ? <Chat horse={horse} messages={store.messages}/> : null}
+          {isChatShown ? <Chat horse={horse} messages={store.messages} postMessage={postMessage}/> : null}
         </div>
       </div>
       {/* <div className="container bg-black">

@@ -1,27 +1,9 @@
 import React, {useContext, useEffect, useState} from "react";
 import { Context } from "../store/appContext";
 
-const Chat = ({horse, messages}) => {
+const Chat = ({horse, messages, postMessage}) => {
 
   const [message, setMessage] = useState([]);
-  const {actions} = useContext(Context);
-
-  const getDate = (now) => {
-    var date = now.getDate();
-    var month = now.getMonth() + 1;
-    var year = now.getFullYear();
-    var hours = now.getHours();
-    var min = now.getMinutes();
-    var sec = now.getSeconds();
-    return year + '/' + month + '/' + date + 'T' + hours + ':' + min + ':' + sec;
-  }
-
-  const postMessage = async() =>{
-    const {id: horseId, user_id: userOwnerId} = horse
-    await actions.postMessage(message.text, horseId, userOwnerId, getDate(new Date()))
-    await actions.getMessages(horseId)
-  }
-
 
   return (
     <>
@@ -52,7 +34,7 @@ const Chat = ({horse, messages}) => {
                 <input type="message" onChange={(e)=>{setMessage({...message, text: e.target.value})}}></input>
               </div>
               <div className="col-1 p-0">
-                <span className="material-symbols-outlined send" onClick={()=>postMessage()}>
+                <span className="material-symbols-outlined send" onClick={()=>postMessage(horse, message)}>
                   send
                 </span>
               </div>
