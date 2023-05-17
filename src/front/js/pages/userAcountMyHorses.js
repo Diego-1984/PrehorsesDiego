@@ -8,11 +8,13 @@ export const UserAcountMyHorses = () => {
   const getMessages = (horse) => {
     const usersInterested = new Set();
     horse.messages.forEach(({userInterestedId}) => usersInterested.add(userInterestedId));
-    return Array.from(usersInterested)
+    const diego = Array.from(usersInterested)
         .map((userInterestedId) =>  ({
           userInterestedId,
-          messages: horse.messages.filter(({userInterestedId}) => (userInterestedId === userInterestedId))
+          messages: horse.messages.filter(({userInterestedId: messageUserInterestedId}) => (userInterestedId === messageUserInterestedId))
         }))
+    console.log(diego);
+    return diego
   }
 
   useEffect(async () => {
@@ -59,54 +61,21 @@ export const UserAcountMyHorses = () => {
                 </h2>
                 <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                   <div className="accordion-body">
-                    {getMessages(horse).map(({userInterestedId, messages}) => (
-
-                          <>
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                              <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Home</button>
-                              </li>
-                            </ul>
-                            <div class="tab-content" id="myTabContent">
-                              <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">...</div>
-                            </div>
-                          </>
-                          
-
-                      /* <div className="container text-center messagesBox mb-5 w-75">
-                        <div className="row borber border-bottom messagesTitle">
-                          <div className="col p-3 text-start">
-                            <span className="material-symbols-outlined align-center me-2">
-                              person
-                            </span>
-                            <span className="align-center">
-                              {messages.userInterestedId}
-                            </span>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        {getMessages(horse).map(({userInterestedId, messages}) => (<>
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target={`#tab-${userInterestedId}`} type="button" role="tab">{userInterestedId}</button>
+                          </li>
+                        </>))}
+                      </ul>
+                      <div class="tab-content" id="myTabContent">
+                        {getMessages(horse).map(({userInterestedId, messages}, index) => (<>
+                          <div class="tab-pane fade show" id={`tab-${userInterestedId}`} role="tabpanel" tabindex={index}>
+                            {JSON.stringify(messages)}
                           </div>
-                        </div>
-                        <div className="row mt-3 messages">
-                        {<div>
-                            <div>{messages.map(message => (<p>{message.text}</p>))}</div>
-                          </div>}
-                        </div>
-                        <div className="row messageToSend align-items-center border-top">
-                          <div className="col justify-content-end mt-3 me-2">
-                            <div className="row">
-                              <div className="col-11 p-0">
-                                <input type="message" onChange={(e)=>{setMessage({...message, text: e.target.value})}}></input>
-                              </div>
-                              <div className="col-1 p-0">
-                                <span className="material-symbols-outlined send" onClick={()=>postMessage()}>
-                                  send
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div> */
-                    )
-                    )}
-                  </div>
+                        </>))}
+                      </div>
+                    </div>
                 </div>
               </div>
             </div>
