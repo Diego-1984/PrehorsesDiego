@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { Context } from "../store/appContext";
+import React from "react";
 import { Link } from "react-router-dom";
 import caballoJumbotron from "../../img/caballoJumbotron.png";
 import "../../styles/home.css";
@@ -8,7 +7,6 @@ import logo from "../../img/logo.png";
 import {Footer} from ".//../component/footer"
 
 export const Home = () => {
-   const { store, actions } = useContext(Context);
   
    return (
     <div  className="text-center">

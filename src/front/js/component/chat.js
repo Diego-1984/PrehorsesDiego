@@ -1,5 +1,4 @@
-import React, {useContext, useEffect, useState} from "react";
-import { Context } from "../store/appContext";
+import React, {useState} from "react";
 
 const Chat = ({horse, messages, postMessage}) => {
 
