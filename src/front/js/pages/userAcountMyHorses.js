@@ -25,7 +25,7 @@ export const UserAcountMyHorses = () => {
       
         {store.horses.map((horse) =>{
           return (
-            <div className="accordion" id={"accordionExample"}>
+            <div className="accordion" id="accordionExample">
               <div className="accordion-item mt-2">
                 <h2 className="accordion-header">
                   <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -59,17 +59,17 @@ export const UserAcountMyHorses = () => {
                 </h2>
                 <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                   <div className="accordion-body">
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <ul className="nav nav-tabs" id="myTab" role="tablist">
                         {getMessages(horse).map(({userInterestedId, messages}) => (<>
-                          <li class="nav-item" role="presentation">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target={`#tab-${userInterestedId}-${horse.id}`} type="button" role="tab"
+                          <li className="nav-item" role="presentation">
+                            <button className="nav-link" data-bs-toggle="tab" data-bs-target={`#tab-${userInterestedId}-${horse.id}`} type="button" role="tab"
                             >{userInterestedId}</button>
                           </li>
                         </>))}
                       </ul>
-                      <div class="tab-content" id="myTabContent">
+                      <div className="tab-content" id="myTabContent">
                         {getMessages(horse).map(({userInterestedId, messages}, index) => (<>
-                          <div class="tab-pane fade show" id={`tab-${userInterestedId}-${horse.id}`} role="tabpanel" tabindex={index}>
+                          <div className="tab-pane fade show" id={`tab-${userInterestedId}-${horse.id}`} role="tabpanel" tabIndex={index}>
                             <Chat horse={horse} messages={messages}/>
                           </div>
                         </>))}
