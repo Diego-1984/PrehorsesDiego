@@ -28,7 +28,7 @@ const Chat = ({horse, messages, postMessage, userInterestedId}) => {
         </div>
         <div className="row messageToSend align-items-center border-top">
           <div className="col justify-content-end mt-3 me-2">
-            <div className="row">
+            <div className="row ">
               <div className="col-11 p-0">
                 <input type="message" onChange={(e)=>{setMessage({...message, text: e.target.value})}}></input>
               </div>
