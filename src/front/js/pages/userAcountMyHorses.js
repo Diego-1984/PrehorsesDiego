@@ -20,6 +20,21 @@ export const UserAcountMyHorses = () => {
     await actions.getMyHorses();
   }, []);
 
+  const getDate = (now) => {
+    var date = now.getDate();
+    var month = now.getMonth() + 1;
+    var year = now.getFullYear();
+    var hours = now.getHours();
+    var min = now.getMinutes();
+    var sec = now.getSeconds();
+    return year + '/' + month + '/' + date + 'T' + hours + ':' + min + ':' + sec;
+  }
+  const postUserOwnerMessage = async(horse, message, userInterestedId) =>{
+    const {id: horseId, user_id: userOwnerId} = horse
+    await actions.postUserOwnerMessage(message.text, horseId, userInterestedId, getDate(new Date()))
+    await actions.getMyHorses();
+  }
+
   return (
     <div className="container m-0">
       
@@ -70,7 +85,7 @@ export const UserAcountMyHorses = () => {
                       <div className="tab-content" id="myTabContent">
                         {getMessages(horse).map(({userInterestedId, messages}, index) => (<>
                           <div className="tab-pane fade show" id={`tab-${userInterestedId}-${horse.id}`} role="tabpanel" tabIndex={index}>
-                            <Chat horse={horse} messages={messages}/>
+                            <Chat horse={horse} messages={messages} userInterestedId={userInterestedId} postMessage={postUserOwnerMessage}/>
                           </div>
                         </>))}
                       </div>

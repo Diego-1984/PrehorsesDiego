@@ -136,6 +136,17 @@ const getState = ({ getStore, getActions, setStore }) => {
         });
       },
 
+      postUserOwnerMessage:async(text, horseId, userInterestedId, dateTime) =>{
+        return fetch(`${process.env.BACKEND_URL}/api/user-owner/message`,
+         {
+           method: "POST",
+           headers : {
+             Authorization: "Bearer " + localStorage.getItem("token"),
+             "Content-type": "application/json",
+           },
+           body : JSON.stringify({text, horseId, userInterestedId, dateTime})
+         });
+       },
 
       getOneUser: async () => {
         const response = await fetch(

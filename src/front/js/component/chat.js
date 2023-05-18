@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const Chat = ({horse, messages, postMessage}) => {
+const Chat = ({horse, messages, postMessage, userInterestedId}) => {
 
   const [message, setMessage] = useState([]);
 
@@ -33,7 +33,7 @@ const Chat = ({horse, messages, postMessage}) => {
                 <input type="message" onChange={(e)=>{setMessage({...message, text: e.target.value})}}></input>
               </div>
               <div className="col-1 p-0">
-                <span className="material-symbols-outlined send" onClick={()=>postMessage(horse, message)}>
+                <span className="material-symbols-outlined send" onClick={()=>postMessage(horse, message, userInterestedId)}>
                   send
                 </span>
               </div>
