@@ -346,6 +346,20 @@ def post_message():
     user_interested_id, date_time, sender_id)
     return message, 200
 
+@api.route("/user-owner/message", methods=['POST'])
+@jwt_required()
+def post_userowner_message():
+    current_user_id = get_jwt_identity()
+    text = request.json.get('text')
+    horse_id = request.json.get('horseId')
+    user_owner_id = current_user_id
+    user_interested_id = request.json.get('userInterestedId')
+    date_time = request.json.get('dateTime')
+    sender_id = current_user_id
+    message = MessageStructure.post_one_message(text, horse_id, user_owner_id,
+    user_interested_id, date_time, sender_id)
+    return message, 200
+
 @api.route('/ganaderia', methods=['POST'])
 @jwt_required
 def add_ganaderia():
