@@ -238,7 +238,8 @@ a:hover{
 }
 
 .owner{
-    display: inline-block;
+    /* display: inline-block; */
+    align-self: flex-start;
     padding: 10px;
     max-width: 45%;
     background-color: rgba(190, 125, 71, 0.952);
@@ -247,7 +248,8 @@ a:hover{
 }
 
 .interested{
-    display: inline-block;
+    /* display: inline-block; */
+    align-self: flex-end;
     padding: 10px;
     max-width: 45%;
     background-color: #f6dba5;

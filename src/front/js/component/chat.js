@@ -18,22 +18,23 @@ const Chat = ({horse, messages, postMessage, userInterestedId}) => {
             </span>
           </div>
         </div>
-        <div className="row mt-3 messages">
+        <div className="row mt-3 messages justify-content-start">
+          <div className="d-flex justify-content-start align-items-stretch flex-column w-100">
             {messages.map((item)=>{
-              if(item.senderId === item.userOwnerId ){
-                return (
+                if(item.senderId === item.userOwnerId ){
+                  return (
+                    <>
+                      <div className="w-50 owner mb-2">{item.text}</div>
+                    </>
+                  )
+                }else return(
                   <>
-                    <div className="col-6"></div>
-                    <div className="col-6 owner mb-2">{item.text}</div>
+                    <div className="w-50 interested mb-2">{item.text}</div>
                   </>
                 )
-              }else return(
-                <>
-                  <div className="col-6 interested mb-2">{item.text}</div>
-                  <div className="col-6"></div>
-                </>
-              )
-           })}
+            })}
+          </div>
+            
         </div>
         <div className="row messageToSend align-items-center border-top">
           <div className="col justify-content-end mt-3 me-2">
