@@ -1,7 +1,8 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
+import { Context } from "../store/appContext";
 
 const Chat = ({horse, messages, postMessage, userInterestedId}) => {
-
+  const {store} = useContext(Context);
   const [message, setMessage] = useState([]);
 
   return (
@@ -13,7 +14,7 @@ const Chat = ({horse, messages, postMessage, userInterestedId}) => {
               person
             </span>
             <span className="align-center">
-              Nombres
+              {messages[0].user_interested.id == store.user.id ? messages[0].userOwner.name : messages[0].user_interested.name}
             </span>
           </div>
         </div>

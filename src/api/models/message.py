@@ -12,6 +12,7 @@ class Message(db.Model):
     user_interested = db.relationship('User', foreign_keys=[user_interested_id])
     date_time = db.Column(db.DateTime)
     sender_id = Column(Integer, ForeignKey('user.id'))
+    
     def serialize(self):
         return {
             "id" : self.id,
