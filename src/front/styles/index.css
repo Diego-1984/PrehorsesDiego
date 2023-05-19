@@ -237,20 +237,16 @@ a:hover{
     padding: 1em 1.5em 1em 1.5em;
 }
 
-.messagesSpan{
-    box-sizing: content-box;
-    padding: 1em;
-    box-sizing: border-box;
-}
-.usuarioLogeado{
+.owner{
     display: inline-block;
     padding: 10px;
     max-width: 45%;
     background-color: rgba(190, 125, 71, 0.952);
     color: white;
-    border-radius: 5px;
+    border-radius: 5px; 
 }
-.otro{
+
+.interested{
     display: inline-block;
     padding: 10px;
     max-width: 45%;
