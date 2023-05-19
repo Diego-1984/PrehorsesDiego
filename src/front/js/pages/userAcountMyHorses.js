@@ -78,7 +78,7 @@ export const UserAcountMyHorses = () => {
                         {getMessages(horse).map(({userInterestedId, messages}) => (<>
                           <li className="nav-item" role="presentation">
                             <button className="nav-link" data-bs-toggle="tab" data-bs-target={`#tab-${userInterestedId}-${horse.id}`} type="button" role="tab"
-                            >{userInterestedId}</button>
+                            >{messages[0].user_interested.name}</button>
                           </li>
                         </>))}
                       </ul>

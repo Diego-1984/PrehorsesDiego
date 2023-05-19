@@ -26,7 +26,7 @@ class UserStructure:
 
             # crea un nuevo token con el id de usuario dentro
             access_token = create_access_token(identity = user.id)
-            return jsonify({ "token": access_token}), 200
+            return jsonify({ "token": access_token, 'user': user.serialize()}), 200
         except Exception as e:
             return jsonify({"error": "Petición incorrecta"}), 400
 

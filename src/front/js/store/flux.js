@@ -94,6 +94,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             if (data.token) {
               localStorage.setItem("token", data.token);
               setStore({...getStore(), token: data.token})
+              setStore({...getStore(), user: data.user})
             } else {
               console.log(data);
             }
