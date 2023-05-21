@@ -58,10 +58,10 @@ const getState = ({ getStore, getActions, setStore }) => {
       setMessages: (messages) => {
         setStore({ ...getStore(), messages });
       },
-      addHorse: (horse) => {
-        const store = getStore()
-        setStore({ ...store, horses: [...store.horses, horse] });
-      },
+      // addHorse: (horse) => {
+      //   const store = getStore()
+      //   setStore({ ...store, horses: [...store.horses, horse] });
+      // },
       setHorses:(horses) =>{
         setStore({...getStore(), horses})
       },

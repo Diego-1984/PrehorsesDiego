@@ -13,6 +13,7 @@ from api.admin import setup_admin
 from api.commands import setup_commands
 from flask_jwt_extended import JWTManager
 from flasgger import Swagger
+import cloudinary
 
 from datetime import timedelta
 ACCESS_EXPIRES = timedelta(hours=2)
@@ -29,6 +30,12 @@ app.config["JWT_ACCESS_TOKEN_EXPIRES"] = ACCESS_EXPIRES
 
 app.config["JWT_SECRET_KEY"] = "lkjta<oxg7Tlkbhl9TKJgkugUGukgUG56"  # Change this!
 jwt = JWTManager(app)
+
+cloudinary.config( 
+  cloud_name = "dpibzrwe4", 
+  api_key = "395879279135489", 
+  api_secret = "EY8BEHMGzE3W7-BK7SMCa0-mnx0" 
+)
 
 # database condiguration
 db_url = os.getenv("DATABASE_URL")

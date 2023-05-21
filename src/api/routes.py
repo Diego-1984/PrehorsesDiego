@@ -15,6 +15,9 @@ from api.datastructure.ganaderiastructure import GanaderiaStructure
 from api.datastructure.messagestructure import MessageStructure
 from flasgger import swag_from
 from api.swagger_definitions import add_user_swag
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 
 
@@ -212,6 +215,7 @@ def add_horse():
     provincia= request.json.get('provincia', None)
     nivel__doma= request.json.get('nivel_doma', None)
     descripcion= request.json.get('descripcion', None)
+    img = request.json.get('img', None)
     imagenes= request.json.get('imagenes', None)
     user_id = get_jwt_identity()
 
@@ -219,7 +223,7 @@ def add_horse():
     fecha_nacimiento, ganaderia,
     sexo, precio, capa, alzada,
     provincia, nivel__doma, descripcion,
-    imagenes, user_id)
+    imagenes, user_id, img)
 
     return jsonify(add_horse), 200
 
