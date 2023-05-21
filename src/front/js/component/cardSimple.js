@@ -10,7 +10,7 @@ const CardSimple = ({item}) => {
       <div className="horseCardContainer">
         <div className="horseCard">
           <div className="horseCardImage">
-            <img href ="#" src ="https://img.freepik.com/foto-gratis/hermoso-caballo-marron-primer-plano-hocico-aspecto-lindo-melena-fondo-campo-corral-arboles-caballos-son-animales-maravillosos_639032-566.jpg?w=740&t=st=1681810671~exp=1681811271~hmac=45210fe48436757ec95dc233ee001b37fd52395ddce4143d4ee9bae56cd2fa6e" />
+            <img href ="#" src ={item.img} />
           </div>
           <div className="horseCardContent">
             <div className="row justify-content-around mb-2">

@@ -1,13 +1,65 @@
 import React, {useState, useContext, useEffect} from "react";
 import { Context } from "../store/appContext";
 
+
+function showUploadWidget(setImageUrl) {
+    cloudinary.openUploadWidget({
+        cloudName: "dcnwjdwfb",
+        uploadPreset: "beautiful_horses",
+        sources: ["camera", "facebook", "dropbox", "instagram", "local"],
+        showAdvancedOptions: false,
+        cropping: true,
+        multiple: false,
+        defaultSource: "local",
+        styles: {
+            palette: {
+                window: "#D5C8AF",
+                sourceBg: "#F6F2EC",
+                windowBorder: "#6A665E",
+                tabIcon: "#cc6600",
+                inactiveTabIcon: "#6A665E",
+                menuIcons: "#595754",
+                link: "#8F712F",
+                action: "#EFC310",
+                inProgress: "#99cccc",
+                complete: "#78b3b4",
+                error: "#ff6666",
+                textDark: "#432A19",
+                textLight: "#FFFFFF"
+            }, fonts: {default: null, "sans-serif": {url: null, active: true}}
+        }
+    }, (err, info) => {
+        if (!err) {
+            if(info.event === 'queues-end') {
+                console.log("Upload Widget event - ", info.data.info.files[0].uploadInfo.url);
+                setImageUrl(info.data.info.files[0].uploadInfo.url);
+            }
+        }
+    });
+}
+
+
 const FormularioVenta = () => {
     
     const [horse, setHorse] = useState({})
     const { store, actions } = useContext(Context);
+    const [imageUrl, setImageUrl] = useState('');
+
     useEffect(()=>{
         actions.getGanaderia()
     })
+
+    const addHorse = () => {
+        imageUrl
+        const horseData = { ...horse, img: imageUrl };
+        actions.addHorse(horseData); 
+        alert('Caballo publicado'); 
+        window.location.reload();
+    }
+
+    const openCloudinaryUploader = (setImageUrl) => {
+        showUploadWidget(setImageUrl)
+    }
 
     return(
         <div className="container-fluid">
@@ -229,9 +281,9 @@ const FormularioVenta = () => {
                                             </div>
                                             <div className="row mt-2">
                                                 <div className="col-4 mt-2">
-                                                    <div className="input-group input-group-sm mb-3 mt-2">
-                                                        <label>Sube tus fotos</label>                            
-                                                        <input type="file" id="formImages" name="avatar" accept="image/jpeg, image/jpg" multiple></input>
+                                                    <div className="input-group input-group-sm mb-3 mt-2">                   
+                                                        {!imageUrl && <button className="btn btn-secondary p-2" onClick={() => openCloudinaryUploader(setImageUrl)}>Subir foto</button>}
+                                                        {imageUrl && <img src={imageUrl} />}
                                                     </div>
                                                 </div>
                                                 <div className="col-8 mt-2"><strong>Descripción</strong><textarea className="form-control mt-2" id="message" name="message" placeholder="Describe aquí tu caballo"
@@ -254,7 +306,7 @@ const FormularioVenta = () => {
                                     <div className="row justify-content-end">
                                         <div className="col-2 justify-content-end pt-2">
                                             <div className="d-flex justify-content-end">
-                                                <button className="btn btn-warning p-2 pe-3 ps-3 fs-5" onClick={()=>{actions.addHorse(horse); alert('Caballo publicado'), window.location.reload()}}>Publicar</button>
+                                                <button className="btn btn-warning p-2 pe-3 ps-3 fs-5" onClick={()=>{addHorse()}}>Publicar</button>
                                             </div>
                                         </div>
                                     </div>

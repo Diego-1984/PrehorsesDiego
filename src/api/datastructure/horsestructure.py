@@ -5,7 +5,7 @@ from api.models.horse import Horse
 class HorseStructure:
     def add_horse(nombre, fecha_nacimiento, ganaderia,
     sexo, precio, capa, alzada, provincia,
-    nivel_doma, descripcion, imagenes, user_id):
+    nivel_doma, descripcion, imagenes, user_id, img):
         horse=Horse(nombre= nombre,
             fecha_nacimiento=fecha_nacimiento,
             ganaderia=ganaderia,
@@ -17,7 +17,8 @@ class HorseStructure:
             nivel_doma=nivel_doma,
             descripcion=descripcion,
             imagenes = imagenes, 
-            user_id = user_id)
+            user_id = user_id,
+            img = img)
 
         db.session.add(horse)
         db.session.commit()

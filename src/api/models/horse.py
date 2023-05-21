@@ -13,6 +13,7 @@ class Horse(db.Model):
     provincia= db.Column(db.String(1000))
     nivel_doma= db.Column(db.String(1000))
     descripcion= db.Column(db.String(1000))
+    img= db.Column(db.String(1000))
     imagenes= db.Column(db.String(1000))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     messages = relationship('Message', backref='message')
@@ -33,6 +34,7 @@ class Horse(db.Model):
             "provincia": self.provincia,
             "nivel_doma": self.nivel_doma,
             "descripcion": self.descripcion,
+            "img": self.img,
             "imagenes": self.imagenes,
             "user_id": self.user_id,
             'messages' : [message.serialize() for message in self.messages]
@@ -51,6 +53,7 @@ class Horse(db.Model):
             "provincia": self.provincia,
             "nivel_doma": self.nivel_doma,
             "descripcion": self.descripcion,
+            "img": self.img,
             "imagenes": self.imagenes,
             "user_id": self.user_id,
         }
