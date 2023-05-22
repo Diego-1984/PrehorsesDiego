@@ -396,3 +396,7 @@ button .accordion-button:active{
 #tecnologias{
 padding:80px;
 }
+
+.thumbnail{
+    max-width: 260px
+}

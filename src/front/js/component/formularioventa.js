@@ -283,7 +283,7 @@ const FormularioVenta = () => {
                                                 <div className="col-4 mt-2">
                                                     <div className="input-group input-group-sm mb-3 mt-2">                   
                                                         {!imageUrl && <button className="btn btn-secondary p-2" onClick={() => openCloudinaryUploader(setImageUrl)}>Subir foto</button>}
-                                                        {imageUrl && <img src={imageUrl} />}
+                                                        {imageUrl && <img src={imageUrl} className="thumbnail border border-dark rounded"/>}
                                                     </div>
                                                 </div>
                                                 <div className="col-8 mt-2"><strong>Descripción</strong><textarea className="form-control mt-2" id="message" name="message" placeholder="Describe aquí tu caballo"
