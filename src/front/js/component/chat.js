@@ -14,7 +14,9 @@ const Chat = ({horse, messages, postMessage, userInterestedId}) => {
               person
             </span>
             <span className="align-center">
-              {messages[0].user_interested.id == store.user.id ? messages[0].userOwner.name : messages[0].user_interested.name}
+              {console.log(store)}
+              {console.log(userInterestedId)}
+              {!!userInterestedId ? messages[0].userOwner.name : horse.userOwner.name}
             </span>
           </div>
         </div>
