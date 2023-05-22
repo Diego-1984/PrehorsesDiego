@@ -38,7 +38,7 @@ export const Home = () => {
                   style={{ width: 30 +"em", paddingLeft: 6+'em' }}
                   >
                 <Link to="/login">
-                  <button type="button" className="btn btn-outline-light btn-lg"                 >
+                  <button type="button" className="btn btn-outline-light btn-lg">
                     Regístrate
                   </button>
                 </Link>
@@ -54,7 +54,12 @@ export const Home = () => {
 			</div>
 			<div id="carouselDiv" className="pt-3 pb-5">
 				<h3 className="pt-5 pb-2">CABALLOS PURA RAZA ESPAÑOLA PARA COMPRAR</h3>
-        <p>Disponemos de gran cantidad de sementales, yeguas y castrados puestos a la venta por nuestros usuarios. Escoja a qué sección quiere dirigirse:</p>
+        <p>Disponemos de gran cantidad de sementales, yeguas y castrados puestos a la venta por nuestros usuarios.<br></br> 
+         Nuestra selección es privada, puedes acceder registrandote gratis <Link className="text-secondary" to="/login">
+                                        Aqui
+                                    </Link></p>
+            <div><h4>Escoja a qué sección quiere dirigirse:</h4>
+            </div> 
 			  <div className="d-flex p-5 justify-content-center">
 				  <Carousel />
 			  </div>
