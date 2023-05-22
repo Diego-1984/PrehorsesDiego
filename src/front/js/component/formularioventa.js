@@ -139,7 +139,7 @@ const FormularioVenta = () => {
                                                     <select className="form-select" 
                                                     id="validationCustom04" required onChange={(e)=>{setHorse({...horse, sexo:e.target.value})}}>
                                                         <option defaultValue=""></option>
-                                                        <option className="p-1" value="Macho">Macho</option>
+                                                        <option className="p-1" value="Macho">Semental</option>
                                                         <option className="p-1" value="Yegua">Yegua</option>
                                                         <option className="p-1" value="Castrado">Castrado</option>   
                                                     </select> 
