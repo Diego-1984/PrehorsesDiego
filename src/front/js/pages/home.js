@@ -28,23 +28,23 @@ export const Home = () => {
                     <em className="bg-black">
                       "De mi caballo aprendí que la fuerza se complementa con la
                       nobleza y la lealtad"
-                      <figcaption className="blockquote-footer text-warning text-center mt-1">
+                      < br/>
+                      <span className="blockquote-footer text-warning text-center mt-1">
                   Gabriel Oliverio
-                </figcaption>
+                      </span>
                     </em>
                   </p>
                   <div className="d-flex justify-content-center mt-5 pt-3 ms-5"
                   style={{ width: 30 +"em", paddingLeft: 6+'em' }}
                   >
                 <Link to="/login">
-                  <button type="button" className="btn btn-outline-light btn-lg"                 >
+                  <button type="button" className="btn btn-outline-light btn-lg">
                     Regístrate
                   </button>
                 </Link>
               </div>
                 </blockquote> 
               </figure>
-              
             </div>
 
 							<img src={caballoJumbotron} className="bg-black" style={{width: 30+'rem', padding:0}}></img>

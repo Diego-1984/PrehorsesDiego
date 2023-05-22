@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import { BackendURL } from "./component/backendURL";
@@ -11,7 +11,7 @@ import { Gelding } from "./pages/gelding";
 import { UserAcountModifyUser } from "./pages/userAcountModifyUser";
 import { UserAcountNewHorse } from "./pages/userAcountNewHorse";
 import { UserAcountMyHorses } from "./pages/userAcountMyHorses";
-import injectContext from "./store/appContext";
+import injectContext, { Context } from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import DescripcionCaballo from "./pages/descripcionCaballo";
@@ -26,7 +26,14 @@ const Layout = () => {
   if (!process.env.BACKEND_URL || process.env.BACKEND_URL == "")
     return <BackendURL />;
 
+  const {actions} = useContext(Context);
 
+  useEffect(()=>{
+    const token = localStorage.getItem('token');
+    if (!!token){
+      actions.setToken(token)
+    }
+  }, [])
 
   return (
     <div>

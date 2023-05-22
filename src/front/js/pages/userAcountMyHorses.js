@@ -15,9 +15,12 @@ export const UserAcountMyHorses = () => {
         }))
   }
 
-  useEffect(async () => {
-    await actions.clearHorses();
-    await actions.getMyHorses();
+  useEffect(() => {
+    const getHorses = async() =>{
+      await actions.clearHorses();
+      await actions.getMyHorses();
+    }
+    getHorses();
   }, []);
 
   const getDate = (now) => {

@@ -55,6 +55,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       setUser: (user) => {
         setStore({ ...getStore(), user });
       },
+      setToken : (token) =>{
+        setStore({...getStore(), token });
+      },
       setMessages: (messages) => {
         setStore({ ...getStore(), messages });
       },

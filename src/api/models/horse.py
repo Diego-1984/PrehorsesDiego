@@ -16,6 +16,7 @@ class Horse(db.Model):
     img= db.Column(db.String(1000))
     imagenes= db.Column(db.String(1000))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user_owner = db.relationship('User', foreign_keys=[user_id])
     messages = relationship('Message', backref='message')
 
     def __repr__(self):
@@ -37,6 +38,7 @@ class Horse(db.Model):
             "img": self.img,
             "imagenes": self.imagenes,
             "user_id": self.user_id,
+            "userOwner": self.user_owner.serialize(),
             'messages' : [message.serialize() for message in self.messages]
         }
 
@@ -56,4 +58,5 @@ class Horse(db.Model):
             "img": self.img,
             "imagenes": self.imagenes,
             "user_id": self.user_id,
+            "userOwner": self.user_owner.serialize(),
         }

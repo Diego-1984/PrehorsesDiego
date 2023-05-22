@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import logo from "../../img/logo.png";
+import { Link } from "react-router-dom";
 
 export const Footer = () => (
   <footer>
@@ -36,13 +37,16 @@ export const Footer = () => (
           >
             {" "}
           </a>
-          <a
-            href="https://3000-4geeksacade-pt36horsesp-wyevrx6u3ar.ws-eu97.gitpod.io/team"
-            className="fa-solid fa-people-group nav-link"
-            id="Icons"
-          >
-            {" "}
-          </a>
+          <Link to="/team">
+            <div
+              href="https://3000-4geeksacade-pt36horsesp-wyevrx6u3ar.ws-eu97.gitpod.io/team"
+              className="fa-solid fa-people-group nav-link"
+              id="Icons"
+            >
+              {" "}
+            </div>
+          </Link>
+          
         </li>
       </ul>
     </div>
