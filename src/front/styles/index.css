@@ -322,8 +322,8 @@ button .accordion-button:active{
 }
 .card3{
   margin: auto;
-  width: 420px;
-  height: 420px;
+  width: 400px;
+  height: 400px;
   border-radius: 50%;
   position: relative;
 }

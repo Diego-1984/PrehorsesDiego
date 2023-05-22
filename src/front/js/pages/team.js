@@ -76,7 +76,7 @@ const Team =()=>{
      </div>
      <div className="row">
      <div className="col-5">
-     <img src="https://jwt.io/img/logo-asset.svg" style={{width: 350 +'px'}}/>
+     <img src="https://vendup.fun/assets/jwt-1130c594.png" style={{width: 350 +'px'}}/>
      </div>
      <div className="col-4">
      <img src="https://www.drupal.org/files/project-images/logo_191.png" style={{width: 450+'px'}}/>
