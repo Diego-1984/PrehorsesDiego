@@ -10,10 +10,10 @@ export const Footer = () => (
       <p className="Container m-4" id="Text">
       © Copyright PRE Horses
       </p>
-      <div className="col-">
+      <div className="col">
         <img src={logo} style={{ width: 6 + "rem", margin: 0.3 + "rem" }} />
       </div>
-      <ul className="nav col-md-2 p-3 justify-content-end">
+      <ul className="nav col-md-3 p-3 justify-content-end">
         <li className="nav-item">
           <a
             href="https://www.instagram.com/Prehor_ses/ "
@@ -32,6 +32,13 @@ export const Footer = () => (
           <a
             href="https://twitter.com/Prehor_ses"
             className="fa-brands fa-twitter nav-link"
+            id="Icons"
+          >
+            {" "}
+          </a>
+          <a
+            href="https://3000-4geeksacade-pt36horsesp-wyevrx6u3ar.ws-eu97.gitpod.io/team"
+            className="fa-solid fa-people-group nav-link"
             id="Icons"
           >
             {" "}

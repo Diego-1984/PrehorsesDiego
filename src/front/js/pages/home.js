@@ -58,7 +58,7 @@ export const Home = () => {
          Nuestra selección es privada, puedes acceder registrandote gratis <Link className="text-secondary" to="/login">
                                         Aqui
                                     </Link></p>
-            <div><h4>Escoja a qué sección quiere dirigrise:</h4>
+            <div><h4>Escoja a qué sección quiere dirigirse:</h4>
             </div> 
 			  <div className="d-flex p-5 justify-content-center">
 				  <Carousel />
