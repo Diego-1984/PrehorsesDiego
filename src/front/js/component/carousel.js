@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
-import caballoMacho from "../../img/caballoMacho.jpg"
-import caballosHembras from "../../img/caballosHembras.jpg"
-import caballoCastrado from "../../img/caballoCastrado.jpg"
+import macho from "../../img/macho.jpg"
+import yegua from "../../img/yegua.jpg"
+import castrado from "../../img/castrado.jpg"
 import { Link } from "react-router-dom"
 import { Context } from "../store/appContext"
 
@@ -15,7 +15,7 @@ const Carousel = () =>{
                     <div className="box">
                         <div className="body">
                             <div className="imgContainer">
-                                <img src={caballoMacho} />
+                                <img src={macho} />
                             </div>
                             <div className="content d-flex flex-column align-items-center justify-content-center">
                                 <div>
@@ -41,7 +41,7 @@ const Carousel = () =>{
                     <div className="box">
                         <div className="body">
                             <div className="imgContainer">
-                                <img src={caballosHembras} />
+                                <img src={yegua} />
                             </div>
                             <div className="content d-flex flex-column align-items-center justify-content-center">
                                 <div>
@@ -51,9 +51,9 @@ const Carousel = () =>{
                                         disponibles y contactar con su dueño.
                                     </p>
                                     {store.token ? <Link to="/mares">
-                                        <button type="button" className="btn mt-3">Ver yeguass</button>
+                                        <button type="button" className="btn mt-3">Ver yeguas</button>
                                     </Link> :<Link to="/login">
-                                        <button type="button" className="btn mt-3">Ver yeguass</button>
+                                        <button type="button" className="btn mt-3">Ver yeguas</button>
                                     </Link>
                                     }
                                 </div>
@@ -67,7 +67,7 @@ const Carousel = () =>{
                     <div className="box">
                         <div className="body">
                             <div className="imgContainer">
-                                <img src={caballoCastrado} />
+                                <img src={castrado} />
                             </div>
                             <div className="content d-flex flex-column align-items-center justify-content-center">
                                 <div>

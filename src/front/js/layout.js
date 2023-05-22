@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import { BackendURL } from "./component/backendURL";
@@ -11,10 +11,11 @@ import { Gelding } from "./pages/gelding";
 import { UserAcountModifyUser } from "./pages/userAcountModifyUser";
 import { UserAcountNewHorse } from "./pages/userAcountNewHorse";
 import { UserAcountMyHorses } from "./pages/userAcountMyHorses";
-import injectContext from "./store/appContext";
+import injectContext, { Context } from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import DescripcionCaballo from "./pages/descripcionCaballo";
+import Team from "./pages/team";
 
 //create your first component
 const Layout = () => {
@@ -25,7 +26,14 @@ const Layout = () => {
   if (!process.env.BACKEND_URL || process.env.BACKEND_URL == "")
     return <BackendURL />;
 
+  const {actions} = useContext(Context);
 
+  useEffect(()=>{
+    const token = localStorage.getItem('token');
+    if (!!token){
+      actions.setToken(token)
+    }
+  }, [])
 
   return (
     <div>
@@ -42,6 +50,7 @@ const Layout = () => {
             <Route element={<UserAcountModifyUser />} path="/private/modifyuser"/>
             <Route element={<UserAcountNewHorse />} path="/private/addhorse" />
             <Route element={<UserAcountMyHorses />} path="/private/myhorses" />
+            <Route element={<Team />} path="/team" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>
         </ScrollToTop>

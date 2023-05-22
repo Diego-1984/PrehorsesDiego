@@ -28,9 +28,10 @@ export const Home = () => {
                     <em className="bg-black">
                       "De mi caballo aprendí que la fuerza se complementa con la
                       nobleza y la lealtad"
-                      <figcaption className="blockquote-footer text-warning text-center mt-1">
+                      < br/>
+                      <span className="blockquote-footer text-warning text-center mt-1">
                   Gabriel Oliverio
-                </figcaption>
+                      </span>
                     </em>
                   </p>
                   <div className="d-flex justify-content-center mt-5 pt-3 ms-5"
@@ -44,7 +45,6 @@ export const Home = () => {
               </div>
                 </blockquote> 
               </figure>
-              
             </div>
 
 							<img src={caballoJumbotron} className="bg-black" style={{width: 30+'rem', padding:0}}></img>
@@ -54,7 +54,7 @@ export const Home = () => {
 			</div>
 			<div id="carouselDiv" className="pt-3 pb-5">
 				<h3 className="pt-5 pb-2">CABALLOS PURA RAZA ESPAÑOLA PARA COMPRAR</h3>
-        <p>Disponemos de gran cantidad de sementales, yeguas y castrados puestos a la venta por nuestros usuarios. Escoja a qué sección quiere dirigrise:</p>
+        <p>Disponemos de gran cantidad de sementales, yeguas y castrados puestos a la venta por nuestros usuarios. Escoja a qué sección quiere dirigirse:</p>
 			  <div className="d-flex p-5 justify-content-center">
 				  <Carousel />
 			  </div>

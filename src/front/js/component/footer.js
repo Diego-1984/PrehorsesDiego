@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import logo from "../../img/logo.png";
+import { Link } from "react-router-dom";
 
 export const Footer = () => (
   <footer>
@@ -10,10 +11,10 @@ export const Footer = () => (
       <p className="Container m-4" id="Text">
       © Copyright PRE Horses
       </p>
-      <div className="col-">
+      <div className="col">
         <img src={logo} style={{ width: 6 + "rem", margin: 0.3 + "rem" }} />
       </div>
-      <ul className="nav col-md-2 p-3 justify-content-end">
+      <ul className="nav col-md-3 p-3 justify-content-end">
         <li className="nav-item">
           <a
             href="https://www.instagram.com/Prehor_ses/ "
@@ -36,6 +37,16 @@ export const Footer = () => (
           >
             {" "}
           </a>
+          <Link to="/team">
+            <div
+              href="https://3000-4geeksacade-pt36horsesp-wyevrx6u3ar.ws-eu97.gitpod.io/team"
+              className="fa-solid fa-people-group nav-link"
+              id="Icons"
+            >
+              {" "}
+            </div>
+          </Link>
+          
         </li>
       </ul>
     </div>
