@@ -1,7 +1,5 @@
-import React, {useState} from "react";
-
+import React from "react";
 const ButtonContact = ({isChatShown, setIsChatShown}) =>{
-    const [textoButton, setTextoButton] = useState("Contactar con el vendedor");
     const showChat = (isChatShown) =>{
         if(isChatShown == false){
             setIsChatShown(isChatShown = true);
@@ -9,21 +7,14 @@ const ButtonContact = ({isChatShown, setIsChatShown}) =>{
             setIsChatShown(isChatShown = false);
         }
       }
-const toogleTextButtonLabel=()=>{
-    if (textoButton == "Contactar con el vendedor"){
-        setTextoButton("Volver")
-    } else {setTextoButton("Contactar con el vendedor")}
-}
-
     return (
         <div className="d-flex ps-3">
             <div className="row align-items-end">
-                <button type="button" className="btn btn-warning text-end" onClick={()=>{showChat(isChatShown);toogleTextButtonLabel()}}>
-                   {textoButton}
+                <button type="button" className="btn btn-warning text-end" onClick={()=>{showChat(isChatShown);}}>
+                    Contactar con el vendedor
                 </button>
             </div>
         </div>
     )
 }
-
 export default ButtonContact;

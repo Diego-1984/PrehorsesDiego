@@ -1,10 +1,15 @@
-import React, {useContext, useState} from "react";
-import { Context } from "../store/appContext";
-
+import React, { useState } from "react";
+import { Loader } from '../component/loader';
 const Chat = ({horse, messages, postMessage, userInterestedId}) => {
-  const {store} = useContext(Context);
   const [message, setMessage] = useState([]);
-
+  const [loading, setLoading] = useState(false);
+  const [messageInput, setMessageInput] = useState();
+  const sendMessage = async(horse, message, userInterestedId) => {
+    setLoading(true);
+    messageInput.value = '';
+    await postMessage(horse, message, userInterestedId);
+    setLoading(false);
+  }
   return (
     <>
       <div className="container text-center messagesBox">
@@ -14,8 +19,6 @@ const Chat = ({horse, messages, postMessage, userInterestedId}) => {
               person
             </span>
             <span className="align-center">
-              {console.log(store)}
-              {console.log(userInterestedId)}
               {!!userInterestedId ? messages[0].userOwner.name : horse.userOwner.name}
             </span>
           </div>
@@ -35,17 +38,17 @@ const Chat = ({horse, messages, postMessage, userInterestedId}) => {
                   </>
                 )
             })}
+            {loading && <Loader />}
           </div>
-            
         </div>
         <div className="row messageToSend align-items-center border-top">
           <div className="col justify-content-end mt-3 me-2">
             <div className="row ">
               <div className="col-11 p-0">
-                <input type="message" className="aling-items-center "onChange={(e)=>{setMessage({...message, text: e.target.value})}}></input>
+                <input type="message" className="aling-items-center "onChange={(e)=>{setMessage({...message, text: e.target.value}); setMessageInput(e.target);}}></input>
               </div>
               <div className="col-1 p-0">
-                <span className="material-symbols-outlined send" id="send" onClick={()=>postMessage(horse, message, userInterestedId)}>
+                <span className="material-symbols-outlined send" id="send" onClick={()=>sendMessage(horse, message, userInterestedId)}>
                   send
                 </span>
               </div>
@@ -56,5 +59,30 @@ const Chat = ({horse, messages, postMessage, userInterestedId}) => {
     </>
   );
 };
-
 export default Chat;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
