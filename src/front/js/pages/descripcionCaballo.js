@@ -61,7 +61,7 @@ const DescripcionCaballo = () => {
               <div className="col-md-6 w-50">
                 <img
                   src={horse.img}
-                  className="img-fluid rounded-start"
+                  className="img-fluid rounded-start my-4"
                   alt="..."
                 />
               </div>

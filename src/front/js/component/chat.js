@@ -42,10 +42,10 @@ const Chat = ({horse, messages, postMessage, userInterestedId}) => {
           <div className="col justify-content-end mt-3 me-2">
             <div className="row ">
               <div className="col-11 p-0">
-                <input type="message" onChange={(e)=>{setMessage({...message, text: e.target.value})}}></input>
+                <input type="message" className="aling-items-center "onChange={(e)=>{setMessage({...message, text: e.target.value})}}></input>
               </div>
               <div className="col-1 p-0">
-                <span className="material-symbols-outlined send" onClick={()=>postMessage(horse, message, userInterestedId)}>
+                <span className="material-symbols-outlined send" id="send" onClick={()=>postMessage(horse, message, userInterestedId)}>
                   send
                 </span>
               </div>

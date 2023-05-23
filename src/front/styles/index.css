@@ -223,9 +223,11 @@ a:hover{
 }
 .messagesBox{
     background-color: #faf8f5;
-    height: 600px;
+    height: 400px;
     box-sizing: content-box;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.434);
+      
+    
 }
 .messagesTitle, .messageToSend{
     background-color: #f0ebe2;
@@ -400,3 +402,7 @@ padding:80px;
 .thumbnail{
     max-width: 260px
 }
+#send{
+    cursor: pointer;
+}
+
