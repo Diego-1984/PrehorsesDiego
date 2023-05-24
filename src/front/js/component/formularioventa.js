@@ -194,7 +194,6 @@ const FormularioVenta = () => {
                                                     <label htmlFor="validationCustom04" className="form-label"><strong>Alzada (m)</strong></label>
                                                     <select className="form-select" id="validationCustom04" required onChange={(e)=>{setHorse({...horse, alzada:e.target.value})}}>
                                                         <option defaultValue="">Elige alzada</option>
-                                                        <option className="p-1"></option>
                                                         <option>1.20 - 1.30</option>
                                                         <option>1.30 - 1.40</option>
                                                         <option>1.40 - 1.50</option>
@@ -209,7 +208,6 @@ const FormularioVenta = () => {
                                                     <label htmlFor="validationCustom04" className="form-label"><strong>Provincia</strong></label>
                                                     <select className="form-select" id="validationCustom04" required onChange={(e)=>{setHorse({...horse, provincia:e.target.value})}}>
                                                         <option defaultValue="">Elige provincia</option>
-                                                        <option className="p-1"></option>
                                                         <option value="Albacete">Albacete</option>
                                                         <option value="Alicante">Alicante</option>
                                                         <option value="Almería">Almería</option>
