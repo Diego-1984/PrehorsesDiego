@@ -28,11 +28,7 @@ const DescripcionCaballo = () => {
     await actions.getMessages(horseId)
   }
 
-  const datosCaballoConChat = {
-    width: 40 + "%",
-    boxSizing: "contentBox",
-    float: "left",
-  };
+  
   const datosCaballoSinChat = {
     width: 100 + "%",
   };
@@ -54,14 +50,14 @@ const DescripcionCaballo = () => {
       <div className="container oneHorse">
         <div
           className="datosCaballo"
-          style={isChatShown ? datosCaballoConChat : datosCaballoSinChat}
+          style={datosCaballoSinChat}
         >
           <div className="card mt-3 border-0">
             <div className="row g-0">
               <div className="col-md-6 w-50">
                 <img
                   src={horse.img}
-                  className="img-fluid rounded-start"
+                  className="img-fluid rounded-start my-4"
                   alt="..."
                 />
               </div>
@@ -89,126 +85,68 @@ const DescripcionCaballo = () => {
               </div>
             </div>
             <div className="row">
-              {isChatShown ? (
-                <>
-                  <div className="col-4 mt-3">
-                    <div className="d-flex descriptionIcons w-50">
-                      <span className="material-symbols-outlined me-3">
-                        badge
-                      </span>
-                      <p>{actualPage?.nombre}</p>
-                    </div>
-                    <div className="d-flex descriptionIcons w-50">
-                      <span className="material-symbols-outlined me-3">
-                        cake
-                      </span>
-                      <p>{actualPage?.fecha_nacimiento}</p>
-                    </div>
-                    <div className="d-flex w-50 descriptionIcons">
-                      <span className="material-symbols-outlined me-3">
-                        transgender
-                      </span>
-                      <p>{actualPage?.sexo}</p>
-                    </div>
-                    <div className="d-flex w-50 descriptionIcons">
-                      <span className="material-symbols-outlined me-3">
-                        map
-                      </span>
-                      <p>{actualPage?.provincia}</p>
-                    </div>
-                  </div>
-                  <div className="col-8 mt-3">
-                    <div className="d-flex descriptionIcons">
-                      <span className="material-symbols-outlined me-3">
-                        palette
-                      </span>
-                      <p>{actualPage?.capa}</p>
-                    </div>
-                    <div className="d-flex descriptionIcons">
-                      <span className="material-symbols-outlined me-3">
-                        height
-                      </span>
-                      <p>{actualPage?.alzada}</p>
-                    </div>
-                    <div className="d-flex descriptionIcons">
-                      <span className="material-symbols-outlined me-3">
-                        military_tech
-                      </span>
-                      <p>{actualPage?.nivel_doma}</p>
-                    </div>
-                    <div className="d-flex descriptionIcons">
-                      <span className="material-symbols-outlined me-3">
-                        fence
-                      </span>
-                      <p>{actualPage?.ganaderia}</p>
-                    </div>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className="col mt-3">
-                    <div className="d-flex descriptionIcons w-50">
-                      <span className="material-symbols-outlined me-3">
-                        badge
-                      </span>
-                      <p>{actualPage?.nombre}</p>
-                    </div>
-                    <div className="d-flex descriptionIcons w-50">
-                      <span className="material-symbols-outlined me-3">
-                        cake
-                      </span>
-                      <p>{actualPage?.fecha_nacimiento}</p>
-                    </div>
-                  </div>
-                  <div className="col mt-3">
-                    <div className="d-flex w-50 descriptionIcons">
-                      <span className="material-symbols-outlined me-3">
-                        transgender
-                      </span>
-                      <p>{actualPage?.sexo}</p>
-                    </div>
-                    <div className="d-flex w-50 descriptionIcons">
-                      <span className="material-symbols-outlined me-3">
-                        map
-                      </span>
-                      <p>{actualPage?.provincia}</p>
-                    </div>
-                  </div>
-                  <div className="col p-0 mt-3">
-                    <div className="d-flex descriptionIcons">
-                      <span className="material-symbols-outlined me-3">
-                        palette
-                      </span>
-                      <p>{actualPage?.capa}</p>
-                    </div>
-                    <div className="d-flex descriptionIcons">
-                      <span className="material-symbols-outlined me-3">
-                        height
-                      </span>
-                      <p>{actualPage?.alzada}</p>
-                    </div>
-                  </div>
-                  <div className="col p-0 mt-3">
-                    <div className="d-flex descriptionIcons">
-                      <span className="material-symbols-outlined me-3">
-                        military_tech
-                      </span>
-                      <p>{actualPage?.nivel_doma}</p>
-                    </div>
-                    <div className="d-flex descriptionIcons">
-                      <span className="material-symbols-outlined me-3">
-                        fence
-                      </span>
-                      <p>{actualPage?.ganaderia}</p>
-                    </div>
-                  </div>
-                </>
-              )}
+              <div className="col mt-3">
+                <div className="d-flex descriptionIcons w-50">
+                  <span className="material-symbols-outlined me-3">
+                    badge
+                  </span>
+                  <p>{actualPage?.nombre}</p>
+                </div>
+                <div className="d-flex descriptionIcons w-50">
+                  <span className="material-symbols-outlined me-3">
+                    cake
+                  </span>
+                  <p>{actualPage?.fecha_nacimiento}</p>
+                </div>
+              </div>
+              <div className="col mt-3">
+                <div className="d-flex w-50 descriptionIcons">
+                  <span className="material-symbols-outlined me-3">
+                    transgender
+                  </span>
+                  <p>{actualPage?.sexo}</p>
+                </div>
+                <div className="d-flex w-50 descriptionIcons">
+                  <span className="material-symbols-outlined me-3">
+                    map
+                  </span>
+                  <p>{actualPage?.provincia}</p>
+                </div>
+              </div>
+              <div className="col p-0 mt-3">
+                <div className="d-flex descriptionIcons">
+                  <span className="material-symbols-outlined me-3">
+                    palette
+                  </span>
+                  <p>{actualPage?.capa}</p>
+                </div>
+                <div className="d-flex descriptionIcons">
+                  <span className="material-symbols-outlined me-3">
+                    height
+                  </span>
+                  <p>{actualPage?.alzada}</p>
+                </div>
+              </div>
+              <div className="col p-0 mt-3">
+                <div className="d-flex descriptionIcons">
+                  <span className="material-symbols-outlined me-3">
+                    military_tech
+                  </span>
+                  <p>{actualPage?.nivel_doma}</p>
+                </div>
+                <div className="d-flex descriptionIcons">
+                  <span className="material-symbols-outlined me-3">
+                    fence
+                  </span>
+                  <p>{actualPage?.ganaderia}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div className="chat">
           {isChatShown ? <Chat horse={horse} messages={store.messages} postMessage={postMessage}/> : null}
+          {isChatShown && <button className="chat_close-button" onClick={() => setIsChatShown(false)}>X</button>}
         </div>
       </div>
     </>
@@ -216,3 +154,18 @@ const DescripcionCaballo = () => {
 };
 
 export default DescripcionCaballo;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

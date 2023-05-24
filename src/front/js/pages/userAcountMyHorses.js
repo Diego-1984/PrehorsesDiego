@@ -39,7 +39,7 @@ export const UserAcountMyHorses = () => {
   }
 
   return (
-    <div className="container m-0">
+    <div className="container-fluid m-0">
       
         {store.horses.map((horse) =>{
           return (

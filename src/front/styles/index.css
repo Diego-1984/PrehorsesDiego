@@ -198,6 +198,7 @@ a:hover{
 .oneHorse{
     width: 100%;
     box-sizing: content-box;
+    position: relative;
 }
 
 .descriptionIcons .material-symbols-outlined{
@@ -216,20 +217,45 @@ a:hover{
     width: 50%;
 
 }
-.chat{
-    box-sizing: content-box;
-    float: right;
-    width: 55%;
+
+.chat {
+    position: absolute;
+    margin: 5rem 0;
+    width: 80%;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
 }
+
+.chat_close-button {
+    position: absolute;
+    top: -25px;
+    right: -50px;
+    width: 40px;
+    height: 40px;
+    background: #f0ebe2;
+    border: 4px solid #c1834f;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    margin: 10px 20px;
+    font-family: Open Sans;
+}
+
 .messagesBox{
     background-color: #faf8f5;
-    height: 600px;
+    height: 400px;
     box-sizing: content-box;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.434);
+      
+    
 }
 .messagesTitle, .messageToSend{
     background-color: #f0ebe2;
-    height: 12.5%;
+    height: 18%;
+    padding: 5px
 }
 .messages{
     height: 75%;
@@ -399,6 +425,9 @@ padding:80px;
 
 .thumbnail{
     max-width: 260px
+}
+#send{
+    cursor: pointer;
 }
 
 /* ----horseLoading---- */
