@@ -2,6 +2,7 @@ import React, {useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import CardSimple from "../component/cardSimple";
 import Filtrarpor from "../component/filtrarpor";
+import Spinner from "../component/spinner";
 
 export const Male = () => {
   const { store, actions } = useContext(Context);
@@ -13,7 +14,7 @@ export const Male = () => {
   return (
     <div className="row mx-2">
       <Filtrarpor />
-      {store.horses.map((item) => {
+      {store.horses == 0 ? <Spinner /> : store.horses.map((item) => {
         if (item.sexo == "Macho") {
           return (
             <div className="col-3 mt-5">

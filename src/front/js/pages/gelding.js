@@ -2,6 +2,7 @@ import React, {useContext, useEffect} from "react";
 import Filtrarpor from "../component/filtrarpor.js";
 import { Context } from "../store/appContext.js";
 import CardSimple from "../component/cardSimple.js";
+import Spinner from "../component/spinner.js";
 
 
 export const Gelding = () =>{
@@ -14,7 +15,7 @@ export const Gelding = () =>{
     return (
         <div className="row mx-2">
           <Filtrarpor />
-          {store.horses.map((item) => {
+          {store.horses == 0 ? <Spinner /> : store.horses.map((item) => {
             if (item.sexo == "Castrado") {
               return (
                 <div className="col-3 mt-5">
