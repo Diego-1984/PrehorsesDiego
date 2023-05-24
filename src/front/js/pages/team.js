@@ -1,6 +1,8 @@
 import React from "react";
 
 const Team = () => {
+  window.scrollTo( 0, 0 );
+  
   return (
     <>
       <div className="row mt-4 p-3 ">
