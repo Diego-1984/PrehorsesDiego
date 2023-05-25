@@ -139,45 +139,53 @@ a:hover{
 }
 
 .card-container {
-  background-color : #d5b47643;
+  background-color : #F3ECDD;
   box-shadow : 0 5px 10px #a7a0938a;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: stretch;
-  padding: 10px;
   height: 212px;
-  transition : 0.3s ease-in-out;
   position: relative;
 }
 
 .card-container:hover {
   height: auto;
-  transition : 0.3s ease-in-out;
 }
 
 .card-image-container {
   width: 260px;
   height: 160px;
+  min-height: 160px;
   overflow: hidden;
   align-self: center;
   position: relative;
-  top: -30px
+  top: -30px;
+  transition: all 0.25s ease-in;
 }
 
 .card-image-container img {
   width: 100%;
 }
 
+.card-container:hover .card-image-container {
+  transform: translateY(-20px);
+}
+
 .card-container .card-body {
-  height: 0;
+  position: relative;
+  top: -20px;
+  max-height: 0;
   opacity: 0;
-  transition : 0.2s ease-in;
+  padding: 10px;
+  transition: max-height 0.25s ease-in;
 }
 
 .card-container:hover .card-body {
-  height: auto;
+  max-height: 500px;
   opacity : 1;
+  background-color : #F3ECDD;
+  transition: max-height 0.25s ease-in;
 } 
 
 .oneHorse{
