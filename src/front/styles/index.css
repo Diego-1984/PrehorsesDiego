@@ -134,66 +134,51 @@ a:hover{
 
 /* ---------- */
 
-.horseCardContainer {
-    position : relative;
-    display : flex;
-    align-items : center;
-    justify-content : center;
-    flex-wrap : wrap;
-    padding : 3px;
-  }
+.card-wrapper {
+  position: relative;
+}
 
-  .horseCardContainer .horseCard {
-    position: relative;
-    max-width : 300px;
-    height : 215px;
-    background-color : #d5b47643;
-    margin : 0 10px;
-    padding : 40px 15px;
-    display : flex;
-    flex-direction : column;
-    box-shadow : 0 5px 10px #a7a0938a;
-    transition : 0.3s ease-in-out;
-  }
-  .horseCardContainer .horseCard:hover {
-    height : 350px;
-  }
+.card-container {
+  background-color : #d5b47643;
+  box-shadow : 0 5px 10px #a7a0938a;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+  padding: 10px;
+  height: 212px;
+  transition : 0.3s ease-in-out;
+  position: relative;
+}
 
-  .horseCardContainer .horseCard .horseCardImage {
-    position : relative;
-    width : 260px;
-    height : 260px;
-    top : -40%;
-    left: 4px;
-    box-shadow : 0 5px 20px rgba(0, 0, 0, 0.2);
-    z-index : 1;
-  }
+.card-container:hover {
+  height: auto;
+  transition : 0.3s ease-in-out;
+}
 
-  .horseCardContainer .horseCard .horseCardImage img {
-    max-width : 100%;
-  }
+.card-image-container {
+  width: 260px;
+  height: 160px;
+  overflow: hidden;
+  align-self: center;
+  position: relative;
+  top: -30px
+}
 
-  .horseCardContainer .horseCard .horseCardContent {
-    position : relative;
-    top : -100px;
-    padding : 10px 15px;
-    color : #111;
-    text-align : start;
-    visibility : hidden;
-    opacity : 0;
-    transition : 0.3s ease-in-out;
-  }
-  .horseCardContainer .horseCard .horseCardContent p{
-    margin: 0;
-    text-align: left;
-  }
+.card-image-container img {
+  width: 100%;
+}
 
-  .horseCardContainer .horseCard:hover .horseCardContent {
-     margin-top : 30px;
-     visibility : visible;
-     opacity : 1;
-     transition-delay: 0.2s;
-  }
+.card-container .card-body {
+  height: 0;
+  opacity: 0;
+  transition : 0.2s ease-in;
+}
+
+.card-container:hover .card-body {
+  height: auto;
+  opacity : 1;
+} 
 
 .oneHorse{
     width: 100%;
