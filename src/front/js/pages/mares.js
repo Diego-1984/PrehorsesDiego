@@ -1,8 +1,8 @@
-import React, { useState, useContext, useEffect} from "react";
+import React, { useContext, useEffect} from "react";
 import Filtrarpor from "../component/filtrarpor";
 import { Context } from "../store/appContext";
 import CardSimple from "../component/cardSimple";
-
+import Spinner from "../component/spinner";
 
 export const Mares = () =>{
     const { store, actions } = useContext(Context);
