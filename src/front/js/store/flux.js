@@ -84,24 +84,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 				
 			},
 
-      loginUser: (user) => {
-        fetch(`${process.env.BACKEND_URL}/api/user/login`, {
+      loginUser: async (user) => {
+        const response = await fetch(`${process.env.BACKEND_URL}/api/user/login`, {
           method: "POST",
           headers: {
             "Content-type": "application/json",
           },
           body: JSON.stringify(user)
-        })
-          .then((resp) => resp.json())
-          .then((data) => {
-            if (data.token) {
-              localStorage.setItem("token", data.token);
-              setStore({...getStore(), token: data.token})
-              setStore({...getStore(), user: data.user})
-            } else {
-              console.log(data);
-            }
-          });
+        });
+        const data = await response.json();
+        if (data.token) {
+          localStorage.setItem("token", data.token);
+          setStore({...getStore(), token: data.token})
+          setStore({...getStore(), user: data.user})
+        } else {
+          console.log(data);
+        }
       },
 
       clearToken: () => {

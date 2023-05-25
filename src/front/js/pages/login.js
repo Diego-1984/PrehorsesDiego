@@ -2,21 +2,26 @@ import React, { useState, useContext} from "react";
 import "../../styles/login.css"
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
+import Spinner from "../component/spinner";
 
 export const Login = () => {
 
 	const [user, setUser] = useState({})
+	const [loading, setLoading] = useState(false)
 	const {actions } = useContext(Context);
 	const navigate = useNavigate();
 
-	const logIn = () =>{
-		actions.loginUser(user);
+	const logIn = async () =>{
+		setLoading(true);
+		await actions.loginUser(user);
+		setLoading(false);
 		navigate('/')
 	}
 
 	return (
 		<>
-			<div className="setup">
+		{ loading && <Spinner />}
+		{ !loading && <div className="setup">
 				<div id="cover">
 					<h1 className="sign-up">¿Aún no tiene una cuenta con nosotros?</h1>
 					<p className="sign-up">Regístrese gratis</p>
@@ -85,7 +90,7 @@ export const Login = () => {
 						/>
 					</form>
 				</div>
-			</div>
+			</div> }
 		</>
 	);
 };
