@@ -1,5 +1,6 @@
 import React, {useState, useContext, useEffect} from "react";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 
 
 function showUploadWidget(setImageUrl) {
@@ -63,6 +64,12 @@ const FormularioVenta = () => {
 
     return(
         <div className="container-fluid">
+            <div className="row mx-2 my-2">
+          <Link to="/">
+            <button className="bg-transparent border border-0">Home / Formulario de venta
+            </button>
+          </Link>
+        </div>
             <div className="row justify-content-center mt-2 me-4">
                 <div className="col justify-content-center">
                     <div>

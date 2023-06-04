@@ -3,6 +3,7 @@ import Filtrarpor from "../component/filtrarpor.js";
 import { Context } from "../store/appContext.js";
 import CardSimple from "../component/cardSimple.js";
 import Spinner from "../component/spinner.js";
+import { Link } from "react-router-dom";
 
 
 export const Gelding = () =>{
@@ -14,6 +15,12 @@ export const Gelding = () =>{
 
     return (
         <div className="row mx-2">
+          <div className="row mx-2 my-2">
+          <Link to="/">
+            <button className="bg-transparent border border-0">Home / Castrados
+            </button>
+          </Link>
+        </div>
           <Filtrarpor />
           {store.horses == 0 ? <Spinner /> : store.horses.map((item) => {
             if (item.sexo == "Castrado") {

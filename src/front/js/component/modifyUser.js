@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {useContext } from "react";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 
 
 const ModifyUser = () => {
@@ -13,7 +14,13 @@ const ModifyUser = () => {
 
   return (
     <>
-    <div className="container justify-content-center pt-5" >
+    <div className="row mx-2 mt-2">
+          <Link to="/">
+            <button className="bg-transparent border border-0">Home / Modificar usuario
+            </button>
+          </Link>
+        </div>
+    <div className="container justify-content-center pt-1" >
       <div className="container mt-5" id="modifyUser" style={{width: 45 + "rem", padding: 2 + "rem"}}>
           <div className="row">
             <div className="col">

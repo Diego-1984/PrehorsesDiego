@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
-import macho from "../../img/macho.jpg"
-import yegua from "../../img/yegua.jpg"
+import sementales from "../../img/sementales.jpg"
+import Yeguas from "../../img/Yeguas.jpg"
 import castrado from "../../img/castrado.jpg"
 import { Link } from "react-router-dom"
 import { Context } from "../store/appContext"
@@ -15,7 +15,7 @@ const Carousel = () =>{
                     <div className="box">
                         <div className="body">
                             <div className="imgContainer">
-                                <img src={macho} />
+                                <img src={sementales} />
                             </div>
                             <div className="content d-flex flex-column align-items-center justify-content-center">
                                 <div>
@@ -41,7 +41,7 @@ const Carousel = () =>{
                     <div className="box">
                         <div className="body">
                             <div className="imgContainer">
-                                <img src={yegua} />
+                                <img src={Yeguas} />
                             </div>
                             <div className="content d-flex flex-column align-items-center justify-content-center">
                                 <div>

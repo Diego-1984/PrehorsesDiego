@@ -1,6 +1,7 @@
 import React, { useContext, useEffect} from "react";
 import { Context } from "../store/appContext";
 import Chat from "../component/chat";
+import { Link } from "react-router-dom";
 
 export const UserAcountMyHorses = () => {
   const { store, actions } = useContext(Context);
@@ -39,7 +40,14 @@ export const UserAcountMyHorses = () => {
   }
 
   return (
+    
     <div className="container-fluid m-0">
+      <div className="row my-2">
+          <Link to="/">
+            <button className="bg-transparent border border-0">Home / Mis caballos
+            </button>
+          </Link>
+        </div>
       
         {store.horses.map((horse) =>{
           return (
@@ -51,7 +59,7 @@ export const UserAcountMyHorses = () => {
                       <div className="col">
                         <img
                           src={horse.img}
-                          className="img-thumbnail rounded float-start" style={{width: 200+'px'}}
+                          className="img-thumbnail rounded float-start my-3" style={{width: 200+'px'}}
                           alt="..."
                         />
                       </div>
@@ -67,10 +75,14 @@ export const UserAcountMyHorses = () => {
                         <p className="ms-5 p-0">{horse.capa}</p>
                         <p className="ms-5 p-0">{horse.alzada}</p>
                       </div>
-                      <div className="col-4 pt-3">
+                      <div className="col-3 pt-3">
                         <p className="ps-5">{horse.nivel_doma}</p>
                         <p className="ps-5">{horse.ganaderia}</p>
                       </div>
+                      <div className="col-2 my-5 mx-5">
+                       <button className="bg-transparent text-danger border border-0">ELIMINAR</button>                        
+                      </div>
+                      
                     </div>
                     
                   </button>

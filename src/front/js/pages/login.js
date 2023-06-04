@@ -3,6 +3,7 @@ import "../../styles/login.css"
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../component/spinner";
+import { Link } from "react-router-dom";
 
 export const Login = () => {
 
@@ -20,8 +21,14 @@ export const Login = () => {
 
 	return (
 		<>
+		<div className="row mx-2 my-2">
+          <Link to="/">
+            <button className="bg-transparent border border-0">Home / Registro e inicio de sesion
+            </button>
+          </Link>
+        </div>
 		{ loading && <Spinner />}
-		{ !loading && <div className="setup">
+		{ !loading && <div className="setup mt-1">
 				<div id="cover">
 					<h1 className="sign-up">¿Aún no tiene una cuenta con nosotros?</h1>
 					<p className="sign-up">Regístrese gratis</p>

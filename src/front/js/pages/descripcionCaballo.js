@@ -3,6 +3,7 @@ import Chat from "../component/chat";
 import { Context } from "../store/appContext";
 import { useParams } from "react-router-dom";
 import ButtonContact from "../component/buttonContact";
+import { Link } from "react-router-dom";
 
 const DescripcionCaballo = () => {
   const params = useParams();
@@ -47,6 +48,12 @@ const DescripcionCaballo = () => {
 
   return (
     <>
+    <div className="row mx-2 my-2">
+          <Link to="/">
+            <button className="bg-transparent border border-0">Home / Caballos / Descripción
+            </button>
+          </Link>
+        </div>
       <div className="container oneHorse">
         <div
           className="datosCaballo"

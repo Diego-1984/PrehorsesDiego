@@ -1,11 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Team = () => {
   window.scrollTo( 0, 0 );
   
   return (
     <>
-      <div className="row mt-4 p-3 ">
+      <div className="row mt-1 mx-2">
+      <div className="row">
+          <Link to="/">
+            <button className="bg-transparent border border-0">Home / Team
+            </button>
+          </Link>
+        </div>
         <div className="card3">
           <div className="images-box">
             <img
