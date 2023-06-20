@@ -15,7 +15,7 @@ export const UserAcountMyHorses = () => {
           messages: horse.messages.filter(({userInterestedId: messageUserInterestedId}) => (userInterestedId === messageUserInterestedId))
         }))
   }
-
+  
   useEffect(() => {
     const getHorses = async() =>{
       await actions.clearHorses();
@@ -79,12 +79,7 @@ export const UserAcountMyHorses = () => {
                         <p className="ps-5">{horse.nivel_doma}</p>
                         <p className="ps-5">{horse.ganaderia}</p>
                       </div>
-                      <div className="col-2 my-5 mx-5">
-                       <button className="bg-transparent text-danger border border-0">ELIMINAR</button>                        
-                      </div>
-                      
                     </div>
-                    
                   </button>
                 </h2>
                 <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
@@ -106,6 +101,10 @@ export const UserAcountMyHorses = () => {
                       </div>
                     </div>
                 </div>
+              </div>
+              <div className="col-2 my-3 mx-2 h5">
+                <button className="bg-transparent text-danger border"
+                onClick={()=>{actions.deleteHorse(horse.id), alert('Caballo eliminado'), actions.getMyHorses()}}>ELIMINAR CABALLO</button>                        
               </div>
             </div>
           )
