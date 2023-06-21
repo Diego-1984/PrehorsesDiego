@@ -222,6 +222,7 @@ export const UserAcountMyHorses = () => {
                         actions.deleteHorse(horse.id),
                           alert("Caballo eliminado"),
                           actions.getMyHorses();
+                          window.location.reload()
                       }}
                     >
                       Eliminar caballo
