@@ -225,7 +225,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       editHorse: async (horseId, horse) => {
         const response = await fetch(
-          process.env.BACKEND_URL + `api/horse/${horseId}`,
+          `${process.env.BACKEND_URL}/api/horse/${horseId}`,
           {
             method: "PUT",
             headers: {
@@ -236,12 +236,12 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
         );
         const data = await response.json();
-        getActions().setHorse(data)
+        getActions().setHorses(data);
       },
 
       deleteHorse: async (horseId) => {
         const response = await fetch(
-          procsess.env.BACKEND_URL + `api/horse/${horseId}`,
+          `${process.env.BACKEND_URL}/api/horse/${horseId}`,
           {
             method: "DELETE",
             headers: {

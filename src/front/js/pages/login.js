@@ -50,7 +50,7 @@ export const Login = () => {
 						className="input-field"
 						onChange={(e)=>{setUser({...user, password:e.target.value})}}/>
 						<input id="loginButton"
-						value="Log in" className="submit-btn"
+						defaultValue="Log in" className="submit-btn"
 						onClick={()=>{logIn(user)}}/>
 					</form>
 				</div>

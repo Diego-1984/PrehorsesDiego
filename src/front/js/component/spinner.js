@@ -3,16 +3,16 @@ import React from "react";
 const Spinner = () => {
   return (
     <>
-      <div class="toggle">
-        <div class="🐴 animate">
-          <div class="front-leg right">
-            <div class="shoulder">
-              <div class="upper">
-                <div class="knee">
-                  <div class="lower">
-                    <div class="ankle">
-                      <div class="foot">
-                        <div class="hoof"></div>
+      <div className="toggle">
+        <div className="🐴 animate">
+          <div className="front-leg right">
+            <div className="shoulder">
+              <div className="upper">
+                <div className="knee">
+                  <div className="lower">
+                    <div className="ankle">
+                      <div className="foot">
+                        <div className="hoof"></div>
                       </div>
                     </div>
                   </div>
@@ -20,25 +20,25 @@ const Spinner = () => {
               </div>
             </div>
           </div>
-          <div class="back-leg right">
-            <div class="top">
-              <div class="thigh">
-                <div class="lower-leg">
-                  <div class="foot">
-                    <div class="hoof"></div>
+          <div className="back-leg right">
+            <div className="top">
+              <div className="thigh">
+                <div className="lower-leg">
+                  <div className="foot">
+                    <div className="hoof"></div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="tail">
-            <div class="nub">
-              <div class="section">
-                <div class="section">
-                  <div class="section">
-                    <div class="section">
-                      <div class="section">
-                        <div class="section last"></div>
+          <div className="tail">
+            <div className="nub">
+              <div className="section">
+                <div className="section">
+                  <div className="section">
+                    <div className="section">
+                      <div className="section">
+                        <div className="section last"></div>
                       </div>
                     </div>
                   </div>
@@ -46,34 +46,34 @@ const Spinner = () => {
               </div>
             </div>
           </div>
-          <div class="body">
-            <div class="section">
-              <div class="section">
-                <div class="section">
-                  <div class="section">
-                    <div class="section last"></div>
+          <div className="body">
+            <div className="section">
+              <div className="section">
+                <div className="section">
+                  <div className="section">
+                    <div className="section last"></div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="back-side"></div>
+            <div className="back-side"></div>
           </div>
 
-          <div class="neck">
-            <div class="under"></div>
-            <div class="front"></div>
-            <div class="base"></div>
-            <div class="top"></div>
-            <div class="shoulder"></div>
+          <div className="neck">
+            <div className="under"></div>
+            <div className="front"></div>
+            <div className="base"></div>
+            <div className="top"></div>
+            <div className="shoulder"></div>
           </div>
-          <div class="front-leg left">
-            <div class="shoulder">
-              <div class="upper">
-                <div class="knee">
-                  <div class="lower">
-                    <div class="ankle">
-                      <div class="foot">
-                        <div class="hoof"></div>
+          <div className="front-leg left">
+            <div className="shoulder">
+              <div className="upper">
+                <div className="knee">
+                  <div className="lower">
+                    <div className="ankle">
+                      <div className="foot">
+                        <div className="hoof"></div>
                       </div>
                     </div>
                   </div>
@@ -82,27 +82,27 @@ const Spinner = () => {
             </div>
           </div>
 
-          <div class="back-leg left">
-            <div class="top">
-              <div class="thigh">
-                <div class="lower-leg">
-                  <div class="foot">
-                    <div class="hoof"></div>
+          <div className="back-leg left">
+            <div className="top">
+              <div className="thigh">
+                <div className="lower-leg">
+                  <div className="foot">
+                    <div className="hoof"></div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="head">
-            <div class="skull"></div>
-            <div class="nose"></div>
-            <div class="face"></div>
-            <div class="lip"></div>
-            <div class="jaw"></div>
-            <div class="chin"></div>
-            <div class="ear"></div>
-            <div class="eye"></div>
+          <div className="head">
+            <div className="skull"></div>
+            <div className="nose"></div>
+            <div className="face"></div>
+            <div className="lip"></div>
+            <div className="jaw"></div>
+            <div className="chin"></div>
+            <div className="ear"></div>
+            <div className="eye"></div>
           </div>
         </div>
       </div>
