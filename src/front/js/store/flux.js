@@ -236,7 +236,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
         );
         const data = await response.json();
-        getActions().setHorse(data)
+        getActions().setHorses(data);
       },
 
       deleteHorse: async (horseId) => {
