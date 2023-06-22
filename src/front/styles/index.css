@@ -245,6 +245,7 @@ a:hover {
 .messagesBox {
   background-color: #faf8f5;
   height: 400px;
+  width: 1010px;
   box-sizing: content-box;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.434);
 }
@@ -255,7 +256,7 @@ a:hover {
   padding: 5px;
 }
 .messages {
-  height: 75%;
+  height: 55%;
   overflow-y: scroll;
   padding: 1em 1.5em 1em 1.5em;
 }
