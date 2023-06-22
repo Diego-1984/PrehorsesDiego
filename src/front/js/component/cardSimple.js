@@ -9,11 +9,11 @@ const CardSimple = ({item}) => {
         <div className="card-image-container">
           <img href ="#" src ={item.img} />
         </div>    
-        <div className="card-body">
-            <div className="d-flex flex-row justify-content-between">
+            <div className="d-flex flex-row justify-content-between m-3 mt-0" id="name">
               <h5>{item.nombre}</h5>
               <h5>{item.precio}€</h5>
             </div>
+            <div className="card-body">
             <p>Ganadería: {item.ganaderia}</p>
             <p>Provincia: {item.provincia}</p>
             <Link className="btn btn-outline-dark mt-3" to={`/descripcion/${item.id}`}>
