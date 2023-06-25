@@ -245,7 +245,8 @@ a:hover {
 .messagesBox {
   background-color: #faf8f5;
   height: 400px;
-  width: 1010px;
+  min-width: 500px;
+  width: 90%;
   box-sizing: content-box;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.434);
 }
@@ -339,7 +340,7 @@ button .accordion-button:active {
 .eachCaballo {
   background-color: #e3d2b2;
   border: 1px solid #543a0a;
-  width: 1335px;
+  width: 97vw;
 }
 
 .deleteButton {
@@ -2480,4 +2481,11 @@ button .accordion-button:active {
 .animate .tail .section > * > * > * > * {
   -webkit-animation: tail-section-3 var(--speed) linear infinite;
   animation: tail-section-3 var(--speed) linear infinite;
+}
+
+.owner-chat {
+  padding: 35px 0;
+}
+.owner-chat .messagesTitle {
+  opacity: 0;
 }

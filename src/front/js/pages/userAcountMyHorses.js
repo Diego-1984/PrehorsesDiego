@@ -159,7 +159,7 @@ export const UserAcountMyHorses = () => {
                             ({ userInterestedId, messages }, index) => (
                               <>
                                 <div
-                                  className="tab-pane fade show"
+                                  className="tab-pane fade show owner-chat"
                                   id={`tab-${userInterestedId}-${horse.id}`}
                                   role="tabpanel"
                                   tabIndex={index}
