@@ -98,7 +98,7 @@ export const UserAcountMyHorses = () => {
                   <div className="col ms-5 pt-3">
                     <button
                       type="button"
-                      className="deleteButton mb-2"
+                      className="deleteButton mb-2 w-75"
                       data-bs-toggle="modal"
                       data-bs-target={`#delete-modal${horse.id}`}
                     >
@@ -106,7 +106,7 @@ export const UserAcountMyHorses = () => {
                     </button>
                     <button
                       type="button"
-                      className="updateButton"
+                      className="updateButton w-75"
                       data-bs-toggle="modal"
                       data-bs-target={`#update-modal${horse.id}`}
                     >

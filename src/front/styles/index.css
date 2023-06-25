@@ -228,7 +228,7 @@ a:hover {
 .chat_close-button {
   position: absolute;
   top: -25px;
-  right: -50px;
+  right: -135px;
   width: 40px;
   height: 40px;
   background: #f0ebe2;
@@ -339,6 +339,7 @@ button .accordion-button:active {
 .eachCaballo {
   background-color: #e3d2b2;
   border: 1px solid #543a0a;
+  width: 1335px;
 }
 
 .deleteButton {
