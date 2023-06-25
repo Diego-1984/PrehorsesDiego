@@ -11,25 +11,7 @@ const Chat = ({ horse, messages, postMessage, userInterestedId }) => {
     setLoading(false);
   };
 
-  //intento de chat en vivo
-
-  useEffect(() => {
-    const fetchMessages = async () => {
-      const response = await fetch(
-        "https://3001-4geeksacade-pt36horsesp-fcsdk344w3o.ws-eu100.gitpod.io/admin/message/"
-      );
-      const data = await response.json();
-      setMessage(data);
-    };
-
-    fetchMessages();
-    const intervalId = setInterval(fetchMessages, 3000);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
-
+  
   return (
     <>
       <div className="container text-center messagesBox">

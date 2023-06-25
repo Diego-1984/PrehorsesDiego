@@ -28,6 +28,10 @@ export const UserAcountMyHorses = () => {
       await actions.getMyHorses();
     };
     getHorses();
+    const getMessagesInterval = setInterval(() => actions.getMyHorses(), 3000);
+    return () => {
+      clearInterval(getMessagesInterval);
+    };
   }, []);
 
   const getDate = (now) => {
