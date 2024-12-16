@@ -43,7 +43,7 @@ const Team = () => {
         <div className="card3">
           <div className="images-box">
             <img
-              src="https://media.licdn.com/dms/image/C4D03AQGSBmyvGgaX4g/profile-displayphoto-shrink_800_800/0/1599555074962?e=1690416000&v=beta&t=7ybGklOk9V6LfwVYjYu9nK1FtoEDYivrBjZf8DmAIIE"
+              src="https://avatars.githubusercontent.com/u/107461901?v=4"
               id="Team"
               alt=""
             />
@@ -70,7 +70,7 @@ const Team = () => {
         <div className="card3">
           <div className="images-box">
             <img
-              src="https://media.licdn.com/dms/image/D4D03AQGdTgRhoD1Kzw/profile-displayphoto-shrink_800_800/0/1683565377043?e=1690416000&v=beta&t=gmnIUjMbGT7q0VMlC91to-h_dxN6b-p8iuTSjeIj47E"
+              src="https://avatars.githubusercontent.com/u/119671613?v=4"
               id="Team"
               alt=""
             />
@@ -121,7 +121,7 @@ const Team = () => {
         <div className="row mb-1 p-0 justify-content-center align-items-center">
             <div className="col text-center">
               <img
-                src="https://vendup.fun/assets/jwt-1130c594.png"
+                src="https://www.bairesdev.com/wp-content/uploads/2021/08/Flask-1.svg"
                 style={{ width: 400 + "px" }}
               />
             </div>
